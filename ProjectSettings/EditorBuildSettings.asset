@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Project/Scenes/Gameplay/BattleSite.unity
+    guid: ca21610967457ce48a086edb6edbd90b
+  - enabled: 1
     path: Assets/_Project/Scenes/General/InitialLoad.unity
     guid: 7749a1e7631995c4f933831825ae2731
   - enabled: 1
@@ -15,7 +18,7 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/General/MainMenu.unity
     guid: d7867728893f7db40af1b6e62888417f
   - enabled: 1
-    path: Assets/_Project/Scenes/Gameplay/HeroesCamp.unity
+    path: Assets/_Project/Scenes/Gameplay/CampingSite.unity
     guid: a929311bcfb28b34fa2ded3d1eb90959
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
