@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/General/MainMenu.unity
     guid: d7867728893f7db40af1b6e62888417f
   - enabled: 1
-    path: Assets/_Project/Scenes/Gameplay.unity
+    path: Assets/_Project/Scenes/Gameplay/HeroesCamp.unity
     guid: a929311bcfb28b34fa2ded3d1eb90959
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
