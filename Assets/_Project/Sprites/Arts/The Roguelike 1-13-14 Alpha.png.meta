@@ -543,8 +543,8 @@ TextureImporter:
       name: The Roguelike 1-13-14 Alpha_22
       rect:
         serializedVersion: 2
-        x: 256
-        y: 80
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 0
