@@ -605,6 +605,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: The Roguelike 1-13-14 Alpha_24
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f5e050d714782468740b353754e16a
+      internalID: 1909618076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Roguelike 1-13-14 Alpha_21
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda72ecc8b370034d9357a0a41137a45
+      internalID: 1433415866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -636,6 +680,7 @@ TextureImporter:
       The Roguelike 1-13-14 Alpha_21: 1433415866
       The Roguelike 1-13-14 Alpha_22: 1418184572
       The Roguelike 1-13-14 Alpha_23: 1476488849
+      The Roguelike 1-13-14 Alpha_24: 1909618076
       The Roguelike 1-13-14 Alpha_3: 985707157
       The Roguelike 1-13-14 Alpha_4: -606054100
       The Roguelike 1-13-14 Alpha_5: 1047555697

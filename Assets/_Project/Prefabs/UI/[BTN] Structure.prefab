@@ -89,7 +89,6 @@ GameObject:
   - component: {fileID: 7743745770572105350}
   - component: {fileID: 1294019887229265780}
   - component: {fileID: 1514438438918768043}
-  - component: {fileID: 4627178873012933465}
   - component: {fileID: 7413400600853863537}
   m_Layer: 5
   m_Name: '[BTN] Structure'
@@ -202,7 +201,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4627178873012933465}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Fishers.UI.SelectStructureButton, Assembly-CSharp
         m_MethodName: DoSelect
         m_Mode: 1
@@ -214,23 +213,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4627178873012933465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3261067853683904519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce0507bb2a1a9764287c3033941e2eed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnSelect: {fileID: 1514438438918768043}
-  structureData: {fileID: 11400000, guid: da19b6258b1531b4f86973457dfa7712, type: 2}
-  imgStructure: {fileID: 7744591742219117181}
-  txtCost: {fileID: 3203695414868238751}
-  tooltipRect: {fileID: 7795184026882509564}
 --- !u!114 &7413400600853863537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +230,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4627178873012933465}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Fishers.UI.SelectStructureButton, Assembly-CSharp
           m_MethodName: OnHover
           m_Mode: 1
@@ -264,7 +246,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4627178873012933465}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Fishers.UI.SelectStructureButton, Assembly-CSharp
           m_MethodName: OnHoverEnd
           m_Mode: 1
@@ -459,15 +441,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

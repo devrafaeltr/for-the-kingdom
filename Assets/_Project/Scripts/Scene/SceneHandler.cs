@@ -9,8 +9,8 @@ namespace FTKingdom
     public enum GameScene
     {
         InitialLoad,
-        GameLoading,
         MainMenu,
+        WorldMap,
         Gameplay
     }
 

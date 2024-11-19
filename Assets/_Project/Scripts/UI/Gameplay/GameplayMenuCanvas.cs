@@ -1,7 +1,4 @@
-using TMPro;
 using UnityEngine;
-using FTKingdom.Utils;
-using UnityEngine.UI;
 
 namespace FTKingdom.UI
 {
@@ -13,11 +10,6 @@ namespace FTKingdom.UI
 
         [Header("Pause setup")]
         [SerializeField] private GameObject pausePanel = null;
-
-        private void Awake()
-        {
-
-        }
 
         #region Gameplay
         #endregion
