@@ -36,7 +36,6 @@ namespace FTKingdom
             canvasGroup.blocksRaycasts = true; // Re-enable raycast blocking
             if (eventData.pointerEnter == null || !eventData.pointerEnter.CompareTag("PartySlot"))
             {
-                // rectTransform.SetParent(originalParent);
                 rectTransform.anchoredPosition = Vector2.zero;
             }
         }
