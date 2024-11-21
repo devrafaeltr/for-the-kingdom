@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1910ccfd6300364f9de2ec716d51a26, type: 3}
-  m_Name: Knight
+  m_Name: Mage
   m_EditorClassIdentifier: 
   name: Sir Random
   description: A random knight that likes to do random things.
-  graphic: {fileID: 1891539144, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  graphic: {fileID: 1781380193, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  type: 0
   baseHp: 5
   baseMp: 0
   possibleSkills: []

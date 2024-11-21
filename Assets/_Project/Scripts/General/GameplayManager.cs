@@ -12,41 +12,35 @@ namespace FTKingdom
 
         private void Awake()
         {
+
             heroesInBattle = FindObjectsOfType<CharacterBattle>().ToList();
-            // heroesInBattle = FindObjectsByType<CharacterBattle>().ToList();
 
             var enemy = heroesInBattle.Find(h => h.characerData.Type == CharacterType.Enemy);
             heroesInBattle.Remove(enemy);
             enemiesInBattle.Add(enemy);
-            // SceneHandler.Instance.RegisterSceneChanged();
-        }
-
-        private void OnDisable()
-        {
-            // SceneHandler.Instance.RemoveSceneChanged();
         }
 
         public CharacterBattle GetClosestFromType(Vector2 position, CharacterType type)
         {
             if (type == CharacterType.Enemy)
             {
-                SortCharacterList(enemiesInBattle, position);
-                return enemiesInBattle[0];
+                return SortCharacterList(enemiesInBattle, position);
             }
 
-            SortCharacterList(heroesInBattle, position);
-            return heroesInBattle[0];
-        }
+            return SortCharacterList(heroesInBattle, position);
 
-        private void SortCharacterList(List<CharacterBattle> characters, Vector2 position)
-        {
-            characters.Sort((e1, e2) =>
+            CharacterBattle SortCharacterList(List<CharacterBattle> characters, Vector2 position)
             {
-                var dist1 = Vector3.Distance(e1.transform.position, position);
-                var dist2 = Vector3.Distance(e2.transform.position, position);
+                characters.Sort((e1, e2) =>
+                {
+                    var dist1 = Vector3.Distance(e1.transform.position, position);
+                    var dist2 = Vector3.Distance(e2.transform.position, position);
 
-                return dist1.CompareTo(dist2);
-            });
+                    return dist1.CompareTo(dist2);
+                });
+
+                return enemiesInBattle[0];
+            }
         }
     }
 }

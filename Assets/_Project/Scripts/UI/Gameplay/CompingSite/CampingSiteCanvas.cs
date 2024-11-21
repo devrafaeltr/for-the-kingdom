@@ -14,8 +14,7 @@ namespace FTKingdom.UI
 
         public void GoToMap()
         {
-            // TODO: Load WorldMap scene first, then Gameplay in the chosen level/map
-            SceneHandler.Instance.LoadScene(GameScene.Gameplay);
+            SceneHandler.Instance.LoadScene(GameScene.MiniMap);
         }
     }
 }

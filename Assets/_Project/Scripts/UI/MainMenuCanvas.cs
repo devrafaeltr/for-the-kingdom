@@ -7,7 +7,7 @@ namespace FTKingdom.UI
         // TODO: Move player to save/load, then play game (?)
         public void PlayGame()
         {
-            SceneHandler.Instance.LoadScene(GameScene.Gameplay);
+            SceneHandler.Instance.LoadScene(GameScene.CampingSite);
         }
 
         private void OpenSettings()

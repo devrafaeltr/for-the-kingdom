@@ -11,7 +11,9 @@ namespace FTKingdom
         InitialLoad,
         MainMenu,
         WorldMap,
-        Gameplay
+        CampingSite,
+        MiniMap,
+        BattleSite
     }
 
     public class SceneHandler : LocalSingleton<SceneHandler>

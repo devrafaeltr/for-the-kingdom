@@ -22,7 +22,7 @@ namespace FTKingdom.UI
 
         public void Restart()
         {
-            SceneHandler.Instance.LoadScene(GameScene.Gameplay);
+            // SceneHandler.Instance.LoadScene(GameScene.CampingSite);
         }
 
         public void BackToMenu()

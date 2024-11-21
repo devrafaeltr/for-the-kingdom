@@ -1,6 +1,9 @@
-using UnityEngine;
+using FTKingdom.Utils;
 
-public class CampingSiteManager : MonoBehaviour
+namespace FTKingdom
 {
+    public class CampingSiteManager : LocalSingleton<CampingSiteManager>
+    {
 
+    }
 }
