@@ -6,6 +6,9 @@ namespace FTKingdom.UI
 {
     public class PartyContainerController : MonoBehaviour
     {
+        [SerializeField] private Transform heroesListContainer = null;
+        [SerializeField] private Transform partyContainer = null;
+
         private List<CharacterUIContainer> currentParty = new();
 
         private void OnEnable()
@@ -39,16 +42,18 @@ namespace FTKingdom.UI
 
         private void OnChangePartyMember(CharacterUIContainer oldMember, CharacterUIContainer newMember)
         {
-            // var originaPoisiion = newMember original position
-            // newMember position = oldMember position
-            // oldMember position = originaPoisiion
+            newMember.FitToParent();
+            currentParty.Add(newMember);
 
-            // if (oldMember == null)
-            // {
-            //     return;
-            // }
+            if (oldMember == null)
+            {
+                return;
+            }
 
-            // (newMember.transform.position, oldMember.transform.position) = (oldMember.transform.position, newMember.transform.position);
+            oldMember.transform.SetParent(heroesListContainer);
+            oldMember.FitToParent();
+
+            currentParty.Remove(oldMember);
         }
     }
 }

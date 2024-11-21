@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace FTKingdom
 {
+    [System.Serializable]
     public class CharacterUIContainer : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         private RectTransform rectTransform;
@@ -21,6 +22,14 @@ namespace FTKingdom
             }
         }
 
+        public void FitToParent()
+        {
+            rectTransform.anchorMin = Vector2.zero;
+            rectTransform.anchorMax = Vector2.one;
+            rectTransform.offsetMin = Vector2.zero;
+            rectTransform.offsetMax = Vector2.zero;
+        }
+
         public void OnBeginDrag(PointerEventData eventData)
         {
             canvasGroup.blocksRaycasts = false; // Disable raycast blocking to allow detecting drop targets
@@ -36,7 +45,7 @@ namespace FTKingdom
             canvasGroup.blocksRaycasts = true; // Re-enable raycast blocking
             if (eventData.pointerEnter == null || !eventData.pointerEnter.CompareTag("PartySlot"))
             {
-                rectTransform.anchoredPosition = Vector2.zero;
+                FitToParent();
             }
         }
     }
