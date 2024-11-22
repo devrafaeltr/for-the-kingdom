@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using FTKingdom.Utils;
 using UnityEngine;
 
@@ -13,9 +12,14 @@ namespace FTKingdom.UI
 
         private float canvasScale;
 
-        private void OnEnable()
+        private void Awake()
         {
             canvasScale = GetComponentInParent<Canvas>().scaleFactor;
+            GenericPool.CreatePool(PoolType.CharacerUI, characterUIPrefab);
+        }
+
+        private void OnEnable()
+        {
             SetupHeroes();
             EventsManager.AddListener(EventsManager.OnChangePartyMember, OnChangePartyMember);
         }
@@ -23,12 +27,6 @@ namespace FTKingdom.UI
         private void OnDisable()
         {
             EventsManager.RemoveListener(EventsManager.OnChangePartyMember, OnChangePartyMember);
-            foreach (var heroObj in auxHeroes)
-            {
-                Destroy(heroObj);
-            }
-
-            auxHeroes.Clear();
         }
 
         public void AddToParty(CharacterUIContainer newMember, UIPartySlot slot)
@@ -49,13 +47,11 @@ namespace FTKingdom.UI
             gameObject.SetActive(false);
         }
 
-        // TODO: Generic pool
-        private List<GameObject> auxHeroes = new();
         private void SetupHeroes()
         {
             foreach (var hero in GameManager.Instance.CurrentHeroes)
             {
-                CharacterUIContainer heroUIObj = Instantiate(characterUIPrefab);
+                GenericPool.GetItem(out CharacterUIContainer heroUIObj, PoolType.CharacerUI);
                 heroUIObj.Setup(hero, canvasScale);
 
                 if (hero.IsOnParty)
@@ -69,7 +65,6 @@ namespace FTKingdom.UI
                 }
 
                 heroUIObj.FitToParent();
-                auxHeroes.Add(heroUIObj.gameObject);
             }
         }
 

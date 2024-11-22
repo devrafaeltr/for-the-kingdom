@@ -65,5 +65,10 @@ namespace FTKingdom
                 FitToParent();
             }
         }
+
+        private void OnDisable()
+        {
+            GenericPool.ReleaseItem(this, PoolType.CharacerUI);
+        }
     }
 }
