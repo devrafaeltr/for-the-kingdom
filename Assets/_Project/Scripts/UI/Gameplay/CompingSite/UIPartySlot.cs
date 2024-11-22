@@ -8,13 +8,18 @@ namespace FTKingdom.UI
     {
         private CharacterUIContainer currentMember = null;
 
+        public void SetCurrentMember(CharacterUIContainer newMember)
+        {
+            currentMember = newMember;
+        }
+
         public void OnDrop(PointerEventData eventData)
         {
             if (eventData.pointerDrag != null && eventData.pointerDrag.CompareTag("CharacterUI"))
             {
                 var newMember = eventData.pointerDrag.GetComponent<CharacterUIContainer>();
+                UpdatePartyEvent updateEvent = new(this, newMember, currentMember);
 
-                UpdatePartyEvent updateEvent = new(currentMember, newMember);
                 currentMember = newMember;
                 newMember.transform.SetParent(transform);
 

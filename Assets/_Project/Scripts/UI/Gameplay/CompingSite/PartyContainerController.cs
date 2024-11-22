@@ -9,9 +9,7 @@ namespace FTKingdom.UI
     {
         [SerializeField] private Transform heroesListContainer = null;
         [SerializeField] private CharacterUIContainer characterUIPrefab = null;
-        [SerializeField] private List<Transform> partySlots = new();
-
-        private List<CharacterUIContainer> editingParty = new();
+        [SerializeField] private List<UIPartySlot> partySlots = new();
 
         private float canvasScale;
 
@@ -33,46 +31,37 @@ namespace FTKingdom.UI
             auxHeroes.Clear();
         }
 
-        public void AddToParty(CharacterUIContainer newMember)
+        public void AddToParty(CharacterUIContainer newMember, UIPartySlot slot)
         {
-            editingParty.Add(newMember);
             newMember.FitToParent();
+            newMember.ChangePartySlot(partySlots.IndexOf(slot));
         }
 
         public void RemoveFromParty(CharacterUIContainer oldMember)
         {
-            editingParty.Remove(oldMember);
             oldMember.transform.SetParent(heroesListContainer);
             oldMember.FitToParent();
+            oldMember.ChangePartySlot(-1);
         }
 
         public void CloseParty()
         {
             gameObject.SetActive(false);
-            SaveParty(true);
         }
 
-        public void SaveParty(bool save)
-        {
-            if (save)
-            {
-                GameManager.Instance.UpdateParty(editingParty.Select(c => c.character).ToList());
-            }
-        }
-
+        // TODO: Generic pool
         private List<GameObject> auxHeroes = new();
         private void SetupHeroes()
         {
             foreach (var hero in GameManager.Instance.CurrentHeroes)
             {
-                // TODO: Generic pool
                 CharacterUIContainer heroUIObj = Instantiate(characterUIPrefab);
                 heroUIObj.Setup(hero, canvasScale);
 
                 if (hero.IsOnParty)
                 {
-                    editingParty.Add(heroUIObj);
-                    heroUIObj.transform.SetParent(partySlots[hero.PartySlot]);
+                    heroUIObj.transform.SetParent(partySlots[hero.PartySlot].transform);
+                    partySlots[hero.PartySlot].SetCurrentMember(heroUIObj);
                 }
                 else
                 {
@@ -87,12 +76,12 @@ namespace FTKingdom.UI
         private void OnChangePartyMember(IGameEvent gameEvent)
         {
             var changePartyEvent = (UpdatePartyEvent)gameEvent;
-            OnChangePartyMember(changePartyEvent.OldMember, changePartyEvent.NewMember);
+            OnChangePartyMember(changePartyEvent.Slot, changePartyEvent.OldMember, changePartyEvent.NewMember);
         }
 
-        private void OnChangePartyMember(CharacterUIContainer oldMember, CharacterUIContainer newMember)
+        private void OnChangePartyMember(UIPartySlot slot, CharacterUIContainer oldMember, CharacterUIContainer newMember)
         {
-            AddToParty(newMember);
+            AddToParty(newMember, slot);
 
             if (oldMember == null)
             {

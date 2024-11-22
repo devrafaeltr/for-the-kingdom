@@ -1,16 +1,20 @@
+using FTKingdom.UI;
+
 namespace FTKingdom
 {
     public interface IGameEvent { }
 
     public class UpdatePartyEvent : IGameEvent
     {
-        public CharacterUIContainer OldMember { get; private set; }
         public CharacterUIContainer NewMember { get; private set; }
+        public CharacterUIContainer OldMember { get; private set; }
+        public UIPartySlot Slot { get; private set; }
 
-        public UpdatePartyEvent(CharacterUIContainer oldMember, CharacterUIContainer newMember)
+        public UpdatePartyEvent(UIPartySlot slot, CharacterUIContainer newMember, CharacterUIContainer oldMember = null)
         {
-            OldMember = oldMember;
             NewMember = newMember;
+            OldMember = oldMember;
+            Slot = slot;
         }
     }
 }
