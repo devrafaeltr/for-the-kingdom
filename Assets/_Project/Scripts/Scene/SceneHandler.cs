@@ -53,6 +53,8 @@ namespace FTKingdom
         {
             LoadGameLoadingScene();
 
+            GenericPool.ClearPools();
+
             AsyncOperation loadSceneOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             loadSceneOperation.allowSceneActivation = false;
 
