@@ -12,18 +12,13 @@ namespace FTKingdom.Utils
 #if UNITY_EDITOR
         private const bool SHOW_DEBUG = false;
 #endif
-        #region Listerners - Cmaping Site UI
+        #region Listerners - Battle Site UI
         public const string OnChangePartyMember = "OnChangePartyMember";
         #endregion
 
-        #region Listerners -  Game States
+        #region Listerners - Battle Site
+        public const string OnBattleStart = "OnBattleStart";
         #endregion
-
-        #region Listerners -  Gameplay
-        #endregion
-
-        #region Listerners -  Structure
-        #endregion Structure
 
         private static Dictionary<string, List<Action<IGameEvent>>> _eventDictionary = new Dictionary<string, List<Action<IGameEvent>>>();
 

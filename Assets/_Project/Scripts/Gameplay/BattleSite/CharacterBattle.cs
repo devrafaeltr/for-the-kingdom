@@ -1,3 +1,4 @@
+using FTKingdom.Utils;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -39,6 +40,16 @@ namespace FTKingdom
             CheckStuck();
         }
 
+        private void OnEnable()
+        {
+            EventsManager.AddListener(EventsManager.OnBattleStart, StartBattle);
+        }
+
+        private void OnDisable()
+        {
+            EventsManager.RemoveListener(EventsManager.OnBattleStart, StartBattle);
+        }
+
         public void Setup(Character character)
         {
             characterInfos = character;
@@ -49,6 +60,9 @@ namespace FTKingdom
         }
 
         protected virtual void OnSetup()
+        { }
+
+        protected virtual void OnStartBattle()
         {
             navMeshAgent.SetDestination(auxTarget.position);
         }
@@ -120,6 +134,11 @@ namespace FTKingdom
         private void Die()
         {
             currentHp = 0;
+        }
+
+        private void StartBattle(IGameEvent gameEvent)
+        {
+            OnStartBattle();
         }
     }
 }

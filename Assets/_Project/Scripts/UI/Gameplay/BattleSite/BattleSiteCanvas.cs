@@ -1,3 +1,4 @@
+using FTKingdom.Utils;
 using UnityEngine;
 
 namespace FTKingdom.UI
@@ -6,6 +7,7 @@ namespace FTKingdom.UI
     {
         public void StartCombat()
         {
+            EventsManager.Publish(EventsManager.OnBattleStart);
         }
 
         public void BackToMinimap()
