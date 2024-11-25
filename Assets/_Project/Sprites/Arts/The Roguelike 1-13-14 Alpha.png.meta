@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_0
+      name: Hero - Archer
       rect:
         serializedVersion: 2
         x: 64
@@ -122,7 +122,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_1
+      name: Hero - Knight
       rect:
         serializedVersion: 2
         x: 80
@@ -232,7 +232,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_6
+      name: Hero - Wizard
       rect:
         serializedVersion: 2
         x: 160
@@ -254,7 +254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_7
+      name: Hero - Mage
       rect:
         serializedVersion: 2
         x: 176
@@ -298,7 +298,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_9
+      name: Hero - Paladin
       rect:
         serializedVersion: 2
         x: 208
@@ -342,7 +342,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_11
+      name: Campfire
       rect:
         serializedVersion: 2
         x: 80
@@ -540,7 +540,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_22
+      name: Icon- Mana
       rect:
         serializedVersion: 2
         x: 80
@@ -584,7 +584,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_23
+      name: Icon - Health
       rect:
         serializedVersion: 2
         x: 64
@@ -606,7 +606,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_24
+      name: Icon - Map
       rect:
         serializedVersion: 2
         x: 1120
@@ -636,7 +636,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -645,6 +645,28 @@ TextureImporter:
       bones: []
       spriteID: fda72ecc8b370034d9357a0a41137a45
       internalID: 1433415866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon- Sword
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de168f6006030344bd403502916a00f
+      internalID: -1500340562
       vertices: []
       indices: 
       edges: []
@@ -663,10 +685,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      The Roguelike 1-13-14 Alpha_0: -6382673824156575416
-      The Roguelike 1-13-14 Alpha_1: 1891539144
+      Campfire: -522019747
+      Hero - Archer: -6382673824156575416
+      Hero - Knight: 1891539144
+      Hero - Mage: -994997076
+      Hero - Paladin: 478084500
+      Hero - Wizard: -1737845959
+      Icon - Health: 1476488849
+      Icon - Map: 1909618076
+      Icon- Mana: 1418184572
+      Icon- Sword: -1500340562
       The Roguelike 1-13-14 Alpha_10: 2032634830
-      The Roguelike 1-13-14 Alpha_11: -522019747
       The Roguelike 1-13-14 Alpha_12: 292810437
       The Roguelike 1-13-14 Alpha_13: -1913198842
       The Roguelike 1-13-14 Alpha_14: -1626003051
@@ -678,16 +707,10 @@ TextureImporter:
       The Roguelike 1-13-14 Alpha_2: 1781380193
       The Roguelike 1-13-14 Alpha_20: 1763449761
       The Roguelike 1-13-14 Alpha_21: 1433415866
-      The Roguelike 1-13-14 Alpha_22: 1418184572
-      The Roguelike 1-13-14 Alpha_23: 1476488849
-      The Roguelike 1-13-14 Alpha_24: 1909618076
       The Roguelike 1-13-14 Alpha_3: 985707157
       The Roguelike 1-13-14 Alpha_4: -606054100
       The Roguelike 1-13-14 Alpha_5: 1047555697
-      The Roguelike 1-13-14 Alpha_6: -1737845959
-      The Roguelike 1-13-14 Alpha_7: -994997076
       The Roguelike 1-13-14 Alpha_8: 1803061705
-      The Roguelike 1-13-14 Alpha_9: 478084500
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sir Random
   description: A random knight that likes to do random things.
-  graphic: {fileID: 1781380193, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  graphic: {fileID: -994997076, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
   type: 0
   baseHp: 5
   baseMp: 0
