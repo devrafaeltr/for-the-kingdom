@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,16 +5,17 @@ namespace FTKingdom
 {
     public class CharacterBattle : MonoBehaviour
     {
-        public CharacterSO characerData;
         [SerializeField] protected NavMeshAgent navMeshAgent;
+        [SerializeField] protected SpriteRenderer spriteRenderer;
+
         public Transform auxTarget;
 
-        private int maxMana = 0;
-        private int maxHp = 0;
+        private readonly int maxMana = 0;
+        private readonly int maxHp = 0;
         private int currentMana = 0;
         private int currentHp = 0;
 
-        private CharacterType type;
+        private Character characterInfos;
 
         #region Movement variables
         private const float StuckThreshold = 0.7f;
@@ -24,10 +24,9 @@ namespace FTKingdom
         private Vector3 lastPosition;
         #endregion Movement variables
 
-        private void Start()
+        private void Awake()
         {
             SetupNavmesh();
-            Setup();
         }
 
         private void Update()
@@ -40,8 +39,11 @@ namespace FTKingdom
             CheckStuck();
         }
 
-        public void Setup()
+        public void Setup(Character character)
         {
+            characterInfos = character;
+            spriteRenderer.sprite = character.CharacterData.Graphic;
+
             FindEnemy();
             OnSetup();
         }
@@ -66,12 +68,12 @@ namespace FTKingdom
 
         private void FindEnemy()
         {
-            auxTarget = GameplayManager.Instance.GetClosestFromType(transform.position, CharacterType.Enemy).transform;
+            auxTarget = BattleSiteManager.Instance.GetClosestFromType(transform.position, CharacterType.Enemy).transform;
         }
 
         private void ConsumeMana(int quantity)
         {
-            UpdatePointsBar(maxMana, currentMana);
+            UpdatePointsBar(maxMana, currentMana - quantity);
         }
 
         private void SetupNavmesh()
@@ -106,7 +108,7 @@ namespace FTKingdom
 
         private void UpdatePointsBar(int max, int current)
         {
-            float percent = max / current;
+            float percent = (float)max / current;
         }
 
         private void PerformAttack()

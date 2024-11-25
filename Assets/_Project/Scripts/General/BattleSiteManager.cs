@@ -5,19 +5,17 @@ using UnityEngine;
 
 namespace FTKingdom
 {
-    public class GameplayManager : LocalSingleton<GameplayManager>
+    public class BattleSiteManager : LocalSingleton<BattleSiteManager>
     {
-        private List<CharacterBattle> heroesInBattle = new();
+        [SerializeField] private CharacterBattle heroPrefab = null;
+        [SerializeField] private List<Transform> heroSlots = new();
+        private readonly List<CharacterBattle> heroesInBattle = new();
         private List<CharacterBattle> enemiesInBattle = new();
 
         private void Awake()
         {
-
-            heroesInBattle = FindObjectsOfType<CharacterBattle>().ToList();
-
-            var enemy = heroesInBattle.Find(h => h.characerData.Type == CharacterType.Enemy);
-            heroesInBattle.Remove(enemy);
-            enemiesInBattle.Add(enemy);
+            enemiesInBattle = GameObject.FindGameObjectsWithTag("Enemy").Select(e => e.GetComponent<CharacterBattle>()).ToList();
+            SetupHeroParty();
         }
 
         public CharacterBattle GetClosestFromType(Vector2 position, CharacterType type)
@@ -40,6 +38,19 @@ namespace FTKingdom
                 });
 
                 return enemiesInBattle[0];
+            }
+        }
+
+        private void SetupHeroParty()
+        {
+            List<Character> partyHeroes = GameManager.Instance.GetParty();
+            foreach (Character hero in partyHeroes)
+            {
+                CharacterBattle heroObj = Instantiate(heroPrefab);
+                heroObj.Setup(hero);
+                heroObj.transform.position = heroSlots[hero.PartySlot].position;
+
+                heroesInBattle.Add(heroObj);
             }
         }
     }
