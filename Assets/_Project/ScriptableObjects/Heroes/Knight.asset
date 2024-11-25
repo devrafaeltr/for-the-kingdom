@@ -19,3 +19,6 @@ MonoBehaviour:
   baseHp: 5
   baseMp: 0
   possibleSkills: []
+  baseDamage: 1
+  baseAttackDistance: 1
+  baseAttackInterval: 1

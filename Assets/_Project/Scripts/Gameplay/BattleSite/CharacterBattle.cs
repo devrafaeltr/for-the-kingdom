@@ -16,11 +16,9 @@ namespace FTKingdom
         private int currentMana = 0;
         private int currentHp = 0;
 
-        private Character characterInfos;
-
         #region Movement variables
-        private const float StuckThreshold = 0.7f;
-        private const float StuckCheckInterval = 0.5f;
+        private const float StuckThreshold = 0.5f;
+        private const float StuckCheckInterval = 1f;
         private float stuckTimer;
         private Vector3 lastPosition;
         #endregion Movement variables
@@ -50,15 +48,6 @@ namespace FTKingdom
             EventsManager.RemoveListener(EventsManager.OnBattleStart, StartBattle);
         }
 
-        public void Setup(Character character)
-        {
-            characterInfos = character;
-            spriteRenderer.sprite = character.CharacterData.Graphic;
-
-            FindEnemy();
-            OnSetup();
-        }
-
         protected virtual void OnSetup()
         { }
 
@@ -80,7 +69,7 @@ namespace FTKingdom
             Die();
         }
 
-        private void FindEnemy()
+        protected void FindEnemy()
         {
             auxTarget = BattleSiteManager.Instance.GetClosestFromType(transform.position, CharacterType.Enemy).transform;
         }

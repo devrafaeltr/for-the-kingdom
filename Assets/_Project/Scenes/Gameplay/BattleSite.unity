@@ -540,7 +540,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4802,10 +4802,6 @@ PrefabInstance:
     - target: {fileID: 2573598433585039250, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264000139744581422, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
       propertyPath: 'heroSlots.Array.data[0]'

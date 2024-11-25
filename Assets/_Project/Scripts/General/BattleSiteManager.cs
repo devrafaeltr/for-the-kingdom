@@ -7,18 +7,18 @@ namespace FTKingdom
 {
     public class BattleSiteManager : LocalSingleton<BattleSiteManager>
     {
-        [SerializeField] private CharacterBattle heroPrefab = null;
+        [SerializeField] private HeroBattle heroPrefab = null;
         [SerializeField] private List<Transform> heroSlots = new();
-        private readonly List<CharacterBattle> heroesInBattle = new();
-        private List<CharacterBattle> enemiesInBattle = new();
+        private readonly List<Transform> heroesInBattle = new();
+        private List<Transform> enemiesInBattle = new();
 
         private void Awake()
         {
-            enemiesInBattle = GameObject.FindGameObjectsWithTag("Enemy").Select(e => e.GetComponent<CharacterBattle>()).ToList();
+            enemiesInBattle = GameObject.FindGameObjectsWithTag("Enemy").Select(e => e.transform).ToList();
             SetupHeroParty();
         }
 
-        public CharacterBattle GetClosestFromType(Vector2 position, CharacterType type)
+        public Transform GetClosestFromType(Vector2 position, CharacterType type)
         {
             if (type == CharacterType.Enemy)
             {
@@ -27,7 +27,7 @@ namespace FTKingdom
 
             return SortCharacterList(heroesInBattle, position);
 
-            CharacterBattle SortCharacterList(List<CharacterBattle> characters, Vector2 position)
+            Transform SortCharacterList(List<Transform> characters, Vector2 position)
             {
                 characters.Sort((e1, e2) =>
                 {
@@ -46,11 +46,11 @@ namespace FTKingdom
             List<Character> partyHeroes = GameManager.Instance.GetParty();
             foreach (Character hero in partyHeroes)
             {
-                CharacterBattle heroObj = Instantiate(heroPrefab);
+                HeroBattle heroObj = Instantiate(heroPrefab);
                 heroObj.Setup(hero);
                 heroObj.transform.position = heroSlots[hero.PartySlot].position;
 
-                heroesInBattle.Add(heroObj);
+                heroesInBattle.Add(heroObj.transform);
             }
         }
     }
