@@ -7,6 +7,7 @@ TagManager:
   - PartySlot
   - CharacterUI
   - Enemy
+  - HeroesContainer
   layers:
   - Default
   - TransparentFX
