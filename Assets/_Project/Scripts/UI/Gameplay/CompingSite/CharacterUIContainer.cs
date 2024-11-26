@@ -1,3 +1,4 @@
+using FTKingdom.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,21 +12,16 @@ namespace FTKingdom
 
         private RectTransform rectTransform;
         private CanvasGroup canvasGroup;
+        private Character character;
         private float canvasScale = 1f;
-        [HideInInspector] public Character character;
+
+        public UIPartySlot CurrentSlot { get; private set; }
+        public bool IsOnParty => character.PartySlot >= 0;
 
         public void Setup(Character newCharacter, float scaleFactor)
         {
             character = newCharacter;
             ConfigureElement(scaleFactor);
-        }
-
-        public void FitToParent()
-        {
-            rectTransform.anchorMin = Vector2.zero;
-            rectTransform.anchorMax = Vector2.one;
-            rectTransform.offsetMin = Vector2.zero;
-            rectTransform.offsetMax = Vector2.zero;
         }
 
         private void ConfigureElement(float scaleFactor)
@@ -37,19 +33,45 @@ namespace FTKingdom
             imgCharacter.sprite = character.CharacterData.Graphic;
         }
 
-        public void ChangePartySlot(int slot)
+        public void FitToParent()
         {
-            character.SetPartySlot(slot);
+            rectTransform.anchorMin = Vector2.zero;
+            rectTransform.anchorMax = Vector2.one;
+            rectTransform.offsetMin = Vector2.zero;
+            rectTransform.offsetMax = Vector2.zero;
+        }
+
+        public void ChangePartySlot(int slotIndex, UIPartySlot slot)
+        {
+            // if (slotIndex == -1 || CurrentSlot != null)
+            // {
+            //     CurrentSlot.RemoveMember();
+            // }
+
+            CurrentSlot = slot;
+            CurrentSlot.SetCurrentMember(this);
+
+            character.SetPartySlot(slotIndex);
+            transform.SetParent(slot.transform);
+
+            FitToParent();
         }
 
         public void RemoveFromParty()
         {
-            character.SetPartySlot(-1);
+            if (character.IsOnParty)
+            {
+                CurrentSlot.RemoveMember();
+                CurrentSlot = null;
+                character.SetPartySlot(-1);
+            }
+
+            FitToParent();
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            canvasGroup.blocksRaycasts = false; // Disable raycast blocking to allow detecting drop targets
+            canvasGroup.blocksRaycasts = false;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -59,8 +81,20 @@ namespace FTKingdom
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            canvasGroup.blocksRaycasts = true; // Re-enable raycast blocking
-            if (eventData.pointerEnter == null || !eventData.pointerEnter.CompareTag("PartySlot"))
+            canvasGroup.blocksRaycasts = true;
+            if (eventData.pointerEnter != null)
+            {
+                GameObject ladindObj = eventData.pointerEnter;
+                if (ladindObj.CompareTag("HeroesContainer"))
+                {
+                    PartyContainerController.Instance.RemoveFromParty(this);
+                }
+                else if (!ladindObj.CompareTag("PartySlot"))
+                {
+                    FitToParent();
+                }
+            }
+            else
             {
                 FitToParent();
             }

@@ -13,18 +13,29 @@ namespace FTKingdom.UI
             currentMember = newMember;
         }
 
+        public void RemoveMember()
+        {
+            currentMember = null;
+        }
+
         public void OnDrop(PointerEventData eventData)
         {
-            if (eventData.pointerDrag != null && eventData.pointerDrag.CompareTag("CharacterUI"))
+            if (eventData.pointerDrag.CompareTag("CharacterUI"))
             {
-                var newMember = eventData.pointerDrag.GetComponent<CharacterUIContainer>();
-                UpdatePartyEvent updateEvent = new(this, newMember, currentMember);
-
-                currentMember = newMember;
-                newMember.transform.SetParent(transform);
-
-                EventsManager.Publish(EventsManager.OnChangePartyMember, updateEvent);
+                AssignMember(eventData.pointerDrag.GetComponent<CharacterUIContainer>());
             }
+        }
+
+        private void AssignMember(CharacterUIContainer newMember)
+        {
+            if (newMember == currentMember)
+            {
+                currentMember.FitToParent();
+                return;
+            }
+
+            UpdatePartyEvent updateEvent = new(this, newMember, currentMember);
+            EventsManager.Publish(EventsManager.OnChangePartyMember, updateEvent);
         }
     }
 }

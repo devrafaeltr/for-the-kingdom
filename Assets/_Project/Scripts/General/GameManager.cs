@@ -7,7 +7,7 @@ namespace FTKingdom
     public class GameManager : PersistentSingleton<GameManager>
     {
         public List<CharacterSO> auxHeroesInfos = new();
-        private readonly List<Character> currentHeroes = new();
+        private List<Character> currentHeroes = new();
 
         public List<Character> CurrentHeroes => currentHeroes;
 

@@ -31,15 +31,13 @@ namespace FTKingdom.UI
 
         public void AddToParty(CharacterUIContainer newMember, UIPartySlot slot)
         {
-            newMember.FitToParent();
-            newMember.ChangePartySlot(partySlots.IndexOf(slot));
+            newMember.ChangePartySlot(partySlots.IndexOf(slot), slot);
         }
 
-        public void RemoveFromParty(CharacterUIContainer oldMember)
+        public void RemoveFromParty(CharacterUIContainer member)
         {
-            oldMember.transform.SetParent(heroesListContainer);
-            oldMember.FitToParent();
-            oldMember.ChangePartySlot(-1);
+            member.transform.SetParent(heroesListContainer);
+            member.RemoveFromParty();
         }
 
         public void CloseParty()
@@ -56,34 +54,54 @@ namespace FTKingdom.UI
 
                 if (hero.IsOnParty)
                 {
-                    heroUIObj.transform.SetParent(partySlots[hero.PartySlot].transform);
-                    partySlots[hero.PartySlot].SetCurrentMember(heroUIObj);
+                    AddToParty(heroUIObj, partySlots[hero.PartySlot]);
                 }
                 else
                 {
-                    heroUIObj.transform.SetParent(heroesListContainer);
+                    RemoveFromParty(heroUIObj);
                 }
-
-                heroUIObj.FitToParent();
             }
         }
 
         private void OnChangePartyMember(IGameEvent gameEvent)
         {
             var changePartyEvent = (UpdatePartyEvent)gameEvent;
-            OnChangePartyMember(changePartyEvent.Slot, changePartyEvent.OldMember, changePartyEvent.NewMember);
+            OnChangePartyMember(changePartyEvent.Slot, changePartyEvent.CurrentMember, changePartyEvent.NewMember);
         }
 
-        private void OnChangePartyMember(UIPartySlot slot, CharacterUIContainer oldMember, CharacterUIContainer newMember)
+        private void OnChangePartyMember(UIPartySlot slot, CharacterUIContainer currentMember, CharacterUIContainer newMember)
         {
-            AddToParty(newMember, slot);
-
-            if (oldMember == null)
+            if (currentMember != null)
             {
-                return;
+                if (newMember.IsOnParty)
+                {
+                    Debug.Log($"Swap party members.");
+                    AddToParty(currentMember, newMember.CurrentSlot);
+                    AddToParty(newMember, slot);
+                }
+                else
+                {
+                    Debug.Log($"Substitute party members.");
+                    RemoveFromParty(currentMember);
+                    AddToParty(newMember, slot);
+                }
+            }
+            else
+            {
+                if (newMember.IsOnParty)
+                {
+                    Debug.Log($"Change party slot.");
+                    newMember.CurrentSlot.RemoveMember();
+                    AddToParty(newMember, slot);
+                }
+                else
+                {
+                    Debug.Log($"Assign party member.");
+                    AddToParty(newMember, slot);
+                }
             }
 
-            RemoveFromParty(oldMember);
+            // AddToParty(newMember, slot);
         }
     }
 }
