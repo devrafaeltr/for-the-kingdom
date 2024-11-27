@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FTKingdom
 {
-    [CreateAssetMenu(fileName = "New Character", menuName = "Character", order = 0)]
+    [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
     public class CharacterSO : ScriptableObject
     {
         [Header("Basic infos")]

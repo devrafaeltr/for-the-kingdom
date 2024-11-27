@@ -745,6 +745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterBattle
       objectReference: {fileID: 0}
+    - target: {fileID: 7621691289212965958, guid: 62ea369008119354db155aa21206e62b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8747582319431390100, guid: 62ea369008119354db155aa21206e62b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -806,6 +810,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7621691289212965958, guid: 62ea369008119354db155aa21206e62b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3286546882473584079}
+    - targetCorrespondingSourceObject: {fileID: 7621691289212965958, guid: 62ea369008119354db155aa21206e62b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8680294539026662853}
   m_SourcePrefab: {fileID: 100100000, guid: 62ea369008119354db155aa21206e62b, type: 3}
 --- !u!1 &368610771117174663 stripped
 GameObject:
@@ -826,6 +833,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 3286546882473584079}
   spriteRenderer: {fileID: 6330718498607966273}
+  characterData: {fileID: 0}
+  projectilePrefab: {fileID: 1533703806021451078, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
+  projectileData: {fileID: 11400000, guid: 2eb2074c2fb461b4980bde74e8a1e262, type: 2}
   auxTarget: {fileID: 0}
 --- !u!195 &3286546882473584079
 NavMeshAgent:
@@ -849,6 +859,42 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!58 &8680294539026662853
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368610771117174663}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!4 &1566577116409636949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8747582319431390100, guid: 62ea369008119354db155aa21206e62b, type: 3}

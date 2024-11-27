@@ -8,8 +8,14 @@ namespace FTKingdom
     {
         [SerializeField] protected NavMeshAgent navMeshAgent;
         [SerializeField] protected SpriteRenderer spriteRenderer;
+        [SerializeField] protected CharacterSO characterData = null;
+
+        [Header("Attack info")]
+        [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private ProjectileSO projectileData;
 
         public Transform auxTarget;
+        private float attackTimer;
 
         private readonly int maxMana = 0;
         private readonly int maxHp = 0;
@@ -23,6 +29,8 @@ namespace FTKingdom
         private Vector3 lastPosition;
         #endregion Movement variables
 
+        private bool auxCanFight = false;
+
         private void Awake()
         {
             SetupNavmesh();
@@ -30,12 +38,29 @@ namespace FTKingdom
 
         private void Update()
         {
-            if (navMeshAgent.isStopped)
+            if (!auxCanFight)
             {
                 return;
             }
 
-            CheckStuck();
+            if (auxTarget == null)
+            {
+                FindEnemy();
+                return;
+            }
+
+            if (!navMeshAgent.hasPath && !navMeshAgent.pathPending)
+            {
+                HandleAttack();
+            }
+            // if (navMeshAgent.isStopped)
+            // {
+            //     HandleAttack();
+            // }
+            else
+            {
+                CheckStuck();
+            }
         }
 
         private void OnEnable()
@@ -48,12 +73,19 @@ namespace FTKingdom
             EventsManager.RemoveListener(EventsManager.OnBattleStart, StartBattle);
         }
 
+        public void DoDamage(int damage)
+        {
+            Damage(damage);
+        }
+
         protected virtual void OnSetup()
         { }
 
         protected virtual void OnStartBattle()
         {
             navMeshAgent.SetDestination(auxTarget.position);
+            attackTimer = characterData.BaseAttackInterval;
+            auxCanFight = true;
         }
 
         protected virtual void Damage(int damage)
@@ -76,7 +108,8 @@ namespace FTKingdom
 
         private void ConsumeMana(int quantity)
         {
-            UpdatePointsBar(maxMana, currentMana - quantity);
+            currentMana -= quantity;
+            UpdatePointsBar(maxMana, currentMana);
         }
 
         private void SetupNavmesh()
@@ -106,7 +139,7 @@ namespace FTKingdom
         private void StopAgent()
         {
             navMeshAgent.isStopped = true;
-            navMeshAgent.ResetPath(); // Clear the target
+            navMeshAgent.ResetPath();
         }
 
         private void UpdatePointsBar(int max, int current)
@@ -114,15 +147,31 @@ namespace FTKingdom
             float percent = (float)max / current;
         }
 
+        private void HandleAttack()
+        {
+            attackTimer += Time.deltaTime;
+
+            if (attackTimer >= characterData.BaseAttackInterval)
+            {
+                PerformAttack();
+                attackTimer = 0f;
+            }
+        }
+
         private void PerformAttack()
         {
-            // Implement your attack logic here, e.g., deal damage to the target
-            Debug.Log($"{gameObject.name} attacks {auxTarget.name}!");
+            if (auxTarget != null)
+            {
+                Debug.Log($"{gameObject.name} attacks {auxTarget.name} for {characterData.BaseDamage} damage!");
+                GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+                projectile.GetComponent<Projectile>().Setup(projectileData, auxTarget);
+            }
         }
 
         private void Die()
         {
             currentHp = 0;
+            Debug.Log($"{gameObject.name} has died!");
         }
 
         private void StartBattle(IGameEvent gameEvent)

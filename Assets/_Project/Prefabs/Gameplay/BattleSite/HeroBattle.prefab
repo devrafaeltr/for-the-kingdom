@@ -10,15 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 368610771117174663, guid: a98bc6105318542499bc5bba9d163405, type: 3}
       propertyPath: m_Name
-      value: CharacterBattle Variant
+      value: HeroBattle
+      objectReference: {fileID: 0}
+    - target: {fileID: 368610771117174663, guid: a98bc6105318542499bc5bba9d163405, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 368610771117174663, guid: a98bc6105318542499bc5bba9d163405, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1566577116409636949, guid: a98bc6105318542499bc5bba9d163405, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.894246
+      value: 5.8966856
       objectReference: {fileID: 0}
     - target: {fileID: 1566577116409636949, guid: a98bc6105318542499bc5bba9d163405, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.9630117
+      value: -8.187109
       objectReference: {fileID: 0}
     - target: {fileID: 1566577116409636949, guid: a98bc6105318542499bc5bba9d163405, type: 3}
       propertyPath: m_LocalPosition.z
@@ -128,6 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 3950091569793556342}
   spriteRenderer: {fileID: 5518766955668673272}
+  characterData: {fileID: 0}
+  projectilePrefab: {fileID: 1533703806021451078, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
+  projectileData: {fileID: 11400000, guid: 2eb2074c2fb461b4980bde74e8a1e262, type: 2}
   auxTarget: {fileID: 0}
 --- !u!195 &3950091569793556342 stripped
 NavMeshAgent:
