@@ -15,7 +15,6 @@ namespace FTKingdom
         private Character character;
         private float canvasScale = 1f;
 
-        public UIPartySlot CurrentSlot { get; private set; }
         public bool IsOnParty => character.PartySlot >= 0;
 
         public void Setup(Character newCharacter, float scaleFactor)
@@ -41,31 +40,15 @@ namespace FTKingdom
             rectTransform.offsetMax = Vector2.zero;
         }
 
-        public void ChangePartySlot(int slotIndex, UIPartySlot slot)
+        public void ChangePartySlot(int slotIndex)
         {
-            // if (slotIndex == -1 || CurrentSlot != null)
-            // {
-            //     CurrentSlot.RemoveMember();
-            // }
-
-            CurrentSlot = slot;
-            CurrentSlot.SetCurrentMember(this);
-
             character.SetPartySlot(slotIndex);
-            transform.SetParent(slot.transform);
-
             FitToParent();
         }
 
         public void RemoveFromParty()
         {
-            if (character.IsOnParty)
-            {
-                CurrentSlot.RemoveMember();
-                CurrentSlot = null;
-                character.SetPartySlot(-1);
-            }
-
+            character.SetPartySlot(-1);
             FitToParent();
         }
 

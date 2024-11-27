@@ -7,8 +7,8 @@ namespace FTKingdom
     public class GameManager : PersistentSingleton<GameManager>
     {
         public List<CharacterSO> auxHeroesInfos = new();
-        private List<Character> currentHeroes = new();
 
+        private readonly List<Character> currentHeroes = new();
         public List<Character> CurrentHeroes => currentHeroes;
 
         protected override void Awake()
@@ -26,16 +26,6 @@ namespace FTKingdom
             for (int i = 0; i < 5; i++)
             {
                 currentHeroes[Random.Range(0, currentHeroes.Count)].SetPartySlot(i);
-            }
-        }
-
-        public void UpdateParty(List<Character> newParty)
-        {
-            List<Character> oldParty = GetParty();
-            var removedMembers = oldParty.FindAll(c => !newParty.Contains(c));
-            foreach (Character removed in removedMembers)
-            {
-                removed.SetPartySlot(-1);
             }
         }
 

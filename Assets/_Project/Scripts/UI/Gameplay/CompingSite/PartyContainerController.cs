@@ -10,6 +10,8 @@ namespace FTKingdom.UI
         [SerializeField] private CharacterUIContainer characterUIPrefab = null;
         [SerializeField] private List<UIPartySlot> partySlots = new();
 
+        private readonly Dictionary<CharacterUIContainer, UIPartySlot> membersToSlot = new();
+
         private float canvasScale;
 
         private void Awake()
@@ -20,7 +22,7 @@ namespace FTKingdom.UI
 
         private void OnEnable()
         {
-            SetupHeroes();
+            AuxSetupHeroes();
             EventsManager.AddListener(EventsManager.OnChangePartyMember, OnChangePartyMember);
         }
 
@@ -29,13 +31,14 @@ namespace FTKingdom.UI
             EventsManager.RemoveListener(EventsManager.OnChangePartyMember, OnChangePartyMember);
         }
 
-        public void AddToParty(CharacterUIContainer newMember, UIPartySlot slot)
-        {
-            newMember.ChangePartySlot(partySlots.IndexOf(slot), slot);
-        }
-
         public void RemoveFromParty(CharacterUIContainer member)
         {
+            if (membersToSlot.ContainsKey(member))
+            {
+                membersToSlot[member].RemoveMember();
+                membersToSlot.Remove(member);
+            }
+
             member.transform.SetParent(heroesListContainer);
             member.RemoveFromParty();
         }
@@ -45,7 +48,24 @@ namespace FTKingdom.UI
             gameObject.SetActive(false);
         }
 
-        private void SetupHeroes()
+        private void AddToParty(CharacterUIContainer newMember, UIPartySlot slot)
+        {
+            if (!membersToSlot.TryGetValue(newMember, out UIPartySlot currentSlot))
+            {
+                membersToSlot.Add(newMember, slot);
+            }
+            else
+            {
+                currentSlot.RemoveMember();
+                membersToSlot[newMember] = slot;
+            }
+
+            newMember.transform.SetParent(slot.transform);
+            newMember.ChangePartySlot(partySlots.IndexOf(slot));
+            slot.SetCurrentMember(newMember);
+        }
+
+        private void AuxSetupHeroes()
         {
             foreach (var hero in GameManager.Instance.CurrentHeroes)
             {
@@ -75,33 +95,16 @@ namespace FTKingdom.UI
             {
                 if (newMember.IsOnParty)
                 {
-                    Debug.Log($"Swap party members.");
-                    AddToParty(currentMember, newMember.CurrentSlot);
-                    AddToParty(newMember, slot);
+                    AddToParty(currentMember, membersToSlot[newMember]);
+                    membersToSlot.Remove(newMember);
                 }
                 else
                 {
-                    Debug.Log($"Substitute party members.");
                     RemoveFromParty(currentMember);
-                    AddToParty(newMember, slot);
-                }
-            }
-            else
-            {
-                if (newMember.IsOnParty)
-                {
-                    Debug.Log($"Change party slot.");
-                    newMember.CurrentSlot.RemoveMember();
-                    AddToParty(newMember, slot);
-                }
-                else
-                {
-                    Debug.Log($"Assign party member.");
-                    AddToParty(newMember, slot);
                 }
             }
 
-            // AddToParty(newMember, slot);
+            AddToParty(newMember, slot);
         }
     }
 }
