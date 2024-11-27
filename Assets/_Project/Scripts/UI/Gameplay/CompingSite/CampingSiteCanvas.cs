@@ -14,6 +14,7 @@ namespace FTKingdom.UI
 
         public void GoToMap()
         {
+            partyContainter.SetActive(false);
             SceneHandler.Instance.LoadScene(GameScene.MiniMap);
         }
     }

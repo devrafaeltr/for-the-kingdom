@@ -5,7 +5,6 @@ using UnityEngine.Pool;
 
 namespace FTKingdom
 {
-    // TODO: Add suport for some kind of id, instead of using specific class
     public static class GenericPool
     {
         private static readonly Dictionary<PoolType, ObjectPool<Component>> pools = new();
