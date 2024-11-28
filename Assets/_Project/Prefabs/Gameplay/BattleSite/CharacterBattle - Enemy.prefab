@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 368610771117174663, guid: a98bc6105318542499bc5bba9d163405, type: 3}
       propertyPath: m_Name
-      value: CharacterBattle - Enemy Variant
+      value: CharacterBattle - Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 368610771117174663, guid: a98bc6105318542499bc5bba9d163405, type: 3}
       propertyPath: m_Layer
@@ -94,6 +94,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945755553631504272, guid: a98bc6105318542499bc5bba9d163405, type: 3}
       propertyPath: characerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b5f9dbf9bcaa5e429bdae665643a823, type: 2}
+    - target: {fileID: 5945755553631504272, guid: a98bc6105318542499bc5bba9d163405, type: 3}
+      propertyPath: characterData
       value: 
       objectReference: {fileID: 11400000, guid: 9b5f9dbf9bcaa5e429bdae665643a823, type: 2}
     - target: {fileID: 5945755553631504272, guid: a98bc6105318542499bc5bba9d163405, type: 3}

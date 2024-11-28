@@ -831,6 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0582ff0f26c8c9947a07ad1c750ceac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 6084379237582986612}
   navMeshAgent: {fileID: 3286546882473584079}
   spriteRenderer: {fileID: 6330718498607966273}
   characterData: {fileID: 0}
@@ -898,6 +899,11 @@ CircleCollider2D:
 --- !u!4 &1566577116409636949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8747582319431390100, guid: 62ea369008119354db155aa21206e62b, type: 3}
+  m_PrefabInstance: {fileID: 7843087279448406977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6084379237582986612 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4082566928064669365, guid: 62ea369008119354db155aa21206e62b, type: 3}
   m_PrefabInstance: {fileID: 7843087279448406977}
   m_PrefabAsset: {fileID: 0}
 --- !u!212 &6330718498607966273 stripped

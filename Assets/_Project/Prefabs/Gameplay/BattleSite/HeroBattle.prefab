@@ -134,9 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba6f3f73d7436a42aaa46714fd7c4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 5709910181348599757}
   navMeshAgent: {fileID: 3950091569793556342}
   spriteRenderer: {fileID: 5518766955668673272}
-  characterData: {fileID: 0}
+  characterData: {fileID: 11400000, guid: 9b5f9dbf9bcaa5e429bdae665643a823, type: 2}
   projectilePrefab: {fileID: 1533703806021451078, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
   projectileData: {fileID: 11400000, guid: 2eb2074c2fb461b4980bde74e8a1e262, type: 2}
   auxTarget: {fileID: 0}
@@ -148,5 +149,10 @@ NavMeshAgent:
 --- !u!212 &5518766955668673272 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6330718498607966273, guid: a98bc6105318542499bc5bba9d163405, type: 3}
+  m_PrefabInstance: {fileID: 1967408522577459897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5709910181348599757 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6084379237582986612, guid: a98bc6105318542499bc5bba9d163405, type: 3}
   m_PrefabInstance: {fileID: 1967408522577459897}
   m_PrefabAsset: {fileID: 0}

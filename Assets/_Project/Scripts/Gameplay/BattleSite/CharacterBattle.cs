@@ -6,6 +6,8 @@ namespace FTKingdom
 {
     public class CharacterBattle : MonoBehaviour
     {
+        // TODO: Improve how walk animation are being set.
+        [SerializeField] protected Animator characterAnimator;
         [SerializeField] protected NavMeshAgent navMeshAgent;
         [SerializeField] protected SpriteRenderer spriteRenderer;
         [SerializeField] protected CharacterSO characterData = null;
@@ -51,12 +53,9 @@ namespace FTKingdom
 
             if (!navMeshAgent.hasPath && !navMeshAgent.pathPending)
             {
+                characterAnimator.SetBool("Walk", false);
                 HandleAttack();
             }
-            // if (navMeshAgent.isStopped)
-            // {
-            //     HandleAttack();
-            // }
             else
             {
                 CheckStuck();
@@ -83,6 +82,7 @@ namespace FTKingdom
 
         protected virtual void OnStartBattle()
         {
+            characterAnimator.SetBool("Walk", true);
             navMeshAgent.SetDestination(auxTarget.position);
             attackTimer = characterData.BaseAttackInterval;
             auxCanFight = true;
@@ -163,6 +163,7 @@ namespace FTKingdom
             if (auxTarget != null)
             {
                 Debug.Log($"{gameObject.name} attacks {auxTarget.name} for {characterData.BaseDamage} damage!");
+                characterAnimator.SetTrigger("Attack");
                 GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
                 projectile.GetComponent<Projectile>().Setup(projectileData, auxTarget);
             }
