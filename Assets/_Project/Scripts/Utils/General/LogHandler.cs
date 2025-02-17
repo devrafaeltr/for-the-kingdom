@@ -13,12 +13,12 @@ namespace FTKingdom.Utils
 
         public static void SceneLog(string message, [CallerFilePath] string sourceFilePath = "", [CallerMemberName] string memberName = "")
         {
-            Log($"[Scene]\n{GetFormattedMessage(sourceFilePath, memberName)}{message}");
+            // Log($"[Scene]\n{GetFormattedMessage(sourceFilePath, memberName)}{message}");
         }
 
         public static void PoolLog(string message, [CallerFilePath] string sourceFilePath = "", [CallerMemberName] string memberName = "")
         {
-            Log($"[Pool]\n{GetFormattedMessage(sourceFilePath, memberName)}{message}");
+            // Log($"[Pool]\n{GetFormattedMessage(sourceFilePath, memberName)}{message}");
         }
 
         private static void Log(string message)
