@@ -95,7 +95,7 @@ namespace FTKingdom
             }
             else
             {
-                LogHandler.SceneLog($"Scene {sceneName} is no a `GameScene`.");
+                LogHandler.SceneLog($"Scene {sceneName} is not a `GameScene`.");
             }
         }
     }
