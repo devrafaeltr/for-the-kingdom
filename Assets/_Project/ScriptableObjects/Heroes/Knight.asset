@@ -20,5 +20,5 @@ MonoBehaviour:
   baseMp: 0
   possibleSkills: []
   baseDamage: 1
-  baseAttackDistance: 1
+  baseAttackDistance: 1.5
   baseAttackInterval: 1

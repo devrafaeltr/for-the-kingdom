@@ -9,9 +9,11 @@ namespace FTKingdom
 
         protected ProjectileSO projectileData;
         private Transform target;
+        private int damage;
 
-        public void Setup(ProjectileSO projectile, Transform newTarget)
+        public void Setup(int projectileDamage, ProjectileSO projectile, Transform newTarget)
         {
+            damage = projectileDamage;
             projectileData = projectile;
 
             projectileRenderer.sprite = projectile.Graphic;
@@ -38,14 +40,15 @@ namespace FTKingdom
             projectileRigidbody.linearVelocity = direction.normalized * projectileData.Speed;
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            // Checa a tag para verificar se atingiu um inimigo
-            if (collision.CompareTag("Enemy"))
+            Debug.Log($"OnTriggerEnter: {collider.transform.name} | {target.name}");
+            // if (collision.CompareTag("Enemy"))
+            if (collider.transform == target)
             {
-                if (collision.TryGetComponent(out CharacterBattle enemy))
+                if (collider.TryGetComponent(out CharacterBattle enemy))
                 {
-                    enemy.DoDamage(projectileData.Damage); // Aplica o dano ao inimigo
+                    enemy.DoDamage(damage);
                 }
 
                 // TODO: Release to pool

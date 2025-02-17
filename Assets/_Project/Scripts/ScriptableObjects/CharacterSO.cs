@@ -27,6 +27,10 @@ namespace FTKingdom
         public string Description => description;
         public Sprite Graphic => graphic;
         public CharacterType Type => type;
+        public CharacterAttackType AttackType
+        {
+            get => baseAttackDistance <= 1 ? CharacterAttackType.Melee : CharacterAttackType.Ranged;
+        }
         public int BaseHp => baseHp;
         public int BaseMp => baseMp;
         public List<SkillSO> PossibleSkills => possibleSkills;

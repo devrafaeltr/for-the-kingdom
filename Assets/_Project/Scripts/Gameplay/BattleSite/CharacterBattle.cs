@@ -1,3 +1,4 @@
+using DG.Tweening;
 using FTKingdom.Utils;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,13 +8,13 @@ namespace FTKingdom
     public class CharacterBattle : MonoBehaviour
     {
         // TODO: Improve how walk animation are being set.
-        [SerializeField] protected Animator characterAnimator;
-        [SerializeField] protected NavMeshAgent navMeshAgent;
+        [SerializeField] private Animator characterAnimator;
+        [SerializeField] private NavMeshAgent navMeshAgent;
         [SerializeField] protected SpriteRenderer spriteRenderer;
         [SerializeField] protected CharacterSO characterData = null;
 
         [Header("Attack info")]
-        [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private Transform projectileSpawnPosition;
         [SerializeField] private ProjectileSO projectileData;
 
         public Transform auxTarget;
@@ -31,34 +32,47 @@ namespace FTKingdom
         private Vector3 lastPosition;
         #endregion Movement variables
 
-        private bool auxCanFight = false;
+        private bool hasBattleStarted = false;
 
         private void Awake()
         {
             SetupNavmesh();
+
+            if (characterData.Type == CharacterType.Enemy)
+            {
+                OnSetup();
+            }
         }
 
         private void Update()
         {
-            if (!auxCanFight)
+            if (!hasBattleStarted)
             {
                 return;
             }
 
             if (auxTarget == null)
             {
-                FindEnemy();
+                FindTarget();
                 return;
             }
 
-            if (!navMeshAgent.hasPath && !navMeshAgent.pathPending)
+            float distanceToTarget = Vector3.Distance(transform.position, auxTarget.position);
+            if (distanceToTarget > characterData.BaseAttackDistance)
             {
-                characterAnimator.SetBool("Walk", false);
-                HandleAttack();
+                MoveTowardsTarget();
             }
             else
             {
-                CheckStuck();
+                if (!navMeshAgent.hasPath && !navMeshAgent.pathPending)
+                {
+                    characterAnimator.SetBool("Walk", false);
+                    HandleAttack();
+                }
+                else
+                {
+                    CheckStuck();
+                }
             }
         }
 
@@ -78,17 +92,20 @@ namespace FTKingdom
         }
 
         protected virtual void OnSetup()
-        { }
-
-        protected virtual void OnStartBattle()
         {
-            characterAnimator.SetBool("Walk", true);
-            navMeshAgent.SetDestination(auxTarget.position);
-            attackTimer = characterData.BaseAttackInterval;
-            auxCanFight = true;
+            currentHp = characterData.BaseHp;
+            currentMana = characterData.BaseMp;
+
+            navMeshAgent.stoppingDistance = characterData.BaseAttackDistance;
         }
 
-        protected virtual void Damage(int damage)
+        private void OnStartBattle()
+        {
+            attackTimer = characterData.BaseAttackInterval;
+            hasBattleStarted = true;
+        }
+
+        private void Damage(int damage)
         {
             currentHp -= damage;
 
@@ -101,9 +118,10 @@ namespace FTKingdom
             Die();
         }
 
-        protected void FindEnemy()
+        private void FindTarget()
         {
-            auxTarget = BattleSiteManager.Instance.GetClosestFromType(transform.position, CharacterType.Enemy).transform;
+            CharacterType targetype = characterData.Type == CharacterType.Hero ? CharacterType.Enemy : CharacterType.Hero;
+            auxTarget = BattleSiteManager.Instance.GetClosestFromType(transform.position, targetype).transform;
         }
 
         private void ConsumeMana(int quantity)
@@ -162,11 +180,46 @@ namespace FTKingdom
         {
             if (auxTarget != null)
             {
-                Debug.Log($"{gameObject.name} attacks {auxTarget.name} for {characterData.BaseDamage} damage!");
-                characterAnimator.SetTrigger("Attack");
-                GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-                projectile.GetComponent<Projectile>().Setup(projectileData, auxTarget);
+                // Debug.Log($"{gameObject.name} attacks {auxTarget.name} for {characterData.BaseDamage} damage!");
+                // Debug.Log($"{characterData.Name} attacks {auxTarget.name}! {characterData.BaseAttackDistance} | {characterData.AttackType}");
+
+                if (characterData.AttackType == CharacterAttackType.Melee)
+                {
+                    DoMeleeAttack();
+                }
+                else
+                {
+                    characterAnimator.SetTrigger("Attack");
+                    SpawnProjectile();
+                }
             }
+            else
+            {
+                FindTarget();
+            }
+        }
+
+        private void DoMeleeAttack()
+        {
+            Vector3 originalPosition = transform.position;
+            Vector3 attackPosition = auxTarget.position;
+            Vector3 direction = (attackPosition - originalPosition).normalized;
+            Vector3 moveBackPosition = originalPosition - direction * 0.5f;
+
+            Sequence attackSequence = DOTween.Sequence();
+            attackSequence.Append(transform.DOMove(moveBackPosition, 0.1f))
+                          .Append(transform.DOMove(attackPosition, 0.2f))
+                          .OnComplete(() =>
+                          {
+                              SpawnProjectile();
+                          })
+                          .Append(transform.DOMove(originalPosition, 0.1f));
+        }
+
+        private void SpawnProjectile()
+        {
+            GameObject projectile = Instantiate(projectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
+            projectile.GetComponent<Projectile>().Setup(characterData.BaseDamage, projectileData, auxTarget);
         }
 
         private void Die()
@@ -178,6 +231,12 @@ namespace FTKingdom
         private void StartBattle(IGameEvent gameEvent)
         {
             OnStartBattle();
+        }
+
+        private void MoveTowardsTarget()
+        {
+            characterAnimator.SetBool("Walk", true);
+            navMeshAgent.SetDestination(auxTarget.position);
         }
     }
 }
