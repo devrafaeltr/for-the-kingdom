@@ -650,7 +650,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icon- Sword
+      name: Icon - Sword
       rect:
         serializedVersion: 2
         x: 80
@@ -658,7 +658,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -693,8 +693,8 @@ TextureImporter:
       Hero - Wizard: -1737845959
       Icon - Health: 1476488849
       Icon - Map: 1909618076
+      Icon - Sword: -1500340562
       Icon- Mana: 1418184572
-      Icon- Sword: -1500340562
       The Roguelike 1-13-14 Alpha_10: 2032634830
       The Roguelike 1-13-14 Alpha_12: 292810437
       The Roguelike 1-13-14 Alpha_13: -1913198842
