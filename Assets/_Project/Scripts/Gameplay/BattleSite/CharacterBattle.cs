@@ -33,6 +33,7 @@ namespace FTKingdom
         #endregion Movement variables
 
         private bool hasBattleStarted = false;
+        private CharacterState currentState = CharacterState.Waiting;
 
         private void Awake()
         {
@@ -58,18 +59,27 @@ namespace FTKingdom
             }
 
             float distanceToTarget = Vector3.Distance(transform.position, auxTarget.position);
-            if (distanceToTarget > characterData.BaseAttackDistance)
+
+            if (currentState != CharacterState.Walking)
             {
-                MoveTowardsTarget();
+                if (distanceToTarget > characterData.BaseAttackDistance)
+                {
+                    MoveTowardsTarget();
+                    return;
+                }
+            }
+            else if (currentState == CharacterState.Attacking)
+            {
+                HandleAttack();
             }
             else
             {
-                if (!navMeshAgent.hasPath && !navMeshAgent.pathPending)
+                if (distanceToTarget <= characterData.BaseAttackDistance)
                 {
                     characterAnimator.SetBool("Walk", false);
                     HandleAttack();
                 }
-                else
+                else if (navMeshAgent.hasPath || navMeshAgent.pathPending)
                 {
                     CheckStuck();
                 }
@@ -167,6 +177,8 @@ namespace FTKingdom
 
         private void HandleAttack()
         {
+            ChangeState(CharacterState.Attacking);
+
             attackTimer += Time.deltaTime;
 
             if (attackTimer >= characterData.BaseAttackInterval)
@@ -235,8 +247,18 @@ namespace FTKingdom
 
         private void MoveTowardsTarget()
         {
+            ChangeState(CharacterState.Walking);
+
             characterAnimator.SetBool("Walk", true);
             navMeshAgent.SetDestination(auxTarget.position);
+        }
+
+        private void ChangeState(CharacterState state)
+        {
+            if (currentState != state)
+            {
+                currentState = state;
+            }
         }
     }
 }
