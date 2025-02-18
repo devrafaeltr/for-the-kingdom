@@ -3,7 +3,7 @@ using FTKingdom.Utils;
 
 namespace FTKingdom
 {
-    public class EntityStateHandler
+    public class BaseFSMController
     {
         private readonly Dictionary<CharacterState, IState> stateToBehavior = new()
         {
