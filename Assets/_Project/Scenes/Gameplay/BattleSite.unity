@@ -6054,6 +6054,10 @@ PrefabInstance:
       propertyPath: auxTarget
       value: 
       objectReference: {fileID: 2080641804}
+    - target: {fileID: 5933734888977712213, guid: 28901bece4bc5e948a71694ef3aea987, type: 3}
+      propertyPath: CharacterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b5f9dbf9bcaa5e429bdae665643a823, type: 2}
     - target: {fileID: 8918785651429007905, guid: 28901bece4bc5e948a71694ef3aea987, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
