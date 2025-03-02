@@ -9,7 +9,7 @@ namespace FTKingdom
     {
         [SerializeField] private HeroBattle heroPrefab = null;
         [SerializeField] private List<Transform> heroSlots = new();
-        private readonly List<Transform> heroesInBattle = new();
+        private List<Transform> heroesInBattle = new();
         private List<Transform> enemiesInBattle = new();
 
         private void Awake()
@@ -29,6 +29,16 @@ namespace FTKingdom
 
             Transform SortCharacterList(List<Transform> characters, Vector2 position)
             {
+                if (characters.Count == 1)
+                {
+                    return characters[0];
+                }
+                else if (characters.Count == 2)
+                {
+                    return Vector3.Distance(characters[0].position, position) <
+                    Vector3.Distance(characters[1].position, position) ? characters[0] : characters[1];
+                }
+
                 characters.Sort((e1, e2) =>
                 {
                     var dist1 = Vector3.Distance(e1.transform.position, position);
@@ -37,7 +47,7 @@ namespace FTKingdom
                     return dist1.CompareTo(dist2);
                 });
 
-                return enemiesInBattle[0];
+                return characters[0];
             }
         }
 

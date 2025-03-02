@@ -1,4 +1,4 @@
-using UnityEngine;
+// using UnityEngine;
 using System.Runtime.CompilerServices;
 using System.IO;
 
@@ -23,7 +23,7 @@ namespace FTKingdom.Utils
 
         private static void Log(string message)
         {
-            Debug.Log(message);
+            // Debug.Log(message);
         }
 
         private static string GetFormattedMessage(string sourceFilePath, string memberName)

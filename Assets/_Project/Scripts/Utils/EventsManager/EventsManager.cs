@@ -79,7 +79,8 @@ namespace FTKingdom.Utils
         {
             if (_eventDictionary.TryGetValue(eventName, out List<Action<IGameEvent>> callbackList))
             {
-                foreach (var callback in callbackList)
+                var callbackListCopy = new List<Action<IGameEvent>>(callbackList);
+                foreach (var callback in callbackListCopy)
                 {
                     callback?.Invoke(eventInfos);
 

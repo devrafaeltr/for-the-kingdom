@@ -1,5 +1,3 @@
-using DG.Tweening;
-using FTKingdom.Utils;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,39 +5,52 @@ namespace FTKingdom
 {
     public class CharacterBattle : MonoBehaviour
     {
-        // TODO: Improve how walk animation are being set.
         [SerializeField] private Animator characterAnimator;
         [SerializeField] private NavMeshAgent navMeshAgent;
         [SerializeField] protected SpriteRenderer spriteRenderer;
-        [SerializeField] protected CharacterSO characterData = null;
+        [SerializeField] public CharacterSO CharacterData = null;
 
         [Header("Attack info")]
         [SerializeField] private Transform projectileSpawnPosition;
         [SerializeField] private ProjectileSO projectileData;
 
-        public Transform auxTarget;
-        private float attackTimer;
+        private Transform target;
+
+        [HideInInspector]
+        public Transform Target
+        {
+            get
+            {
+                if (target == null)
+                {
+                    FindTarget();
+                }
+
+                return target;
+            }
+            private set => target = value;
+        }
+
+        [HideInInspector] public Transform Transform { get; private set; }
 
         private readonly int maxMana = 0;
         private readonly int maxHp = 0;
         private int currentMana = 0;
         private int currentHp = 0;
 
-        #region Movement variables
-        private const float StuckThreshold = 0.5f;
-        private const float StuckCheckInterval = 1f;
-        private float stuckTimer;
-        private Vector3 lastPosition;
-        #endregion Movement variables
+        // TODO: Change to BaseeFSMController<T>
+        private readonly BaseFSMController characterFSM = new();
+        private CharacterState currenState = CharacterState.Waiting;
 
-        private bool hasBattleStarted = false;
-        private CharacterState currentState = CharacterState.Waiting;
-
-        private void Awake()
+        private void Start()
         {
+            Transform = transform;
+            characterFSM.InitializeStates(this, CharacterState.Waiting);
+
             SetupNavmesh();
 
-            if (characterData.Type == CharacterType.Enemy)
+            // TODO: Remove when implementing enemy instantiation
+            if (CharacterData != null)
             {
                 OnSetup();
             }
@@ -47,53 +58,23 @@ namespace FTKingdom
 
         private void Update()
         {
-            if (!hasBattleStarted)
-            {
-                return;
-            }
-
-            if (auxTarget == null)
-            {
-                FindTarget();
-                return;
-            }
-
-            float distanceToTarget = Vector3.Distance(transform.position, auxTarget.position);
-
-            if (currentState != CharacterState.Walking)
-            {
-                if (distanceToTarget > characterData.BaseAttackDistance)
-                {
-                    MoveTowardsTarget();
-                    return;
-                }
-            }
-            else if (currentState == CharacterState.Attacking)
-            {
-                HandleAttack();
-            }
-            else
-            {
-                if (distanceToTarget <= characterData.BaseAttackDistance)
-                {
-                    characterAnimator.SetBool("Walk", false);
-                    HandleAttack();
-                }
-                else if (navMeshAgent.hasPath || navMeshAgent.pathPending)
-                {
-                    CheckStuck();
-                }
-            }
+            characterFSM.UpdateCurrentState();
         }
 
-        private void OnEnable()
+        private void ChangeState(CharacterState state)
         {
-            EventsManager.AddListener(EventsManager.OnBattleStart, StartBattle);
+            currenState = state;
+            characterFSM.ChangeState(state);
         }
 
-        private void OnDisable()
+        public void SetAnimationBool(string animation, bool value)
         {
-            EventsManager.RemoveListener(EventsManager.OnBattleStart, StartBattle);
+            characterAnimator.SetBool(animation, value);
+        }
+
+        public void SetAnimationTrigger(string animation)
+        {
+            characterAnimator.SetTrigger(animation);
         }
 
         public void DoDamage(int damage)
@@ -101,18 +82,50 @@ namespace FTKingdom
             Damage(damage);
         }
 
-        protected virtual void OnSetup()
+        public void StopAgent()
         {
-            currentHp = characterData.BaseHp;
-            currentMana = characterData.BaseMp;
-
-            navMeshAgent.stoppingDistance = characterData.BaseAttackDistance;
+            navMeshAgent.isStopped = true;
+            navMeshAgent.ResetPath();
         }
 
-        private void OnStartBattle()
+        public bool IsPathBlocked()
         {
-            attackTimer = characterData.BaseAttackInterval;
-            hasBattleStarted = true;
+            return navMeshAgent.hasPath || navMeshAgent.pathPending;
+        }
+
+        public void SpawnProjectile()
+        {
+            GameObject projectile = Instantiate(projectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
+            projectile.GetComponent<Projectile>().Setup(CharacterData.BaseDamage, projectileData, Target);
+        }
+
+        public void MoveTowardsTarget()
+        {
+            ChangeState(CharacterState.Walking);
+            WalkToTarget();
+        }
+
+        public void WalkToTarget()
+        {
+            navMeshAgent.SetDestination(Target.position);
+        }
+
+        public void AttackTarget()
+        {
+            ChangeState(CharacterState.Attacking);
+        }
+
+        public bool IsCloseToTarget()
+        {
+            return Vector3.Distance(Transform.position, Target.position) <= CharacterData.BaseAttackDistance;
+        }
+
+        protected virtual void OnSetup()
+        {
+            currentHp = CharacterData.BaseHp;
+            currentMana = CharacterData.BaseMp;
+
+            navMeshAgent.stoppingDistance = CharacterData.BaseAttackDistance;
         }
 
         private void Damage(int damage)
@@ -130,8 +143,8 @@ namespace FTKingdom
 
         private void FindTarget()
         {
-            CharacterType targetype = characterData.Type == CharacterType.Hero ? CharacterType.Enemy : CharacterType.Hero;
-            auxTarget = BattleSiteManager.Instance.GetClosestFromType(transform.position, targetype).transform;
+            CharacterType targetype = CharacterData.Type == CharacterType.Hero ? CharacterType.Enemy : CharacterType.Hero;
+            Target = BattleSiteManager.Instance.GetClosestFromType(transform.position, targetype).transform;
         }
 
         private void ConsumeMana(int quantity)
@@ -146,119 +159,15 @@ namespace FTKingdom
             navMeshAgent.updateUpAxis = false;
         }
 
-        private void CheckStuck()
-        {
-            stuckTimer += Time.deltaTime;
-
-            if (stuckTimer >= StuckCheckInterval)
-            {
-                stuckTimer = 0;
-                float distanceMoved = Vector3.Distance(transform.position, lastPosition);
-
-                if (distanceMoved < StuckThreshold)
-                {
-                    StopAgent();
-                }
-
-                lastPosition = transform.position;
-            }
-        }
-
-        private void StopAgent()
-        {
-            navMeshAgent.isStopped = true;
-            navMeshAgent.ResetPath();
-        }
-
         private void UpdatePointsBar(int max, int current)
         {
             float percent = (float)max / current;
         }
 
-        private void HandleAttack()
-        {
-            ChangeState(CharacterState.Attacking);
-
-            attackTimer += Time.deltaTime;
-
-            if (attackTimer >= characterData.BaseAttackInterval)
-            {
-                PerformAttack();
-                attackTimer = 0f;
-            }
-        }
-
-        private void PerformAttack()
-        {
-            if (auxTarget != null)
-            {
-                // Debug.Log($"{gameObject.name} attacks {auxTarget.name} for {characterData.BaseDamage} damage!");
-                // Debug.Log($"{characterData.Name} attacks {auxTarget.name}! {characterData.BaseAttackDistance} | {characterData.AttackType}");
-
-                if (characterData.AttackType == CharacterAttackType.Melee)
-                {
-                    DoMeleeAttack();
-                }
-                else
-                {
-                    characterAnimator.SetTrigger("Attack");
-                    SpawnProjectile();
-                }
-            }
-            else
-            {
-                FindTarget();
-            }
-        }
-
-        private void DoMeleeAttack()
-        {
-            Vector3 originalPosition = transform.position;
-            Vector3 attackPosition = auxTarget.position;
-            Vector3 direction = (attackPosition - originalPosition).normalized;
-            Vector3 moveBackPosition = originalPosition - direction * 0.5f;
-
-            Sequence attackSequence = DOTween.Sequence();
-            attackSequence.Append(transform.DOMove(moveBackPosition, 0.1f))
-                          .Append(transform.DOMove(attackPosition, 0.2f))
-                          .OnComplete(() =>
-                          {
-                              SpawnProjectile();
-                          })
-                          .Append(transform.DOMove(originalPosition, 0.1f));
-        }
-
-        private void SpawnProjectile()
-        {
-            GameObject projectile = Instantiate(projectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
-            projectile.GetComponent<Projectile>().Setup(characterData.BaseDamage, projectileData, auxTarget);
-        }
-
         private void Die()
         {
             currentHp = 0;
-            Debug.Log($"{gameObject.name} has died!");
-        }
-
-        private void StartBattle(IGameEvent gameEvent)
-        {
-            OnStartBattle();
-        }
-
-        private void MoveTowardsTarget()
-        {
-            ChangeState(CharacterState.Walking);
-
-            characterAnimator.SetBool("Walk", true);
-            navMeshAgent.SetDestination(auxTarget.position);
-        }
-
-        private void ChangeState(CharacterState state)
-        {
-            if (currentState != state)
-            {
-                currentState = state;
-            }
+            // Debug.Log($"{gameObject.name} has died!");
         }
     }
 }

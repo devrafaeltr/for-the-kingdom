@@ -7,10 +7,11 @@ namespace FTKingdom
     {
         private readonly Dictionary<CharacterState, IState> stateToBehavior = new()
         {
-            // { CharacterState.Waiting, new EntityIdleState()},
-            // { CharacterState.Walking, new EntityWalkingState()},
-            // { CharacterState.Attacking, new EntityGatheringState()}
+            { CharacterState.Waiting, new CharacterStateWaiting() },
+            { CharacterState.Walking, new CharacterStateWalking() },
+            { CharacterState.Attacking, new CharacterStateAttacking() }
         };
+
         private IState currentState;
         private IState CurrentState
         {
@@ -28,21 +29,26 @@ namespace FTKingdom
                     {
                         LogHandler.StateLog($"Initializing with {value.StateType} state.");
                     }
+
                     currentState = value;
                     currentState.Start(_entity);
                 }
             }
         }
+
         private CharacterBattle _entity;
+
         public void InitializeStates(CharacterBattle entity, CharacterState initialState)
         {
             _entity = entity;
             ChangeState(initialState);
         }
+
         public void UpdateCurrentState()
         {
             CurrentState?.Update(_entity);
         }
+
         public void ChangeState(CharacterState state)
         {
             if (stateToBehavior.TryGetValue(state, out IState entityState))

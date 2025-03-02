@@ -7,7 +7,7 @@ namespace FTKingdom
         public void Setup(Character character)
         {
             characterInfos = character;
-            characterData = character.CharacterData;
+            CharacterData = character.CharacterData;
             spriteRenderer.sprite = character.CharacterData.Graphic;
 
             OnSetup();
