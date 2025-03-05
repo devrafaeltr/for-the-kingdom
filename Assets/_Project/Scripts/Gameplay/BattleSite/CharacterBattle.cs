@@ -11,6 +11,7 @@ namespace FTKingdom
         [SerializeField] public CharacterSO CharacterData = null;
 
         [Header("Attack info")]
+        [SerializeField] private CharacterBarPointController characterBarPointController;
         [SerializeField] private Transform projectileSpawnPosition;
         [SerializeField] private ProjectileSO projectileData;
 
@@ -33,8 +34,8 @@ namespace FTKingdom
 
         [HideInInspector] public Transform Transform { get; private set; }
 
-        private readonly int maxMana = 0;
-        private readonly int maxHp = 0;
+        private int maxMana = 0;
+        private int maxHp = 0;
         private int currentMana = 0;
         private int currentHp = 0;
 
@@ -122,8 +123,8 @@ namespace FTKingdom
 
         protected virtual void OnSetup()
         {
-            currentHp = CharacterData.BaseHp;
-            currentMana = CharacterData.BaseMp;
+            currentHp = maxHp = CharacterData.BaseHp;
+            currentMana = maxMana = CharacterData.BaseMp;
 
             navMeshAgent.stoppingDistance = CharacterData.BaseAttackDistance;
         }
@@ -134,10 +135,11 @@ namespace FTKingdom
 
             if (currentHp > 0)
             {
-                UpdatePointsBar(maxHp, currentHp);
+                characterBarPointController.UpdateHealthPoints(currentHp, maxHp);
                 return;
             }
 
+            characterBarPointController.UpdateHealthPoints(Mathf.Max(currentHp, 0), maxHp);
             Die();
         }
 
@@ -150,7 +152,7 @@ namespace FTKingdom
         private void ConsumeMana(int quantity)
         {
             currentMana -= quantity;
-            UpdatePointsBar(maxMana, currentMana);
+            characterBarPointController.UpdateManaPoints(currentMana, maxMana);
         }
 
         private void SetupNavmesh()
@@ -159,15 +161,9 @@ namespace FTKingdom
             navMeshAgent.updateUpAxis = false;
         }
 
-        private void UpdatePointsBar(int max, int current)
-        {
-            float percent = (float)max / current;
-        }
-
         private void Die()
         {
             currentHp = 0;
-            // Debug.Log($"{gameObject.name} has died!");
         }
     }
 }

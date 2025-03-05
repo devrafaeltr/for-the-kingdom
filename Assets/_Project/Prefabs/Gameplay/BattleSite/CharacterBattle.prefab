@@ -97,11 +97,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -139324891, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -172,16 +172,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -139324891, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 500
 --- !u!1 &1447999663595907361
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 6653262813769765901}
   - component: {fileID: 1349030230083605464}
   - component: {fileID: 3629865464168645970}
+  - component: {fileID: 962934625626376032}
   m_Layer: 5
   m_Name: '[CANVAS] World - HealthPoints'
   m_TagString: Untagged
@@ -284,6 +285,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &962934625626376032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447999663595907361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfeb5b36191d5f4181820c8669551ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgHealthPoints: {fileID: 7307857064691293723}
+  imgManaPoints: {fileID: 1914289338790137806}
 --- !u!1 &1489946969149572235
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,10 +883,10 @@ MonoBehaviour:
   characterAnimator: {fileID: 6084379237582986612}
   navMeshAgent: {fileID: 3286546882473584079}
   spriteRenderer: {fileID: 6330718498607966273}
-  characterData: {fileID: 0}
+  CharacterData: {fileID: 0}
+  characterBarPointController: {fileID: 962934625626376032}
   projectileSpawnPosition: {fileID: 3803147862854815929}
   projectileData: {fileID: 11400000, guid: 2eb2074c2fb461b4980bde74e8a1e262, type: 2}
-  auxTarget: {fileID: 0}
 --- !u!195 &3286546882473584079
 NavMeshAgent:
   m_ObjectHideFlags: 0
