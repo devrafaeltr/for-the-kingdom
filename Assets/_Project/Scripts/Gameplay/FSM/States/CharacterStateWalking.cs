@@ -6,13 +6,11 @@ namespace FTKingdom
     {
         internal override CharacterState StateType => CharacterState.Walking;
 
-
         #region Movement variables
         private const float StuckThreshold = 0.5f;
         private const float StuckCheckInterval = 1f;
         private float stuckTimer;
         private Vector3 lastPosition;
-        private float distanceToTarget = 0;
         #endregion Movement variables
 
         internal override void End(CharacterBattle entity)
