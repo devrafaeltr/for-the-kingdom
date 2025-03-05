@@ -1,3 +1,4 @@
+using FTKingdom.Utils;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,7 +25,12 @@ namespace FTKingdom
             {
                 if (target == null)
                 {
-                    FindTarget();
+                    target = FindTarget();
+
+                    if (target == null)
+                    {
+                        ChangeState(CharacterState.Waiting);
+                    }
                 }
 
                 return target;
@@ -55,6 +61,16 @@ namespace FTKingdom
             {
                 OnSetup();
             }
+        }
+
+        private void OnEnable()
+        {
+            EventsManager.AddListener(EventsManager.OnCharacterDie, OnCharacterDie);
+        }
+
+        private void OnDisable()
+        {
+            EventsManager.AddListener(EventsManager.OnCharacterDie, OnCharacterDie);
         }
 
         private void Update()
@@ -108,6 +124,11 @@ namespace FTKingdom
 
         public void WalkToTarget()
         {
+            if (Target == null)
+            {
+                return;
+            }
+
             navMeshAgent.SetDestination(Target.position);
         }
 
@@ -118,7 +139,17 @@ namespace FTKingdom
 
         public bool IsCloseToTarget()
         {
+            if (Target == null)
+            {
+                return false;
+            }
+
             return Vector3.Distance(Transform.position, Target.position) <= CharacterData.BaseAttackDistance;
+        }
+
+        public void DisablePointBars()
+        {
+            characterBarPointController.Disable();
         }
 
         protected virtual void OnSetup()
@@ -127,6 +158,11 @@ namespace FTKingdom
             currentMana = maxMana = CharacterData.BaseMp;
 
             navMeshAgent.stoppingDistance = CharacterData.BaseAttackDistance;
+        }
+
+        protected virtual void OnDie()
+        {
+            BattleSiteManager.Instance.UpdateEnemies(transform);
         }
 
         private void Damage(int damage)
@@ -143,10 +179,11 @@ namespace FTKingdom
             Die();
         }
 
-        private void FindTarget()
+        private Transform FindTarget()
         {
             CharacterType targetype = CharacterData.Type == CharacterType.Hero ? CharacterType.Enemy : CharacterType.Hero;
-            Target = BattleSiteManager.Instance.GetClosestFromType(transform.position, targetype).transform;
+            var target = BattleSiteManager.Instance.GetClosestFromType(transform.position, targetype);
+            return target != null ? target : null;
         }
 
         private void ConsumeMana(int quantity)
@@ -164,6 +201,23 @@ namespace FTKingdom
         private void Die()
         {
             currentHp = 0;
+            ChangeState(CharacterState.Dead);
+
+            OnDie();
+
+            EventsManager.Publish(EventsManager.OnCharacterDie, new OnCharacterDieEvent(Transform));
+        }
+
+        private void OnCharacterDie(IGameEvent gameEvent)
+        {
+            OnCharacterDieEvent characterDieEvent = (OnCharacterDieEvent)gameEvent;
+
+            if (characterDieEvent.Character != Target)
+            {
+                return;
+            }
+
+            Target = FindTarget();
         }
     }
 }

@@ -16,6 +16,9 @@ MonoBehaviour:
   description: A random knight that likes to do random things.
   graphic: {fileID: 1891539144, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
   type: 1
-  baseHp: 5
+  baseHp: 80
   baseMp: 0
   possibleSkills: []
+  baseDamage: 3
+  baseAttackDistance: 8
+  baseAttackInterval: 2

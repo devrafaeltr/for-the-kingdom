@@ -42,8 +42,6 @@ namespace FTKingdom
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            Debug.Log($"{transform.name} collided with {collider.transform.name} | {target.name}");
-            // if (collision.CompareTag("Enemy"))
             if (collider.transform == target)
             {
                 if (collider.TryGetComponent(out CharacterBattle enemy))

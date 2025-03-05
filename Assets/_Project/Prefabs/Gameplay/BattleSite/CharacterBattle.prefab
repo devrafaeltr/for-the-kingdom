@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfeb5b36191d5f4181820c8669551ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barsContainer: {fileID: 3596819444438582924}
   imgHealthPoints: {fileID: 7307857064691293723}
   imgManaPoints: {fileID: 1914289338790137806}
 --- !u!1 &1489946969149572235

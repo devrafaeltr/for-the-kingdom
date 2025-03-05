@@ -1,3 +1,5 @@
+using FTKingdom.Utils;
+
 namespace FTKingdom
 {
     public class HeroBattle : CharacterBattle
@@ -11,6 +13,11 @@ namespace FTKingdom
             spriteRenderer.sprite = character.CharacterData.Graphic;
 
             OnSetup();
+        }
+
+        protected override void OnDie()
+        {
+            BattleSiteManager.Instance.UpdateHeroes(transform);
         }
     }
 }

@@ -565,8 +565,8 @@ TextureImporter:
       name: The Roguelike 1-13-14 Alpha_20
       rect:
         serializedVersion: 2
-        x: 64
-        y: 704
+        x: 128
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -671,6 +671,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SkullBones
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95aadd3ceb02af44cb1cc824e3db6f25
+      internalID: -525332775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkullEffect
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad62b68e3439ef4bad2369f1879746b
+      internalID: 2004072316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -695,6 +739,8 @@ TextureImporter:
       Icon - Map: 1909618076
       Icon - Sword: -1500340562
       Icon- Mana: 1418184572
+      SkullBones: -525332775
+      SkullEffect: 2004072316
       The Roguelike 1-13-14 Alpha_10: 2032634830
       The Roguelike 1-13-14 Alpha_12: 292810437
       The Roguelike 1-13-14 Alpha_13: -1913198842

@@ -1,4 +1,5 @@
 using FTKingdom.UI;
+using UnityEngine;
 
 namespace FTKingdom
 {
@@ -15,6 +16,16 @@ namespace FTKingdom
             NewMember = newMember;
             CurrentMember = currentMember;
             Slot = slot;
+        }
+    }
+
+    public class OnCharacterDieEvent : IGameEvent
+    {
+        public Transform Character { get; private set; }
+
+        public OnCharacterDieEvent(Transform character)
+        {
+            Character = character;
         }
     }
 }

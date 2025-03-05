@@ -29,7 +29,11 @@ namespace FTKingdom
 
             Transform SortCharacterList(List<Transform> characters, Vector2 position)
             {
-                if (characters.Count == 1)
+                if (characters.Count == 0)
+                {
+                    return null;
+                }
+                else if (characters.Count == 1)
                 {
                     return characters[0];
                 }
@@ -49,6 +53,16 @@ namespace FTKingdom
 
                 return characters[0];
             }
+        }
+
+        public void UpdateHeroes(Transform hero)
+        {
+            heroesInBattle.Remove(hero);
+        }
+
+        public void UpdateEnemies(Transform enemy)
+        {
+            enemiesInBattle.Remove(enemy);
         }
 
         private void SetupHeroParty()

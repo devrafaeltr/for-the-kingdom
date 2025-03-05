@@ -18,6 +18,8 @@ namespace FTKingdom.Utils
 
         #region Listerners - Battle Site
         public const string OnBattleStart = "OnBattleStart";
+        public const string OnCharacterDie = "OnCharacterDie";
+        public const string OnBattleEnd = "OnBattleEnd";
         #endregion
 
         private static Dictionary<string, List<Action<IGameEvent>>> _eventDictionary = new Dictionary<string, List<Action<IGameEvent>>>();

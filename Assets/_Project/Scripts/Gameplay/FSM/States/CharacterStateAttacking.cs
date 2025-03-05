@@ -57,6 +57,11 @@ namespace FTKingdom
 
         private void DoMeleeAttack(CharacterBattle entity)
         {
+            if (entity.Target == null)
+            {
+                return;
+            }
+
             Vector3 originalPosition = entity.Transform.position;
             Vector3 attackPosition = entity.Target.position;
             Vector3 direction = (attackPosition - originalPosition).normalized;

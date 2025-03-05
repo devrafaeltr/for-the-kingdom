@@ -4,6 +4,7 @@ namespace FTKingdom
     {
         Waiting,
         Walking,
-        Attacking
+        Attacking,
+        Dead
     }
 }

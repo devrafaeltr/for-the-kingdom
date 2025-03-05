@@ -9,7 +9,8 @@ namespace FTKingdom
         {
             { CharacterState.Waiting, new CharacterStateWaiting() },
             { CharacterState.Walking, new CharacterStateWalking() },
-            { CharacterState.Attacking, new CharacterStateAttacking() }
+            { CharacterState.Attacking, new CharacterStateAttacking() },
+            { CharacterState.Dead, new CharacterStateDead() }
         };
 
         private IState currentState;
