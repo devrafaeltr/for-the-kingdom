@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroPrefab: {fileID: 5404387110348269371, guid: 05f56254303b2cf4b902b3cf4eddbc6e, type: 3}
+  enemyPrefab: {fileID: 5933734888977712213, guid: 28901bece4bc5e948a71694ef3aea987, type: 3}
   heroSlots:
   - {fileID: 0}
   - {fileID: 0}
@@ -93,3 +94,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  eenemySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  waves:
+  - {fileID: 11400000, guid: 5d0d47ed91c01b64a927eeeaf060c439, type: 2}

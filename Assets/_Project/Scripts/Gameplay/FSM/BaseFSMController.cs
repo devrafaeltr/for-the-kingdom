@@ -57,5 +57,10 @@ namespace FTKingdom
                 CurrentState = entityState;
             }
         }
+
+        public void ForceEndState(CharacterBattle entity)
+        {
+            CurrentState.End(entity);
+        }
     }
 }

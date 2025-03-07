@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using FTKingdom.Utils;
 using UnityEngine;
 
@@ -7,15 +6,24 @@ namespace FTKingdom
 {
     public class BattleSiteManager : LocalSingleton<BattleSiteManager>
     {
+        [Header("Heroes")]
         [SerializeField] private HeroBattle heroPrefab = null;
+        [SerializeField] private CharacterBattle enemyPrefab = null;
+
+        [Header("Enemies")]
         [SerializeField] private List<Transform> heroSlots = new();
+        [SerializeField] private List<Transform> enemySlots = new();
+
+        // TODO: Maybe remove from here..... Monitoring.
+        [SerializeField] private List<EnemyWave> waves = new();
+
         private List<Transform> heroesInBattle = new();
         private List<Transform> enemiesInBattle = new();
 
         private void Awake()
         {
-            enemiesInBattle = GameObject.FindGameObjectsWithTag("Enemy").Select(e => e.transform).ToList();
             SetupHeroParty();
+            SetupEnemies();
         }
 
         public Transform GetClosestFromType(Vector2 position, CharacterType type)
@@ -55,26 +63,47 @@ namespace FTKingdom
             }
         }
 
-        public void UpdateHeroes(Transform hero)
+        public void RemoveHero(Transform hero)
         {
             heroesInBattle.Remove(hero);
         }
 
-        public void UpdateEnemies(Transform enemy)
+        public void RemoveEnemy(Transform enemy)
         {
             enemiesInBattle.Remove(enemy);
         }
 
+        public void AddHero(Transform hero)
+        {
+            heroesInBattle.Add(hero);
+        }
+
+        public void AddEnemy(Transform enemy)
+        {
+            enemiesInBattle.Add(enemy);
+        }
+
+        private void SetupEnemies()
+        {
+            EnemyWave currentWave = waves[GameManager.Instance.LevelPlaying];
+            foreach (WaveEnemy waveEnemy in currentWave.Enemies)
+            {
+                CharacterBattle enemyObj = Instantiate(enemyPrefab);
+                enemyObj.Setup(waveEnemy.Enemy);
+                enemyObj.transform.position = enemySlots[waveEnemy.Position].position;
+                AddEnemy(enemyObj.transform);
+            }
+        }
+
         private void SetupHeroParty()
         {
-            List<Character> partyHeroes = GameManager.Instance.GetParty();
-            foreach (Character hero in partyHeroes)
+            List<HeroData> partyHeroes = GameManager.Instance.GetParty();
+            foreach (HeroData hero in partyHeroes)
             {
                 HeroBattle heroObj = Instantiate(heroPrefab);
                 heroObj.Setup(hero);
                 heroObj.transform.position = heroSlots[hero.PartySlot].position;
-
-                heroesInBattle.Add(heroObj.transform);
+                AddHero(heroObj.transform);
             }
         }
     }

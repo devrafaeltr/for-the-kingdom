@@ -12,12 +12,12 @@ namespace FTKingdom
 
         private RectTransform rectTransform;
         private CanvasGroup canvasGroup;
-        private Character character;
+        private HeroData character;
         private float canvasScale = 1f;
 
         public bool IsOnParty => character.PartySlot >= 0;
 
-        public void Setup(Character newCharacter, float scaleFactor)
+        public void Setup(HeroData newCharacter, float scaleFactor)
         {
             character = newCharacter;
             ConfigureElement(scaleFactor);

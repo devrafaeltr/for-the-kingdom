@@ -55,12 +55,6 @@ namespace FTKingdom
             characterFSM.InitializeStates(this, CharacterState.Waiting);
 
             SetupNavmesh();
-
-            // TODO: Remove when implementing enemy instantiation
-            if (CharacterData != null)
-            {
-                OnSetup();
-            }
         }
 
         private void OnEnable()
@@ -70,7 +64,8 @@ namespace FTKingdom
 
         private void OnDisable()
         {
-            EventsManager.AddListener(EventsManager.OnCharacterDie, OnCharacterDie);
+            EventsManager.RemoveListener(EventsManager.OnCharacterDie, OnCharacterDie);
+            characterFSM.ForceEndState(this);
         }
 
         private void Update()
@@ -78,10 +73,9 @@ namespace FTKingdom
             characterFSM.UpdateCurrentState();
         }
 
-        private void ChangeState(CharacterState state)
+        public void Setup(CharacterSO character)
         {
-            currenState = state;
-            characterFSM.ChangeState(state);
+            OnSetup(character);
         }
 
         public void SetAnimationBool(string animation, bool value)
@@ -152,17 +146,19 @@ namespace FTKingdom
             characterBarPointController.Disable();
         }
 
-        protected virtual void OnSetup()
+        protected virtual void OnSetup(CharacterSO characterSO)
         {
+            CharacterData = characterSO;
+
+            spriteRenderer.sprite = CharacterData.Graphic;
             currentHp = maxHp = CharacterData.BaseHp;
             currentMana = maxMana = CharacterData.BaseMp;
-
             navMeshAgent.stoppingDistance = CharacterData.BaseAttackDistance;
         }
 
         protected virtual void OnDie()
         {
-            BattleSiteManager.Instance.UpdateEnemies(transform);
+            BattleSiteManager.Instance.RemoveEnemy(transform);
         }
 
         private void Damage(int damage)
@@ -218,6 +214,12 @@ namespace FTKingdom
             }
 
             Target = FindTarget();
+        }
+
+        private void ChangeState(CharacterState state)
+        {
+            currenState = state;
+            characterFSM.ChangeState(state);
         }
     }
 }

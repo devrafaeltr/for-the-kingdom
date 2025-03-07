@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1910ccfd6300364f9de2ec716d51a26, type: 3}
-  m_Name: Archer
+  m_Name: Enemy_Skeleton
   m_EditorClassIdentifier: 
-  name: Argolas
-  description: A random knight that likes to do random things.
-  graphic: {fileID: -6382673824156575416, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
-  type: 0
-  baseHp: 7
+  name: Skeleton
+  description: Creature of the darkness.
+  graphic: {fileID: 952901033, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  type: 1
+  baseHp: 15
   baseMp: 0
   possibleSkills: []
   baseDamage: 2
-  baseAttackDistance: 5
+  baseAttackDistance: 2
   baseAttackInterval: 1

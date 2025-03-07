@@ -1,7 +1,7 @@
 namespace FTKingdom
 {
     [System.Serializable]
-    public class Character
+    public class HeroData
     {
         public CharacterSO CharacterData { get; private set; }
         public int CurrentLevel { get; private set; }
