@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace FTKingdom
 {
     public class CharacterStateDead : IState
@@ -11,7 +9,7 @@ namespace FTKingdom
 
         internal override void Start(CharacterBattle entity)
         {
-            entity.DisablePointBars();
+            entity.DoDeathFlow();
             entity.SetAnimationTrigger("Die");
         }
 

@@ -22,14 +22,13 @@ namespace FTKingdom
         [SerializeField] private float baseAttackDistance = 5;
         [SerializeField] private float baseAttackInterval = 5;
 
-
         public string Name => name;
         public string Description => description;
         public Sprite Graphic => graphic;
         public CharacterType Type => type;
         public CharacterAttackType AttackType
         {
-            get => baseAttackDistance <= 1 ? CharacterAttackType.Melee : CharacterAttackType.Ranged;
+            get => baseAttackDistance <= 2 ? CharacterAttackType.Melee : CharacterAttackType.Ranged;
         }
         public int BaseHp => baseHp;
         public int BaseMp => baseMp;

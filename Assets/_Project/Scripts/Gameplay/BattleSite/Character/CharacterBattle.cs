@@ -1,4 +1,5 @@
 using FTKingdom.Utils;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,17 +9,17 @@ namespace FTKingdom
     {
         [SerializeField] private Animator characterAnimator;
         [SerializeField] private NavMeshAgent navMeshAgent;
-        [SerializeField] protected SpriteRenderer spriteRenderer;
-        [SerializeField] public CharacterSO CharacterData = null;
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        internal CharacterSO CharacterData = null;
 
         [Header("Attack info")]
         [SerializeField] private CharacterBarPointController characterBarPointController;
+        [SerializeField] private Transform projectileSpawnPositionParent;
         [SerializeField] private Transform projectileSpawnPosition;
         [SerializeField] private ProjectileSO projectileData;
 
+        public Transform SpriteTransform => spriteRenderer.transform;
         private Transform target;
-
-        [HideInInspector]
         public Transform Target
         {
             get
@@ -38,7 +39,7 @@ namespace FTKingdom
             private set => target = value;
         }
 
-        [HideInInspector] public Transform Transform { get; private set; }
+        internal Transform Transform { get; private set; }
 
         private int maxMana = 0;
         private int maxHp = 0;
@@ -66,6 +67,11 @@ namespace FTKingdom
         {
             EventsManager.RemoveListener(EventsManager.OnCharacterDie, OnCharacterDie);
             characterFSM.ForceEndState(this);
+        }
+
+        internal void SpawnRangedProjectile()
+        {
+            SpawnProjectile();
         }
 
         private void Update()
@@ -106,6 +112,12 @@ namespace FTKingdom
 
         public void SpawnProjectile()
         {
+            if (target == null || projectileSpawnPosition == null)
+            {
+                return;
+            }
+
+            RotateSpawnPosition();
             GameObject projectile = Instantiate(projectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
             projectile.GetComponent<Projectile>().Setup(CharacterData.BaseDamage, projectileData, Target);
         }
@@ -141,9 +153,11 @@ namespace FTKingdom
             return Vector3.Distance(Transform.position, Target.position) <= CharacterData.BaseAttackDistance;
         }
 
-        public void DisablePointBars()
+        public void DoDeathFlow()
         {
+            StopAgent();
             characterBarPointController.Disable();
+            navMeshAgent.enabled = false;
         }
 
         protected virtual void OnSetup(CharacterSO characterSO)
@@ -159,6 +173,13 @@ namespace FTKingdom
         protected virtual void OnDie()
         {
             BattleSiteManager.Instance.RemoveEnemy(transform);
+        }
+
+        private void RotateSpawnPosition()
+        {
+            Vector3 direction = target.position - projectileSpawnPosition.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            projectileSpawnPositionParent.rotation = Quaternion.Euler(0f, 0f, angle);
         }
 
         private void Damage(int damage)

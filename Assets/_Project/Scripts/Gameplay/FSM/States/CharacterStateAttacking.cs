@@ -41,9 +41,6 @@ namespace FTKingdom
 
         private void PerformAttack(CharacterBattle entity)
         {
-            // Debug.Log($"{gameObject.name} attacks {auxTarget.name} for {characterData.BaseDamage} damage!");
-            // Debug.Log($"{characterData.Name} attacks {auxTarget.name}! {characterData.BaseAttackDistance} | {characterData.AttackType}");
-
             if (entity.CharacterData.AttackType == CharacterAttackType.Melee)
             {
                 DoMeleeAttack(entity);
@@ -51,7 +48,6 @@ namespace FTKingdom
             else
             {
                 entity.SetAnimationTrigger("Attack");
-                entity.SpawnProjectile();
             }
         }
 
@@ -62,19 +58,20 @@ namespace FTKingdom
                 return;
             }
 
-            Vector3 originalPosition = entity.Transform.position;
+            Vector3 originalPosition = entity.SpriteTransform.position;
             Vector3 attackPosition = entity.Target.position;
             Vector3 direction = (attackPosition - originalPosition).normalized;
             Vector3 moveBackPosition = originalPosition - direction * 0.5f;
 
-            Sequence attackSequence = DOTween.Sequence();
-            attackSequence.Append(entity.Transform.DOMove(moveBackPosition, 0.1f))
-                          .Append(entity.Transform.DOMove(attackPosition, 0.2f))
-                          .OnComplete(() =>
-                          {
-                              entity.SpawnProjectile();
-                          })
-                          .Append(entity.Transform.DOMove(originalPosition, 0.1f));
+            Sequence attackSequence = DOTween.Sequence()
+            .Append(entity.SpriteTransform.DOMove(moveBackPosition, 0.1f))
+            .Append(entity.SpriteTransform.DOMove(attackPosition, 0.2f))
+            .AppendCallback(() =>
+            {
+                entity.SpawnProjectile();
+            })
+            .Append(entity.SpriteTransform.DOMove(originalPosition, 0.1f))
+            .Play();
         }
     }
 }
