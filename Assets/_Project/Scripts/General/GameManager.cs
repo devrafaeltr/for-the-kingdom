@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using FTKingdom.Utils;
-using Random = UnityEngine.Random;
 
 namespace FTKingdom
 {
@@ -24,6 +22,11 @@ namespace FTKingdom
             SceneHandler.Instance.LoadScene(GameScene.MainMenu);
         }
 
+        private void OnDisable()
+        {
+            SaveData();
+        }
+
         public List<HeroData> GetParty()
         {
             return CurrentData.currentHeroes.FindAll(c => c.IsOnParty);
@@ -37,6 +40,11 @@ namespace FTKingdom
         private void GetSaved()
         {
             CurrentData = SaveManager.LoadData<KingdomData>(SaveManager.kingdomData);
+        }
+
+        private void SaveData()
+        {
+            SaveManager.SaveData(SaveManager.kingdomData, CurrentData);
         }
     }
 }

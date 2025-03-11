@@ -65,6 +65,7 @@ namespace FTKingdom.UI
             slot.SetCurrentMember(newMember);
         }
 
+        // TODO: Find out why its Aux.
         private void AuxSetupHeroes()
         {
             foreach (var hero in GameManager.Instance.CurrentHeroes)
