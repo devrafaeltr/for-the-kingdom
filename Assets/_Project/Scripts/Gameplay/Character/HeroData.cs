@@ -5,20 +5,15 @@ namespace FTKingdom
     [System.Serializable]
     public class HeroData
     {
-        public CharacterSO CharacterData { get; private set; }
-        public int CurrentLevel { get; private set; }
-        public bool IsOnParty { get; private set; } = false;
-        public int PartySlot { get; private set; } = -1;
-        public List<CharacterSpell> HeroSpells { get; private set; } = new();
+        public ClassType CharacterClass;
+        public int CurrentLevel;
+        public bool IsOnParty = false;
+        public int PartySlot = -1;
+        public List<SpellType> HeroSpells = new();
 
-        public void SetCharacterData(CharacterSO data)
+        public void SetCharacterClass(ClassType type)
         {
-            CharacterData = data;
-        }
-
-        public void DoLevelUp()
-        {
-            CurrentLevel++;
+            CharacterClass = type;
         }
 
         public void SetPartySlot(int slot)

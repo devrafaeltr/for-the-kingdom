@@ -1,5 +1,3 @@
-using FTKingdom.Utils;
-
 namespace FTKingdom
 {
     public class HeroBattle : CharacterBattle
@@ -9,7 +7,7 @@ namespace FTKingdom
         public void Setup(HeroData character)
         {
             characterInfos = character;
-            OnSetup(character.CharacterData);
+            OnSetup(ScriptableDatabase.Instance.GetCharacterData(character.CharacterClass));
         }
 
         protected override void OnDie()

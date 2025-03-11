@@ -29,7 +29,8 @@ namespace FTKingdom
             canvasGroup = GetComponent<CanvasGroup>();
             canvasScale = scaleFactor;
 
-            imgCharacter.sprite = character.CharacterData.Graphic;
+            Sprite sprite = ScriptableDatabase.Instance.GetCharacterData(character.CharacterClass).Graphic;
+            imgCharacter.sprite = sprite;
         }
 
         public void FitToParent()
