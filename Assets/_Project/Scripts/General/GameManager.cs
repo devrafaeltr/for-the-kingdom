@@ -51,6 +51,7 @@ namespace FTKingdom
         public void UpdateLastCompletedLevel()
         {
             LastLevelCompleted = currentLevel;
+            SaveData();
         }
 
         private void GetSaved()
