@@ -8,31 +8,36 @@ namespace FTKingdom
         [MenuItem("Scenes/InitialLoad", priority = 0)]
         public static void LoadInitialLoad()
         {
-            EditorSceneManager.OpenScene($"Assets/_Project/Scenes/General/{GameScene.InitialLoad}.unity");
+            OpenEditorScene($"Assets/_Project/Scenes/General/{GameScene.InitialLoad}");
         }
 
         [MenuItem("Scenes/MainMenu", priority = 1)]
         public static void LoadSceneMenu()
         {
-            EditorSceneManager.OpenScene($"Assets/_Project/Scenes/Gameplay/{GameScene.MainMenu}.unity");
+            OpenEditorScene($"Assets/_Project/Scenes/General/{GameScene.MainMenu}");
         }
 
         [MenuItem("Scenes/CampingSite", priority = 2)]
         public static void LoadCampingSite()
         {
-            EditorSceneManager.OpenScene($"Assets/_Project/Scenes/Gameplay/{GameScene.CampingSite}.unity");
+            OpenEditorScene($"Assets/_Project/Scenes/Gameplay/{GameScene.CampingSite}");
         }
 
         [MenuItem("Scenes/MiniMap", priority = 3)]
         public static void LoadMiniMap()
         {
-            EditorSceneManager.OpenScene($"Assets/_Project/Scenes/Gameplay/{GameScene.MiniMap}.unity");
+            OpenEditorScene($"Assets/_Project/Scenes/Gameplay/{GameScene.MiniMap}");
         }
 
         [MenuItem("Scenes/BattleSite", priority = 4)]
         public static void LoadBattleSite()
         {
-            EditorSceneManager.OpenScene($"Assets/_Project/Scenes/Gameplay/{GameScene.BattleSite}.unity");
+            OpenEditorScene($"Assets/_Project/Scenes/Gameplay/{GameScene.BattleSite}");
+        }
+
+        private static void OpenEditorScene(string scenePath)
+        {
+            EditorSceneManager.OpenScene($"{scenePath}.unity");
         }
     }
 }
