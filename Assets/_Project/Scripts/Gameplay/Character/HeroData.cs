@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace FTKingdom
 {
     [System.Serializable]
@@ -7,6 +9,7 @@ namespace FTKingdom
         public int CurrentLevel { get; private set; }
         public bool IsOnParty { get; private set; } = false;
         public int PartySlot { get; private set; } = -1;
+        public List<CharacterSpell> HeroSpells { get; private set; } = new();
 
         public void SetCharacterData(CharacterSO data)
         {

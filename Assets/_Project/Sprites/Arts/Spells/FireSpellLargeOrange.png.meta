@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 8a0518efb738843408fecb996e5c1252
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7009953908921180972
+    second: fanfx2_fire_spell_large_orange_0
+  - first:
+      213: -1186731718643926874
+    second: fanfx2_fire_spell_large_orange_1
+  - first:
+      213: -7232248228128293077
+    second: fanfx2_fire_spell_large_orange_2
+  - first:
+      213: -3597955398277038353
+    second: fanfx2_fire_spell_large_orange_3
+  - first:
+      213: -4043150951238949520
+    second: fanfx2_fire_spell_large_orange_4
+  - first:
+      213: 7681973546724715344
+    second: fanfx2_fire_spell_large_orange_5
+  - first:
+      213: -9165432127928925481
+    second: fanfx2_fire_spell_large_orange_6
+  - first:
+      213: 7947564940631545708
+    second: fanfx2_fire_spell_large_orange_7
+  - first:
+      213: 6954384560645702592
+    second: fanfx2_fire_spell_large_orange_8
+  - first:
+      213: 4048282198478841390
+    second: fanfx2_fire_spell_large_orange_9
+  - first:
+      213: -6890126064369166487
+    second: fanfx2_fire_spell_large_orange_10
+  - first:
+      213: -1595312299658256133
+    second: fanfx2_fire_spell_large_orange_11
+  - first:
+      213: 7381600917829958153
+    second: fanfx2_fire_spell_large_orange_12
+  - first:
+      213: -3772071552785987390
+    second: fanfx2_fire_spell_large_orange_13
+  - first:
+      213: 2480329078131696051
+    second: fanfx2_fire_spell_large_orange_14
+  - first:
+      213: -1741836821265702995
+    second: fanfx2_fire_spell_large_orange_15
+  - first:
+      213: 819075492555644364
+    second: fanfx2_fire_spell_large_orange_16
+  - first:
+      213: 430721891823603388
+    second: fanfx2_fire_spell_large_orange_17
+  - first:
+      213: 8273371486230859418
+    second: fanfx2_fire_spell_large_orange_18
+  - first:
+      213: -4647074248383635397
+    second: fanfx2_fire_spell_large_orange_19
+  - first:
+      213: 7365226115424504623
+    second: fanfx2_fire_spell_large_orange_20
+  - first:
+      213: -4987198342878653440
+    second: fanfx2_fire_spell_large_orange_21
+  - first:
+      213: -7425863943684687090
+    second: fanfx2_fire_spell_large_orange_22
+  - first:
+      213: 4939034544276853085
+    second: fanfx2_fire_spell_large_orange_23
+  - first:
+      213: 6812992034747299475
+    second: fanfx2_fire_spell_large_orange_24
+  - first:
+      213: -975136466834405761
+    second: fanfx2_fire_spell_large_orange_25
+  - first:
+      213: -886180744547923941
+    second: fanfx2_fire_spell_large_orange_26
+  - first:
+      213: -5497071254067586647
+    second: fanfx2_fire_spell_large_orange_27
+  - first:
+      213: -3896244284818743371
+    second: fanfx2_fire_spell_large_orange_28
+  - first:
+      213: -8459517421299110141
+    second: fanfx2_fire_spell_large_orange_29
+  - first:
+      213: 5466812484151152172
+    second: fanfx2_fire_spell_large_orange_30
+  - first:
+      213: 2013528888936857314
+    second: fanfx2_fire_spell_large_orange_31
+  - first:
+      213: 8514119982303433777
+    second: fanfx2_fire_spell_large_orange_32
+  - first:
+      213: -7256062609973306867
+    second: fanfx2_fire_spell_large_orange_33
+  - first:
+      213: 2440771244895266271
+    second: fanfx2_fire_spell_large_orange_34
+  - first:
+      213: 4537178020951411986
+    second: fanfx2_fire_spell_large_orange_35
+  - first:
+      213: -3333166785945396946
+    second: fanfx2_fire_spell_large_orange_36
+  - first:
+      213: -3800725958663323819
+    second: fanfx2_fire_spell_large_orange_37
+  - first:
+      213: 2394983822404850647
+    second: fanfx2_fire_spell_large_orange_38
+  - first:
+      213: -4936712413438761732
+    second: fanfx2_fire_spell_large_orange_39
+  - first:
+      213: 788474836116827523
+    second: fanfx2_fire_spell_large_orange_40
+  - first:
+      213: 1419691941015027892
+    second: fanfx2_fire_spell_large_orange_41
+  - first:
+      213: 3644512219937438925
+    second: fanfx2_fire_spell_large_orange_42
+  - first:
+      213: 2950128049429484457
+    second: fanfx2_fire_spell_large_orange_43
+  - first:
+      213: -1097438078481983236
+    second: fanfx2_fire_spell_large_orange_44
+  - first:
+      213: 463077342293575625
+    second: fanfx2_fire_spell_large_orange_45
+  - first:
+      213: 5144700031038472526
+    second: fanfx2_fire_spell_large_orange_46
+  - first:
+      213: 7265918417949007476
+    second: fanfx2_fire_spell_large_orange_47
+  - first:
+      213: -5492013189982761284
+    second: fanfx2_fire_spell_large_orange_48
+  - first:
+      213: 5145624193423645194
+    second: fanfx2_fire_spell_large_orange_49
+  - first:
+      213: 189727567909290323
+    second: fanfx2_fire_spell_large_orange_50
+  - first:
+      213: 5462926790497006643
+    second: fanfx2_fire_spell_large_orange_51
+  - first:
+      213: 3897937884077455175
+    second: fanfx2_fire_spell_large_orange_52
+  - first:
+      213: -3357962966970418734
+    second: fanfx2_fire_spell_large_orange_53
+  - first:
+      213: 8872213928261753155
+    second: fanfx2_fire_spell_large_orange_54
+  - first:
+      213: 8438256470287960873
+    second: fanfx2_fire_spell_large_orange_55
+  - first:
+      213: 2302209026573376773
+    second: fanfx2_fire_spell_large_orange_56
+  - first:
+      213: -6159438366236668983
+    second: fanfx2_fire_spell_large_orange_57
+  - first:
+      213: -1365879379885564736
+    second: fanfx2_fire_spell_large_orange_58
+  - first:
+      213: -4671046640946995813
+    second: fanfx2_fire_spell_large_orange_59
+  - first:
+      213: 7542515397077207194
+    second: fanfx2_fire_spell_large_orange_60
+  - first:
+      213: 3759906805631395770
+    second: fanfx2_fire_spell_large_orange_61
+  - first:
+      213: 3454157228247230387
+    second: fanfx2_fire_spell_large_orange_62
+  - first:
+      213: 2584348781898512402
+    second: fanfx2_fire_spell_large_orange_63
+  - first:
+      213: -845656576849556039
+    second: fanfx2_fire_spell_large_orange_64
+  - first:
+      213: 3961472910093836395
+    second: fanfx2_fire_spell_large_orange_65
+  - first:
+      213: -2138994920285540153
+    second: fanfx2_fire_spell_large_orange_66
+  - first:
+      213: -1444594047405272439
+    second: fanfx2_fire_spell_large_orange_67
+  - first:
+      213: -408094757624197223
+    second: fanfx2_fire_spell_large_orange_68
+  - first:
+      213: 295794822396452935
+    second: fanfx2_fire_spell_large_orange_69
+  - first:
+      213: 8823970232786879431
+    second: fanfx2_fire_spell_large_orange_70
+  - first:
+      213: 8379774785707243864
+    second: fanfx2_fire_spell_large_orange_71
+  - first:
+      213: 8425048394147616112
+    second: fanfx2_fire_spell_large_orange_72
+  - first:
+      213: -7090135338525828200
+    second: fanfx2_fire_spell_large_orange_73
+  - first:
+      213: 7239335123154052275
+    second: fanfx2_fire_spell_large_orange_74
+  - first:
+      213: 3757121967488281557
+    second: fanfx2_fire_spell_large_orange_75
+  - first:
+      213: -1869328101421803518
+    second: fanfx2_fire_spell_large_orange_76
+  - first:
+      213: 3835242358490949431
+    second: fanfx2_fire_spell_large_orange_77
+  - first:
+      213: -8413792824777194668
+    second: fanfx2_fire_spell_large_orange_78
+  - first:
+      213: 8180598436287500481
+    second: fanfx2_fire_spell_large_orange_79
+  - first:
+      213: 5049892305350703710
+    second: fanfx2_fire_spell_large_orange_80
+  - first:
+      213: 7870050888759319031
+    second: fanfx2_fire_spell_large_orange_81
+  - first:
+      213: 7630313222039588944
+    second: fanfx2_fire_spell_large_orange_82
+  - first:
+      213: -3791248716890568914
+    second: fanfx2_fire_spell_large_orange_83
+  - first:
+      213: 1031761941878060098
+    second: fanfx2_fire_spell_large_orange_84
+  - first:
+      213: 5594765458132194770
+    second: fanfx2_fire_spell_large_orange_85
+  - first:
+      213: -5045886344798002477
+    second: fanfx2_fire_spell_large_orange_86
+  - first:
+      213: -6939389687303502276
+    second: fanfx2_fire_spell_large_orange_87
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1315da472b8f1254a860f76d483458ea
+      internalID: 1050782321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9355c80ee42e58248a2c7632193c86cb
+      internalID: 619610698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc96ccc23264d554eae0b7ddf862a36d
+      internalID: -624247239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d47e3dc07a704a4792422701ac2d45a
+      internalID: -646808468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_4
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f39262dc123124cb2bb6aeb345f873
+      internalID: 1330183322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b393a22c7966a14449bd77a0e6e0d9dd
+      internalID: -1128641854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e8ea4b3ba255734980491a54578b00e
+      internalID: 176864934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_7
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c928e3855c8714c80ed17de3b0d374
+      internalID: -916859362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783201951a6ea5b4ca127396286cc83e
+      internalID: 1808404484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a41eb7bd62abd4393bbfc476b3ddc8
+      internalID: 664133220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_10
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a90b1ee826f26d44970214413835995
+      internalID: -707465376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_11
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306656aecce580e418b8a4791a17053d
+      internalID: 1941781815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_12
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a891d41e34464c48a8d8edcb8101b6d
+      internalID: 1130251038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_13
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53dcd793389920c49bd488b95c9b0510
+      internalID: -594148014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_14
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8baf9ccf720ce824bb94ebc5c387a05f
+      internalID: 129506708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_15
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07342828ad6576a40887d5b76ac3ffc6
+      internalID: -1593929508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_16
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d0abeee1c115d4e81c20374695493d
+      internalID: 1608325568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_17
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e4226ec115477459c7f34c19804cc3
+      internalID: -1140073101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_18
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b374990c1a40bc843b19683d7632b9b9
+      internalID: 1164456342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_19
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1d9a2a554f19fa428573ad7e041cd0f
+      internalID: 1625121208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_20
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91a4d2006c0de045b893e03aaf50357
+      internalID: 566885055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_21
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2426a073966be47a0dd3c41ec28d50
+      internalID: -1178397637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSpellLargeOrange_22
+      rect:
+        serializedVersion: 2
+        x: 3520
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bab044fd98a914b8c312c6fb58ba0c
+      internalID: -1477423941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9665c4d0c9f3eeb4d80c558219952295
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FireSpellLargeOrange_0: 1050782321
+      FireSpellLargeOrange_1: 619610698
+      FireSpellLargeOrange_10: -707465376
+      FireSpellLargeOrange_11: 1941781815
+      FireSpellLargeOrange_12: 1130251038
+      FireSpellLargeOrange_13: -594148014
+      FireSpellLargeOrange_14: 129506708
+      FireSpellLargeOrange_15: -1593929508
+      FireSpellLargeOrange_16: 1608325568
+      FireSpellLargeOrange_17: -1140073101
+      FireSpellLargeOrange_18: 1164456342
+      FireSpellLargeOrange_19: 1625121208
+      FireSpellLargeOrange_2: -624247239
+      FireSpellLargeOrange_20: 566885055
+      FireSpellLargeOrange_21: -1178397637
+      FireSpellLargeOrange_22: -1477423941
+      FireSpellLargeOrange_3: -646808468
+      FireSpellLargeOrange_4: 1330183322
+      FireSpellLargeOrange_5: -1128641854
+      FireSpellLargeOrange_6: 176864934
+      FireSpellLargeOrange_7: -916859362
+      FireSpellLargeOrange_8: 1808404484
+      FireSpellLargeOrange_9: 664133220
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

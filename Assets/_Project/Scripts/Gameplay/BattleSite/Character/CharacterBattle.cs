@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using FTKingdom.Utils;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,7 +16,8 @@ namespace FTKingdom
         [SerializeField] private CharacterBarPointController characterBarPointController;
         [SerializeField] private Transform projectileSpawnPositionParent;
         [SerializeField] private Transform projectileSpawnPosition;
-        [SerializeField] private ProjectileSO projectileData;
+
+        private readonly List<CharacterSpell> characterSpells = new();
 
         public Transform SpriteTransform => spriteRenderer.transform;
         private Transform target;
@@ -49,6 +50,8 @@ namespace FTKingdom
         // TODO: Change to BaseeFSMController<T>
         private readonly BaseFSMController characterFSM = new();
         private CharacterState currenState = CharacterState.Waiting;
+
+        private readonly Dictionary<SpellTrigger, CharacterSpell> spellByTriggers = new();
 
         private void Start()
         {
@@ -117,9 +120,14 @@ namespace FTKingdom
                 return;
             }
 
+            if (CharacterData.AttackType == CharacterAttackType.Melee)
+            {
+                projectileSpawnPosition.position = Target.position;
+            }
+
             RotateSpawnPosition();
-            GameObject projectile = Instantiate(projectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
-            projectile.GetComponent<Projectile>().Setup(CharacterData.BaseDamage, projectileData, Target);
+            GameObject projectile = Instantiate(CharacterData.ProjectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
+            projectile.GetComponent<Projectile>().Setup(CharacterData.BaseDamage, CharacterData.ProjectileData, Target);
         }
 
         public void MoveTowardsTarget()
@@ -168,12 +176,45 @@ namespace FTKingdom
             currentHp = maxHp = CharacterData.BaseHp;
             currentMana = maxMana = CharacterData.BaseMp;
             navMeshAgent.stoppingDistance = CharacterData.BaseAttackDistance;
+
+            SetupSpells();
         }
 
         protected virtual void OnDie()
         {
             BattleSiteManager.Instance.RemoveEnemy(transform);
         }
+
+        #region Spells
+        private void SetupSpells()
+        {
+            foreach (var spellData in CharacterData.PossibleSpells)
+            {
+                characterSpells.Add(new CharacterSpell(spellData));
+            }
+        }
+
+        internal void SetupSpellsCooldown()
+        {
+            foreach (var spell in characterSpells)
+            {
+                spell.ResetCooldown();
+            }
+        }
+
+        internal void UpdateSpellCooldown()
+        {
+            foreach (var spell in characterSpells)
+            {
+                spell.DoCooldownProgress();
+
+                if (spell.CanUse)
+                {
+                    spell.Use(transform.position, Target);
+                }
+            }
+        }
+        #endregion
 
         private void RotateSpawnPosition()
         {

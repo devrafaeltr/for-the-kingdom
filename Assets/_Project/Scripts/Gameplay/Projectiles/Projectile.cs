@@ -4,6 +4,7 @@ namespace FTKingdom
 {
     public class Projectile : MonoBehaviour
     {
+        [SerializeField] private Animator animator = null;
         [SerializeField] private Rigidbody2D projectileRigidbody = null;
         [SerializeField] private SpriteRenderer projectileRenderer = null;
 
@@ -18,6 +19,9 @@ namespace FTKingdom
 
             projectileRenderer.sprite = projectile.Graphic;
             target = newTarget;
+
+            animator.runtimeAnimatorController = projectileData.AnimatorOverrider;
+            StartAnimation();
         }
 
         private void Update()
@@ -30,6 +34,27 @@ namespace FTKingdom
             }
 
             MoveTowardsTarget();
+        }
+
+        private void StartAnimation()
+        {
+            if (projectileData.AnimatorOverrider != null)
+            {
+                animator.SetBool("Start", true);
+            }
+        }
+
+        // private void DoSpawnAnimation()
+        // {
+        //     // Possibly its not needed.
+        // }
+
+        private void DoEndAnimaion()
+        {
+            if (projectileData.AnimatorOverrider != null)
+            {
+                animator.SetBool("End", true);
+            }
         }
 
         private void MoveTowardsTarget()

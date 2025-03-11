@@ -18,7 +18,9 @@ MonoBehaviour:
   type: 1
   baseHp: 10
   baseMp: 0
-  possibleSkills: []
+  projectileData: {fileID: 11400000, guid: 2eb2074c2fb461b4980bde74e8a1e262, type: 2}
   baseDamage: 3
-  baseAttackDistance: 8
+  baseAttackDistance: 20
   baseAttackInterval: 2
+  possibleSpells:
+  - {fileID: 11400000, guid: 4a3567689af07b346a08bfa817283797, type: 2}

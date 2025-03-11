@@ -22,7 +22,7 @@ namespace FTKingdom.Utils
         public const string OnBattleEnd = "OnBattleEnd";
         #endregion
 
-        private static Dictionary<string, List<Action<IGameEvent>>> _eventDictionary = new Dictionary<string, List<Action<IGameEvent>>>();
+        private static Dictionary<string, List<Action<IGameEvent>>> _eventDictionary = new();
 
         public static void AddListener(string eventName, Action<IGameEvent> callbackToAdd)
         {

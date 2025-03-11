@@ -20,6 +20,7 @@ namespace FTKingdom
         internal override void Update(CharacterBattle entity)
         {
             HandleAttack(entity);
+            entity.UpdateSpellCooldown();
         }
 
         private void HandleAttack(CharacterBattle entity)

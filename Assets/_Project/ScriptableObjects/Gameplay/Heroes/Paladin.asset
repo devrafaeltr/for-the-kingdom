@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1910ccfd6300364f9de2ec716d51a26, type: 3}
-  m_Name: Enemy_Skeleton
+  m_Name: Paladin
   m_EditorClassIdentifier: 
-  name: Skeleton
-  description: Creature of the darkness.
-  graphic: {fileID: 952901033, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
-  type: 1
-  baseHp: 15
+  name: Leroy
+  description: A random knight that likes to do random things.
+  graphic: {fileID: 478084500, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  type: 0
+  baseHp: 7
   baseMp: 0
   projectileData: {fileID: 11400000, guid: 2eb2074c2fb461b4980bde74e8a1e262, type: 2}
   baseDamage: 2
-  baseAttackDistance: 2
+  baseAttackDistance: 1.5
   baseAttackInterval: 1
-  possibleSpells:
-  - {fileID: 11400000, guid: 3389d83f7206175438ce5cbe9645beb0, type: 2}
+  possibleSpells: []

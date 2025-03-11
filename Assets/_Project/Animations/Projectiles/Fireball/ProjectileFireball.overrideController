@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ProjectileFireball
+  m_Controller: {fileID: 9100000, guid: 10b75b5b45221d441be7a31c09c18267, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4b34f667304aa3546b62a4c9265bebed, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e3e7f13898c8e144f9867c1a903d6ab3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 49a5a79d134a4d84292d1331c81d4c2a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 29e864dce53ee4747a698e40973cc6c5, type: 2}

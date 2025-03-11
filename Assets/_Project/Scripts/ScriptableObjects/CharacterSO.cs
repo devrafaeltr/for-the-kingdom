@@ -15,12 +15,13 @@ namespace FTKingdom
         [Header("Stats infos")]
         [SerializeField] private int baseHp = 5;
         [SerializeField] private int baseMp = 0;
-        [SerializeField] private List<SkillSO> possibleSkills = new();
 
         [Header("Combat infos")]
+        [SerializeField] private ProjectileSO projectileData;
         [SerializeField] private int baseDamage = 5;
         [SerializeField] private float baseAttackDistance = 5;
         [SerializeField] private float baseAttackInterval = 5;
+        [SerializeField] private List<BaseSpellSO> possibleSpells = new();
 
         public string Name => name;
         public string Description => description;
@@ -32,9 +33,10 @@ namespace FTKingdom
         }
         public int BaseHp => baseHp;
         public int BaseMp => baseMp;
-        public List<SkillSO> PossibleSkills => possibleSkills;
+        public ProjectileSO ProjectileData => projectileData;
         public int BaseDamage => baseDamage;
         public float BaseAttackDistance => baseAttackDistance;
         public float BaseAttackInterval => baseAttackInterval;
+        public List<BaseSpellSO> PossibleSpells => possibleSpells;
     }
 }

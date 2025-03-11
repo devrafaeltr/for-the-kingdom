@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e25206ed4774bb64f903a641ca6c4690, type: 3}
-  m_Name: BaseProjectile
+  m_Name: ProjectileFireball
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1533703806021451078, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
-  graphic: {fileID: -522019747, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  graphic: {fileID: -624247239, guid: 8a0518efb738843408fecb996e5c1252, type: 3}
   speed: 3
-  damage: 1

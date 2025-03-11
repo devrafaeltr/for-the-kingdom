@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -3.6440341, y: -3.5306478, z: 0.03638291}
+    m_Target: {x: -1.3004546, y: -0.25959206, z: -0.014263798}
     speed: 2
     m_Value: {x: -3.6440341, y: -3.5306478, z: 0.03638291}
   m_RenderMode: 0
@@ -1067,7 +1067,7 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.3410316
+    m_Target: 1.7688937
     speed: 2
     m_Value: 2.3410316
   m_Ortho:
@@ -1327,7 +1327,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Project/ScriptableObjects/Heroes
+    - Assets/_Project/ScriptableObjects
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1346,7 +1346,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 60}
     m_SelectedIDs: b8b20000
     m_LastClickedID: 45752
-    m_ExpandedIDs: 000000008cb000008eb0000090b0000092b0000094b0000096b0000098b00000
+    m_ExpandedIDs: 00000000d4b00000d6b00000d8b00000dab00000dcb00000deb00000e0b00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1375,7 +1375,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008cb000008eb0000090b0000092b0000094b0000096b0000098b00000
+    m_ExpandedIDs: 00000000d4b00000d6b00000d8b00000dab00000dcb00000deb00000e0b00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
