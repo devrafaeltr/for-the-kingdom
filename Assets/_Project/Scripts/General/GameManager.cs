@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using FTKingdom.Utils;
 
 namespace FTKingdom
@@ -7,17 +8,22 @@ namespace FTKingdom
     {
         public List<HeroData> CurrentHeroes => CurrentData.currentHeroes;
 
-        public int LevelPlaying
+        public int LastLevelCompleted
         {
             get => CurrentData.lastLevelCompleted;
+            private set => CurrentData.lastLevelCompleted = value;
         }
 
+
         private KingdomData CurrentData = new();
+        public int currentLevel = 0;
 
         protected override void Awake()
         {
             base.Awake();
             GetSaved();
+
+            LastLevelCompleted = -1;
 
             SceneHandler.Instance.LoadScene(GameScene.MainMenu);
         }
@@ -34,7 +40,17 @@ namespace FTKingdom
 
         public void SetCurrentLevelPlaying(int levelId)
         {
+            currentLevel = levelId;
+        }
 
+        public int GetCurrentLevelPlaying()
+        {
+            return currentLevel;
+        }
+
+        public void UpdateLastCompletedLevel()
+        {
+            LastLevelCompleted = currentLevel;
         }
 
         private void GetSaved()

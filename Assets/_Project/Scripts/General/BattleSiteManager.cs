@@ -71,6 +71,12 @@ namespace FTKingdom
         public void RemoveEnemy(Transform enemy)
         {
             enemiesInBattle.Remove(enemy);
+
+            if (enemiesInBattle.Count == 0)
+            {
+                // TODO: Add a timer after the last enemy die, then call it completed, if aliv hero.
+                GameManager.Instance.UpdateLastCompletedLevel();
+            }
         }
 
         public void AddHero(Transform hero)
@@ -85,7 +91,7 @@ namespace FTKingdom
 
         private void SetupEnemies()
         {
-            EnemyWave currentWave = waves[GameManager.Instance.LevelPlaying];
+            EnemyWave currentWave = waves[GameManager.Instance.GetCurrentLevelPlaying()];
             foreach (WaveEnemy waveEnemy in currentWave.Enemies)
             {
                 CharacterBattle enemyObj = Instantiate(enemyPrefab);
