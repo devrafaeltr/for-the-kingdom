@@ -42,6 +42,10 @@ namespace FTKingdom
         }
 
         internal Transform Transform { get; private set; }
+        internal float MissingHealthPercent
+        {
+            get => (maxHp - currentHp) * 100 / (float)maxHp;
+        }
 
         private int maxMana = 0;
         private int maxHp = 0;

@@ -19,9 +19,9 @@ namespace FTKingdom
 
             // TODO: Fix for another-kind skills. 
             // This is only for healing
-            targets.OrderBy(t => t.GetHealth());
+            targets = targets.OrderByDescending(t => t.MissingHealthPercent).ToList();
             target = targets[0].Transform;
-            UnityEngine.Debug.Log(string.Join(", ", targets.Select(t => $"({t.GetHealth()} | {t.CharacterData.Name})")));
+            UnityEngine.Debug.Log(string.Join(", ", targets.Select(t => $"({t.MissingHealthPercent} | {t.CharacterData.Name})")));
         }
 
         protected override void OnFindTarget(CharacterBattle projectileTarget)
