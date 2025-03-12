@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1910ccfd6300364f9de2ec716d51a26, type: 3}
-  m_Name: Enemy_MaybeMonk
+  m_Name: EnemyMaybeMonk
   m_EditorClassIdentifier: 
   name: Sir Random
   description: Creature of the darkness.
