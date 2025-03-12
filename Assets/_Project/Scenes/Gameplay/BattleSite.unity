@@ -5149,18 +5149,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: heroPrefab
-      value: 
-      objectReference: {fileID: 2139513741688962543, guid: f028df4254dc0fc49b763d5d8f279ea6, type: 3}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 2228472704731125685, guid: 1b85c3a1848f7c3419491b6a561f04b6, type: 3}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: enemySlots.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
       propertyPath: 'heroSlots.Array.data[0]'
       value: 
       objectReference: {fileID: 155640191}
@@ -5236,58 +5224,6 @@ PrefabInstance:
       propertyPath: 'enemySlots.Array.data[8]'
       value: 
       objectReference: {fileID: 1839039877}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[0]'
-      value: 
-      objectReference: {fileID: 549357401}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1700872422}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[2]'
-      value: 
-      objectReference: {fileID: 566806537}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[3]'
-      value: 
-      objectReference: {fileID: 1877451079}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[4]'
-      value: 
-      objectReference: {fileID: 1729380817}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[5]'
-      value: 
-      objectReference: {fileID: 1713654070}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[6]'
-      value: 
-      objectReference: {fileID: 193506600}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[7]'
-      value: 
-      objectReference: {fileID: 738496484}
-    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'eenemySlots.Array.data[8]'
-      value: 
-      objectReference: {fileID: 1839039877}
-    - target: {fileID: 6461594930631749521, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6461594930631749521, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[1]'
-      value: 1455948093
-      objectReference: {fileID: 0}
-    - target: {fileID: 6461594930631749521, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[2]'
-      value: -1049818937
-      objectReference: {fileID: 0}
-    - target: {fileID: 6461594930631749521, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[3]'
-      value: 1783050489
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

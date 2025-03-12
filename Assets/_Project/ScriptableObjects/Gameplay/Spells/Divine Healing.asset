@@ -15,6 +15,6 @@ MonoBehaviour:
   spellName: Divine Healing
   description: Heals
   icon: {fileID: 8020143640844766479, guid: 8e3acfa8af547184695bfd02404029ad, type: 3}
-  cooldown: 15
-  projectileData: {fileID: 11400000, guid: e1c19f42ca3d51f4590aeda088cd05b0, type: 2}
+  cooldown: 2
+  projectileData: {fileID: 11400000, guid: b333db30acce6cb4a93db037012767f7, type: 2}
   trigger: 0

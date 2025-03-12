@@ -10,8 +10,11 @@ namespace FTKingdom
 
         public bool CanUse => currentCooldown <= 0;
 
-        public CharacterSpell(BaseSpellSO spell)
+        private readonly CharacterType casterType;
+
+        public CharacterSpell(BaseSpellSO spell, CharacterType type)
         {
+            casterType = type;
             spellData = spell;
             ResetCooldown();
         }
@@ -42,7 +45,9 @@ namespace FTKingdom
             Debug.Log($"Using {spellData.Name}!");
             var p = Object.Instantiate(spellData.ProjectileData.ProjectilePrefab, spawnPos, Quaternion.identity)
             .GetComponent<Projectile>();
-            p.Setup(10, spellData.ProjectileData, target);
+            // TODO: Pass spell infos instead of 10
+            // Maybe damange will be calculated instead of define on spell.
+            p.Setup(10, casterType, spellData.ProjectileData, target);
             ResetCooldown();
         }
     }

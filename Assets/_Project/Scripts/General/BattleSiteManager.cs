@@ -17,8 +17,17 @@ namespace FTKingdom
         // TODO: Maybe remove from here..... Monitoring.
         [SerializeField] private List<EnemyWave> waves = new();
 
-        private List<Transform> heroesInBattle = new();
-        private List<Transform> enemiesInBattle = new();
+        private readonly List<CharacterBattle> heroesInBattle = new();
+        private readonly List<CharacterBattle> enemiesInBattle = new();
+        public List<CharacterBattle> HeroesInBattle
+        {
+            get => heroesInBattle;
+        }
+
+        public List<CharacterBattle> EnemiesInBattle
+        {
+            get => enemiesInBattle;
+        }
 
         private void Awake()
         {
@@ -35,40 +44,36 @@ namespace FTKingdom
 
             return SortCharacterList(heroesInBattle, position);
 
-            Transform SortCharacterList(List<Transform> characters, Vector2 position)
+            Transform SortCharacterList(List<CharacterBattle> characters, Vector2 position)
             {
-                if (characters.Count == 0)
+                if (characters == null || characters.Count == 0)
                 {
                     return null;
                 }
-                else if (characters.Count == 1)
+
+                Transform closestTransform = null;
+                float closestDistance = float.MaxValue;
+
+                foreach (var character in characters)
                 {
-                    return characters[0];
+                    float distance = Vector3.Distance(character.Transform.position, position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestTransform = character.Transform;
+                    }
                 }
-                else if (characters.Count == 2)
-                {
-                    return Vector3.Distance(characters[0].position, position) <
-                    Vector3.Distance(characters[1].position, position) ? characters[0] : characters[1];
-                }
 
-                characters.Sort((e1, e2) =>
-                {
-                    var dist1 = Vector3.Distance(e1.transform.position, position);
-                    var dist2 = Vector3.Distance(e2.transform.position, position);
-
-                    return dist1.CompareTo(dist2);
-                });
-
-                return characters[0];
+                return closestTransform;
             }
         }
 
-        public void RemoveHero(Transform hero)
+        public void RemoveHero(CharacterBattle hero)
         {
             heroesInBattle.Remove(hero);
         }
 
-        public void RemoveEnemy(Transform enemy)
+        public void RemoveEnemy(CharacterBattle enemy)
         {
             enemiesInBattle.Remove(enemy);
 
@@ -79,12 +84,12 @@ namespace FTKingdom
             }
         }
 
-        public void AddHero(Transform hero)
+        public void AddHero(CharacterBattle hero)
         {
             heroesInBattle.Add(hero);
         }
 
-        public void AddEnemy(Transform enemy)
+        public void AddEnemy(CharacterBattle enemy)
         {
             enemiesInBattle.Add(enemy);
         }
@@ -97,7 +102,7 @@ namespace FTKingdom
                 CharacterBattle enemyObj = Instantiate(enemyPrefab);
                 enemyObj.Setup(waveEnemy.Enemy);
                 enemyObj.transform.position = enemySlots[waveEnemy.Position].position;
-                AddEnemy(enemyObj.transform);
+                AddEnemy(enemyObj);
             }
         }
 
@@ -109,7 +114,7 @@ namespace FTKingdom
                 HeroBattle heroObj = Instantiate(heroPrefab);
                 heroObj.Setup(hero);
                 heroObj.transform.position = heroSlots[hero.PartySlot].position;
-                AddHero(heroObj.transform);
+                AddHero(heroObj);
             }
         }
     }

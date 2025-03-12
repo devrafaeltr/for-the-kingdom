@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e25206ed4774bb64f903a641ca6c4690, type: 3}
-  m_Name: ProjectileBase
+  m_Name: ProjectileDivineHealing
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8209151058995978669, guid: 215434f07c685b9408902396b6517a19, type: 3}
-  graphic: {fileID: -522019747, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+  projectilePrefab: {fileID: 5777645126750459117, guid: 24f5deefa1c2f734984ae77fac9208d3, type: 3}
+  graphic: {fileID: 8020143640844766479, guid: 8e3acfa8af547184695bfd02404029ad, type: 3}
   animatorOverrider: {fileID: 0}
   speed: 3

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25206ed4774bb64f903a641ca6c4690, type: 3}
   m_Name: ProjectileFireball
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1533703806021451078, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
+  projectilePrefab: {fileID: 8209151058995978669, guid: 215434f07c685b9408902396b6517a19, type: 3}
   graphic: {fileID: -624247239, guid: 8a0518efb738843408fecb996e5c1252, type: 3}
   animatorOverrider: {fileID: 22100000, guid: 1e4cc03d363b1d247ab2d3b8999b389a, type: 2}
   speed: 3

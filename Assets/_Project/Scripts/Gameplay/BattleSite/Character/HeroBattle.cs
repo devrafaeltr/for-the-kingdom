@@ -12,7 +12,7 @@ namespace FTKingdom
 
         protected override void OnDie()
         {
-            BattleSiteManager.Instance.RemoveHero(transform);
+            BattleSiteManager.Instance.RemoveHero(this);
         }
     }
 }

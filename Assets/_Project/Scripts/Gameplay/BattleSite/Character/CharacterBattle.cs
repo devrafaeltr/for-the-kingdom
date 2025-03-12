@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using FTKingdom.Utils;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace FTKingdom
         [SerializeField] private Transform projectileSpawnPositionParent;
         [SerializeField] private Transform projectileSpawnPosition;
 
-        private readonly List<CharacterSpell> characterSpells = new();
+        private List<CharacterSpell> characterSpells = new();
 
         public Transform SpriteTransform => spriteRenderer.transform;
         private Transform target;
@@ -51,7 +52,7 @@ namespace FTKingdom
         private readonly BaseFSMController characterFSM = new();
         private CharacterState currenState = CharacterState.Waiting;
 
-        private readonly Dictionary<SpellTrigger, CharacterSpell> spellByTriggers = new();
+        // private readonly Dictionary<SpellTrigger, CharacterSpell> spellByTriggers = new();
 
         private void Start()
         {
@@ -72,14 +73,19 @@ namespace FTKingdom
             characterFSM.ForceEndState(this);
         }
 
+        private void Update()
+        {
+            characterFSM.UpdateCurrentState();
+        }
+
         internal void SpawnRangedProjectile()
         {
             SpawnProjectile();
         }
 
-        private void Update()
+        public int GetHealth()
         {
-            characterFSM.UpdateCurrentState();
+            return currentHp;
         }
 
         public void Setup(CharacterSO character)
@@ -127,7 +133,7 @@ namespace FTKingdom
 
             RotateSpawnPosition();
             GameObject projectile = Instantiate(CharacterData.ProjectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
-            projectile.GetComponent<Projectile>().Setup(CharacterData.BaseDamage, CharacterData.ProjectileData, Target);
+            projectile.GetComponent<Projectile>().Setup(CharacterData.BaseDamage, CharacterData.Type, CharacterData.ProjectileData, Target);
         }
 
         public void MoveTowardsTarget()
@@ -182,7 +188,7 @@ namespace FTKingdom
 
         protected virtual void OnDie()
         {
-            BattleSiteManager.Instance.RemoveEnemy(transform);
+            BattleSiteManager.Instance.RemoveEnemy(this);
         }
 
         #region Spells
@@ -190,7 +196,7 @@ namespace FTKingdom
         {
             foreach (var spellData in CharacterData.PossibleSpells)
             {
-                characterSpells.Add(new CharacterSpell(spellData));
+                characterSpells.Add(new CharacterSpell(spellData, CharacterData.Type));
             }
         }
 
@@ -225,16 +231,13 @@ namespace FTKingdom
 
         private void Damage(int damage)
         {
-            currentHp -= damage;
+            currentHp = Mathf.Clamp(currentHp - damage, 0, maxHp);
+            characterBarPointController.UpdateHealthPoints(currentHp, maxHp);
 
-            if (currentHp > 0)
+            if (currentHp <= 0)
             {
-                characterBarPointController.UpdateHealthPoints(currentHp, maxHp);
-                return;
+                Die();
             }
-
-            characterBarPointController.UpdateHealthPoints(Mathf.Max(currentHp, 0), maxHp);
-            Die();
         }
 
         private Transform FindTarget()

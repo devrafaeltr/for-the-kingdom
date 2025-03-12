@@ -8,20 +8,24 @@ namespace FTKingdom
         [SerializeField] private Rigidbody2D projectileRigidbody = null;
         [SerializeField] private SpriteRenderer projectileRenderer = null;
 
+        protected CharacterType userType = CharacterType.Enemy;
         protected ProjectileSO projectileData;
-        private Transform target;
-        private int damage;
+        protected Transform target;
+        protected int damage;
 
-        public void Setup(int projectileDamage, ProjectileSO projectile, Transform newTarget)
+        public void Setup(int damage, CharacterType type, ProjectileSO data, Transform target)
         {
-            damage = projectileDamage;
-            projectileData = projectile;
+            this.damage = damage;
+            userType = type;
+            this.target = target;
 
-            projectileRenderer.sprite = projectile.Graphic;
-            target = newTarget;
+            projectileData = data;
 
+            projectileRenderer.sprite = projectileData.Graphic;
             animator.runtimeAnimatorController = projectileData.AnimatorOverrider;
+
             StartAnimation();
+            OnSetup();
         }
 
         private void Update()
@@ -69,14 +73,22 @@ namespace FTKingdom
         {
             if (collider.transform == target)
             {
-                if (collider.TryGetComponent(out CharacterBattle enemy))
+                if (collider.TryGetComponent(out CharacterBattle projectileTarget))
                 {
-                    enemy.DoDamage(damage);
+                    OnFindTarget(projectileTarget);
                 }
 
                 // TODO: Release to pool
                 Destroy(gameObject); // Destroi o projétil após a colisão
             }
+        }
+
+        protected virtual void OnSetup()
+        { }
+
+        protected virtual void OnFindTarget(CharacterBattle projectileTarget)
+        {
+            projectileTarget.DoDamage(damage);
         }
     }
 }

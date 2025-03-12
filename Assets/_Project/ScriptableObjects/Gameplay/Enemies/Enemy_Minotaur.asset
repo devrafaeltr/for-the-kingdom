@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Creature of the darkness.
   graphic: {fileID: -1001186923, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
   type: 1
-  baseHp: 15
+  baseHp: 20
   baseMp: 0
   projectileData: {fileID: 11400000, guid: 2eb2074c2fb461b4980bde74e8a1e262, type: 2}
   baseDamage: 2

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FTKingdom
 {
-    [CreateAssetMenu(fileName = "New Projectile", menuName = "Projectile")]
+    [CreateAssetMenu(fileName = "New Projectile", menuName = "Gameplay/Projectile")]
     public class ProjectileSO : ScriptableObject
     {
         [SerializeField] private GameObject projectilePrefab;
