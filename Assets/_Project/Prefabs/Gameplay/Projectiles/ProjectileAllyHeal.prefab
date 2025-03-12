@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1533703806021451078, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
       propertyPath: m_Name
-      value: ProjectileAllySpell
+      value: ProjectileAllyHeal
       objectReference: {fileID: 0}
     - target: {fileID: 4633212446165708174, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,7 +58,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1533703806021451078, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6158564922369243388}
+      addedObject: {fileID: 3678889648889585624}
   m_SourcePrefab: {fileID: 100100000, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
 --- !u!50 &1199839677600835537 stripped
 Rigidbody2D:
@@ -75,7 +75,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1533703806021451078, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
   m_PrefabInstance: {fileID: 5000859112538958251}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6158564922369243388
+--- !u!114 &3678889648889585624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5777645126750459117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 804a738979d7821459add9be914ce4bf, type: 3}
+  m_Script: {fileID: 11500000, guid: fa65322036b4b544fae7acedea717aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5900798081038273157}
