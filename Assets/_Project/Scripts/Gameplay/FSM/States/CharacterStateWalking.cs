@@ -25,6 +25,7 @@ namespace FTKingdom
 
         internal override void Update(CharacterBattle entity)
         {
+            entity.UpdateSpellCooldown();
             if (entity.IsCloseToTarget())
             {
                 entity.AttackTarget();
