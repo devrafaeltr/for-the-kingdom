@@ -4,27 +4,26 @@ namespace FTKingdom
 {
     public class MiniMapCameraController : MonoBehaviour
     {
-        public float moveSpeed = 0.1f;  // Velocidade do movimento
-        public float zoomSpeed = 5f;    // Velocidade do zoom
-        public float minZoom = 5f;      // Zoom mínimo (orthographicSize)
-        public float maxZoom = 50f;     // Zoom máximo (orthographicSize)
+        [SerializeField] private Camera cam;
+
+        [Header("Movement")]
+        [SerializeField] private float moveSpeed = 1f;
+        [SerializeField] private float minX = -50f;
+        [SerializeField] private float maxX = 50f;
+        [SerializeField] private float minY = -50f;
+        [SerializeField] private float maxY = 50f;
+
+        [Header("Zoom")]
+        [SerializeField] private float zoomSpeed = 5f;
+        [SerializeField] private float minZoom = 5f;
+        [SerializeField] private float maxZoom = 70f;
 
         private Vector3 lastMousePosition;
         private bool isDragging = false;
-        private Camera cam;
-
-        void Start()
-        {
-            cam = Camera.main;
-            if (!cam.orthographic)
-            {
-                Debug.LogWarning("A câmera deve estar em modo ortográfico para este script funcionar corretamente.");
-            }
-        }
 
         void Update()
         {
-            // Detecta clique do botão direito do mouse
+            // TODO: Maybe need to change if/when using new input system
             if (Input.GetMouseButtonDown(1))
             {
                 lastMousePosition = Input.mousePosition;
@@ -35,18 +34,20 @@ namespace FTKingdom
                 isDragging = false;
             }
 
-            // Movimento da câmera ao arrastar o mouse
             if (isDragging)
             {
-                Vector3 delta = Input.mousePosition - lastMousePosition;
-                lastMousePosition = Input.mousePosition;
+                Vector3 delta = cam.orthographicSize * moveSpeed * 0.01f * (lastMousePosition - Input.mousePosition);
+                Vector3 newPosition = transform.position + delta;
 
-                // Move a câmera horizontalmente e verticalmente
-                Vector3 move = new Vector3(-delta.x * moveSpeed * cam.orthographicSize, -delta.y * moveSpeed * cam.orthographicSize, 0);
-                transform.position += move;
+                // Aplicar limites
+                newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+                newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+                transform.position = newPosition;
+                lastMousePosition = Input.mousePosition;
             }
 
-            // Zoom da câmera com a roda do mouse
+            // TODO: Maybe need to change if/when using new input system
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0f)
             {
