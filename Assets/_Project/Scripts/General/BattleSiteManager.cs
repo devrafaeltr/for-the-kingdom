@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FTKingdom.UI;
 using FTKingdom.Utils;
 using UnityEngine;
 
@@ -99,10 +100,12 @@ namespace FTKingdom
             EnemyWave currentWave = waves[GameManager.Instance.GetCurrentLevelPlaying()];
             foreach (WaveEnemy waveEnemy in currentWave.Enemies)
             {
-                CharacterBattle enemyObj = Instantiate(enemyPrefab);
-                enemyObj.Setup(waveEnemy.Enemy);
-                enemyObj.transform.position = enemySlots[waveEnemy.Position].position;
-                AddEnemy(enemyObj);
+                CharacterBattle enemy = Instantiate(enemyPrefab);
+                enemy.Setup(waveEnemy.Enemy);
+                enemy.transform.position = enemySlots[waveEnemy.Position].position;
+                AddEnemy(enemy);
+
+                BattleSiteCanvas.Instance.AddEnemyToParty(enemy, waveEnemy.Position);
             }
         }
 
@@ -115,6 +118,8 @@ namespace FTKingdom
                 heroObj.Setup(hero);
                 heroObj.transform.position = heroSlots[hero.PartySlot].position;
                 AddHero(heroObj);
+
+                BattleSiteCanvas.Instance.AddHeroToParty(heroObj, hero.PartySlot);
             }
         }
     }
