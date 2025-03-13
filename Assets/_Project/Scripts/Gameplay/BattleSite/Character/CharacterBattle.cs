@@ -238,6 +238,18 @@ namespace FTKingdom
             currentHp = Mathf.Clamp(currentHp - damage, 0, maxHp);
             characterBarPointController.UpdateHealthPoints(currentHp, maxHp);
 
+            // TODO: Maybe create another method to healing
+            int formattedNum = damage * -1;
+            if (damage > 0)
+            {
+                FloatingTextManager.Instance.Show(formattedNum.ToString(), Transform.position, TextType.Damage);
+            }
+            else
+            {
+                FloatingTextManager.Instance.Show(formattedNum.ToString(), Transform.position, TextType.Heal);
+            }
+
+
             if (currentHp <= 0)
             {
                 Die();
