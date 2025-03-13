@@ -41,8 +41,6 @@ namespace FTKingdom
 
         public void Use(Vector3 spawnPos, Transform target)
         {
-            // Whatever
-            Debug.Log($"Using {spellData.Name}!");
             var p = Object.Instantiate(spellData.ProjectileData.ProjectilePrefab, spawnPos, Quaternion.identity)
             .GetComponent<Projectile>();
             // TODO: Pass spell infos instead of 10

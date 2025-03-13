@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 87085f9acf74bb142b96f02265ade850
+guid: 52fa8aed716d82843a985d87a5f715ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6382673824156575416
-    second: The Roguelike 1-13-14 Alpha_0
+      213: 1571786891402097675
+    second: Effects_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,491 +100,95 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero_Archer
+      name: SpellIcons_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
+        x: 0
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84996f949ff2c67a0800000000000000
-      internalID: -6382673824156575416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hero_Knight
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0c22b370fee8234a9f5753a8da6a508
-      internalID: 1891539144
+      spriteID: 6d2c615eaefb02a4795074d7e87b7dac
+      internalID: 1102019993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_2
+      name: SpellIcons_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 192
+        x: 16
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01fc7813a18cf724ea1a18cad9e3694c
-      internalID: 1781380193
+      spriteID: 84efa0112ea5bfc438e9a23704d5cdfa
+      internalID: 1635208845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_3
+      name: SpellIcons_2
       rect:
         serializedVersion: 2
-        x: 112
-        y: 192
+        x: 32
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 927349dc5fefe7f41954b7b28aaf3e2f
-      internalID: 985707157
+      spriteID: 618c36e70cda1da45b9a09bce272dd04
+      internalID: 527388153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_4
+      name: SpellIcons_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
+        x: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9808413f6f051143ac13b2a894a30c7
-      internalID: -606054100
+      spriteID: 9ab9ee7e61730854d9726e57de3a13ac
+      internalID: -1825837793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_5
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76d14ad7d68e9f44a9cf450e50a25014
-      internalID: 1047555697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hero_Wizard
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8c54f6f4fff2cf4bb9e6b158b7fd4ed
-      internalID: -1737845959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hero_Mage
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd8292e9d5b4b5d49a31274c827a53c3
-      internalID: -994997076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_8
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08153f52f8db52f498d4e391b8080a3b
-      internalID: 1803061705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hero_Paladin
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa55e77e8171908439067f9497eb1791
-      internalID: 478084500
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 576
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1a7f3aa0eb82814b9604cf7f7cae497
-      internalID: 2032634830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Campfire
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 368
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d31d56d1c11028b4981da25157fce1db
-      internalID: -522019747
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_12
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 368
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6eb790a197b722c4f81ac9f415b97d20
-      internalID: 292810437
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_13
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 560
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35ea60705f6c01c46b6746a7afac80a9
-      internalID: -1913198842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_14
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6666faf46401d4c4baf2aa5d293fbab1
-      internalID: -1626003051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_15
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09fa803911304d947a52a5112336cb31
-      internalID: 1281542992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_16
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75a7cb51cb901f04d88880d76b3920ac
-      internalID: -1369588072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_17
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ddda3fb9ff2d6241af62d6973413459
-      internalID: -139324891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_18
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff97732b7b7bc914a9b70e17327959b8
-      internalID: -1641942859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_19
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 472359d505f9e5c4baba8cf5507784dd
-      internalID: 1310324934
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Icon- Mana
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e92d2461fe11f73428a02f8a71995c37
-      internalID: 1418184572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_20
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 576
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4b7e7023c042694ea2f20e54b7e171a
-      internalID: 1763449761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Icon - Health
+      name: SpellIcons_4
       rect:
         serializedVersion: 2
         x: 64
@@ -592,323 +196,895 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6dcff77a93e5ec4ba1ea83f38bce429
-      internalID: 1476488849
+      spriteID: 019d2120bb019794db42e4bb0f964823
+      internalID: 2017757402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icon - Map
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0f5e050d714782468740b353754e16a
-      internalID: 1909618076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_21
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fda72ecc8b370034d9357a0a41137a45
-      internalID: 1433415866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Icon - Sword
+      name: SpellIcons_5
       rect:
         serializedVersion: 2
         x: 80
-        y: 176
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8de168f6006030344bd403502916a00f
-      internalID: -1500340562
+      spriteID: dd64b004f521b884a825c6a552854cb5
+      internalID: 754352113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkullBones
+      name: SpellIcons_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a852fc3a249d843aa6e7e1d742f716
+      internalID: -1230922024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_7
       rect:
         serializedVersion: 2
         x: 112
-        y: 304
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95aadd3ceb02af44cb1cc824e3db6f25
-      internalID: -525332775
+      spriteID: 09099ceb85bf44d4a876e9007e12adc3
+      internalID: -1366947683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkullEffect
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cad62b68e3439ef4bad2369f1879746b
-      internalID: 2004072316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_Monk
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d2c79439cc1b0544bd8f440b454f2fe
-      internalID: 1427874429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_Skeleon
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 224
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d153d83bee49b848ad49bfba7dec1a3
-      internalID: 952901033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_Minottaur
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f6d4568f48f12d4295ae30c22865038
-      internalID: -1001186923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AuxArea1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4168c290d015eb4ab7521b9afd8bfde
-      internalID: -272012887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AuxArea2
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 593ea218e541e8a4582b000ae31ba538
-      internalID: 550485616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AuxArea3
+      name: SpellIcons_8
       rect:
         serializedVersion: 2
         x: 128
-        y: 496
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f06b48c9bf861b4dae61a84d4e4201c
-      internalID: -794882420
+      spriteID: 71041e0ab32ec8e40801bcc80e294ccb
+      internalID: 2147458160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AuxArea
+      name: SpellIcons_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0c9f2e9087bac48b9021118be82370
+      internalID: -1839484497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33503b4f9eb5e984aae8523f0ad231fb
+      internalID: 1712586364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384cbf73b182c344a92a5369c007dd87
+      internalID: 1629190802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_12
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf6fba9db3a1b2340b470f288b351bce
+      internalID: -1140060857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6f0a7755dafc742ba41086f4fc49cb
+      internalID: -1343854185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c9e7bb558241cd45b4e36413d6ec839
+      internalID: -687017276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b904839bbd1aec47a1ab4f9c57ca64e
+      internalID: 289611081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_16
       rect:
         serializedVersion: 2
         x: 112
-        y: 496
+        y: 64
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06fddb72283efd842bf177c897efc6cf
-      internalID: 2047102417
+      spriteID: bf73ecf1aa068e741b60c4e0ebe1aea0
+      internalID: -1464857698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlaceholdolderHarder
+      name: SpellIcons_17
       rect:
         serializedVersion: 2
-        x: 208
-        y: 448
+        x: 128
+        y: 64
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 410d7ed4f7cfb684c91894876e005625
-      internalID: -717383007
+      spriteID: 58ab54690f2ecd648825260ce8af48c2
+      internalID: 406125439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AuxFull
+      name: SpellIcons_18
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 10
-        height: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c8d85ba10a753147b68841f4d3964d0
-      internalID: -1310307226
+      spriteID: 6292dab1811afe041885f608f826c819
+      internalID: 508672252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_19
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ed2ef8fe1c85846abb1d515581b9d5
+      internalID: 1395604500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a05bbcc83f8764db44f16cea164c56
+      internalID: -2128706001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_21
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf53ca5fcefd9243a460e6f488cd0b5
+      internalID: -711296623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3a2b2daca20c8408b12e7ac6cbda89
+      internalID: 1677948293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_23
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b7a0fbd15b334f42af3cd724b9fc339
+      internalID: -828142497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342117bd90ecb904baae706ab0ab6033
+      internalID: 2143650066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_25
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08a6e2e1e09add469700bc76f0fd6e8
+      internalID: 1132765002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58737189cff660847ba5f70271438701
+      internalID: -1044347199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ff49726e5367b4c92718cc84974066
+      internalID: -1363584679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_28
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6751b75894124e4eac0c9550084cd9f
+      internalID: 1501652567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e4523b8f3775a44b4a117e90283619
+      internalID: 1382994603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_30
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9f6090848331648ac0d49452210077
+      internalID: 8980621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_31
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1480b8639b94c3245bb114bee5167ef9
+      internalID: -1967373885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_32
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d2356667bd2714682a85986c49230a
+      internalID: 1750739692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec5c65f25e8dce4491448d9f18bc3a0
+      internalID: -1350770734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_34
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b8546ecc3824440917249c8ad8014f
+      internalID: -969661681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_35
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b6a51f06e4b5040b8baa4eb2ca330e
+      internalID: -1648852556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_36
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc686f21469bc1744ba46ba637ae7ec1
+      internalID: 1802413612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826276e0a04a15e4aa88ea4907011fde
+      internalID: 1976600448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_38
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e829ad4aa12624a96756162f5afbbf
+      internalID: 40324014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd21ab1da14c81a4eb4fa848c6218c79
+      internalID: -505336477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_40
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0e68be80fabf74d830c519355937d0
+      internalID: 1894453441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_41
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2cd5cb8c8777cd478917aedf7311c58
+      internalID: 2083902251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_42
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d672ab7f0200a24daa4c38d9200b085
+      internalID: 1356934099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_43
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957311ecd2f31d747ae11999cef031c6
+      internalID: -369411441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpellIcons_44
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45606a45053454043946e582657f9c67
+      internalID: -1326955651
       vertices: []
       indices: 
       edges: []
@@ -917,7 +1093,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: aab7ea8f6adef93418edb42e6818b162
+    spriteID: b4ba3deeac6680b44a9e977a1c23d0f5
     internalID: 0
     vertices: []
     indices: 
@@ -927,43 +1103,51 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AuxArea: 2047102417
-      AuxArea1: -272012887
-      AuxArea2: 550485616
-      AuxArea3: -794882420
-      AuxFull: -1310307226
-      Campfire: -522019747
-      Enemy_Minottaur: -1001186923
-      Enemy_Monk: 1427874429
-      Enemy_Skeleon: 952901033
-      Hero_Archer: -6382673824156575416
-      Hero_Knight: 1891539144
-      Hero_Mage: -994997076
-      Hero_Paladin: 478084500
-      Hero_Wizard: -1737845959
-      Icon - Health: 1476488849
-      Icon - Map: 1909618076
-      Icon - Sword: -1500340562
-      Icon- Mana: 1418184572
-      PlaceholdolderHarder: -717383007
-      SkullBones: -525332775
-      SkullEffect: 2004072316
-      The Roguelike 1-13-14 Alpha_10: 2032634830
-      The Roguelike 1-13-14 Alpha_12: 292810437
-      The Roguelike 1-13-14 Alpha_13: -1913198842
-      The Roguelike 1-13-14 Alpha_14: -1626003051
-      The Roguelike 1-13-14 Alpha_15: 1281542992
-      The Roguelike 1-13-14 Alpha_16: -1369588072
-      The Roguelike 1-13-14 Alpha_17: -139324891
-      The Roguelike 1-13-14 Alpha_18: -1641942859
-      The Roguelike 1-13-14 Alpha_19: 1310324934
-      The Roguelike 1-13-14 Alpha_2: 1781380193
-      The Roguelike 1-13-14 Alpha_20: 1763449761
-      The Roguelike 1-13-14 Alpha_21: 1433415866
-      The Roguelike 1-13-14 Alpha_3: 985707157
-      The Roguelike 1-13-14 Alpha_4: -606054100
-      The Roguelike 1-13-14 Alpha_5: 1047555697
-      The Roguelike 1-13-14 Alpha_8: 1803061705
+      SpellIcons_0: 1102019993
+      SpellIcons_1: 1635208845
+      SpellIcons_10: 1712586364
+      SpellIcons_11: 1629190802
+      SpellIcons_12: -1140060857
+      SpellIcons_13: -1343854185
+      SpellIcons_14: -687017276
+      SpellIcons_15: 289611081
+      SpellIcons_16: -1464857698
+      SpellIcons_17: 406125439
+      SpellIcons_18: 508672252
+      SpellIcons_19: 1395604500
+      SpellIcons_2: 527388153
+      SpellIcons_20: -2128706001
+      SpellIcons_21: -711296623
+      SpellIcons_22: 1677948293
+      SpellIcons_23: -828142497
+      SpellIcons_24: 2143650066
+      SpellIcons_25: 1132765002
+      SpellIcons_26: -1044347199
+      SpellIcons_27: -1363584679
+      SpellIcons_28: 1501652567
+      SpellIcons_29: 1382994603
+      SpellIcons_3: -1825837793
+      SpellIcons_30: 8980621
+      SpellIcons_31: -1967373885
+      SpellIcons_32: 1750739692
+      SpellIcons_33: -1350770734
+      SpellIcons_34: -969661681
+      SpellIcons_35: -1648852556
+      SpellIcons_36: 1802413612
+      SpellIcons_37: 1976600448
+      SpellIcons_38: 40324014
+      SpellIcons_39: -505336477
+      SpellIcons_4: 2017757402
+      SpellIcons_40: 1894453441
+      SpellIcons_41: 2083902251
+      SpellIcons_42: 1356934099
+      SpellIcons_43: -369411441
+      SpellIcons_44: -1326955651
+      SpellIcons_5: 754352113
+      SpellIcons_6: -1230922024
+      SpellIcons_7: -1366947683
+      SpellIcons_8: 2147458160
+      SpellIcons_9: -1839484497
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

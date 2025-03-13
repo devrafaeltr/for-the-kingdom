@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using FTKingdom.Utils;
 using UnityEngine;
@@ -41,6 +40,7 @@ namespace FTKingdom
             private set => target = value;
         }
 
+        internal int CharacterPosition { get; set; }
         internal Transform Transform { get; private set; }
         internal float MissingHealthPercent
         {
@@ -248,6 +248,9 @@ namespace FTKingdom
             {
                 FloatingTextManager.Instance.Show(formattedNum.ToString(), Transform.position, TextType.Heal);
             }
+
+
+            BattleSiteCanvas.Instance.UpdateHealth(this);
 
 
             if (currentHp <= 0)

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +34,12 @@ namespace FTKingdom
         public void UpdateHealth(int currentHp)
         {
             txtHealth.text = $"{currentHp}/{maxHp}";
+            DoImageFill(currentHp);
+        }
+
+        private void DoImageFill(float current)
+        {
+            imgHealth.DOFillAmount(current / maxHp, 0.2f);
         }
     }
 }

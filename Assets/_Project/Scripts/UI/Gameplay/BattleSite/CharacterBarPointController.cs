@@ -2,36 +2,39 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterBarPointController : MonoBehaviour
+namespace FTKingdom
 {
-    [SerializeField] private GameObject barsContainer = null;
-    [SerializeField] private Image imgHealthPoints = null;
-    [SerializeField] private Image imgManaPoints = null;
-
-    private bool shouldDisable = false;
-
-    public void UpdateHealthPoints(int healthPoints, int maxHealthPoints)
+    public class CharacterBarPointController : MonoBehaviour
     {
-        float targetFillAmount = (float)healthPoints / maxHealthPoints;
-        imgHealthPoints.DOFillAmount(targetFillAmount, 0.2f).OnComplete(CheckDisable);
-    }
+        [SerializeField] private GameObject barsContainer = null;
+        [SerializeField] private Image imgHealthPoints = null;
+        [SerializeField] private Image imgManaPoints = null;
 
-    public void UpdateManaPoints(int manaPoints, int maxManaPoints)
-    {
-        float targetFillAmount = (float)manaPoints / maxManaPoints;
-        imgManaPoints.DOFillAmount(targetFillAmount, 0.2f).OnComplete(CheckDisable);
-    }
+        private bool shouldDisable = false;
 
-    public void Disable()
-    {
-        shouldDisable = true;
-    }
-
-    private void CheckDisable()
-    {
-        if (shouldDisable)
+        public void UpdateHealthPoints(int healthPoints, int maxHealthPoints)
         {
-            barsContainer.SetActive(false);
+            float targetFillAmount = (float)healthPoints / maxHealthPoints;
+            imgHealthPoints.DOFillAmount(targetFillAmount, 0.2f).OnComplete(CheckDisable);
+        }
+
+        public void UpdateManaPoints(int manaPoints, int maxManaPoints)
+        {
+            float targetFillAmount = (float)manaPoints / maxManaPoints;
+            imgManaPoints.DOFillAmount(targetFillAmount, 0.2f).OnComplete(CheckDisable);
+        }
+
+        public void Disable()
+        {
+            shouldDisable = true;
+        }
+
+        private void CheckDisable()
+        {
+            if (shouldDisable)
+            {
+                barsContainer.SetActive(false);
+            }
         }
     }
 }

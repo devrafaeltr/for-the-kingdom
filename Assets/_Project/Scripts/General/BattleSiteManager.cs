@@ -100,9 +100,11 @@ namespace FTKingdom
             EnemyWave currentWave = waves[GameManager.Instance.GetCurrentLevelPlaying()];
             foreach (WaveEnemy waveEnemy in currentWave.Enemies)
             {
+
                 CharacterBattle enemy = Instantiate(enemyPrefab);
                 enemy.Setup(waveEnemy.Enemy);
                 enemy.transform.position = enemySlots[waveEnemy.Position].position;
+                enemy.CharacterPosition = waveEnemy.Position;
                 AddEnemy(enemy);
 
                 BattleSiteCanvas.Instance.AddEnemyToParty(enemy, waveEnemy.Position);
@@ -112,14 +114,15 @@ namespace FTKingdom
         private void SetupHeroParty()
         {
             List<HeroData> partyHeroes = GameManager.Instance.GetParty();
-            foreach (HeroData hero in partyHeroes)
+            foreach (HeroData heroData in partyHeroes)
             {
-                HeroBattle heroObj = Instantiate(heroPrefab);
-                heroObj.Setup(hero);
-                heroObj.transform.position = heroSlots[hero.PartySlot].position;
-                AddHero(heroObj);
+                HeroBattle hero = Instantiate(heroPrefab);
+                hero.Setup(heroData);
+                hero.transform.position = heroSlots[heroData.PartySlot].position;
+                hero.CharacterPosition = heroData.PartySlot;
+                AddHero(hero);
 
-                BattleSiteCanvas.Instance.AddHeroToParty(heroObj, hero.PartySlot);
+                BattleSiteCanvas.Instance.AddHeroToParty(hero, heroData.PartySlot);
             }
         }
     }

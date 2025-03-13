@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using FTKingdom.Utils;
 using UnityEngine;
 
-namespace FTKingdom.UI
+namespace FTKingdom
 {
     public class BattleSiteCanvas : LocalSingleton<BattleSiteCanvas>
     {
@@ -20,6 +20,18 @@ namespace FTKingdom.UI
         public void AddEnemyToParty(CharacterBattle enemy, int slotPosition)
         {
             enemies[slotPosition].Setup(enemy.CharacterData, enemy.GetHealth());
+        }
+
+        public void UpdateHealth(CharacterBattle character)
+        {
+            if (character.CharacterData.Type == CharacterType.Hero)
+            {
+                heroes[character.CharacterPosition].UpdateHealth(character.GetHealth());
+            }
+            else
+            {
+                enemies[character.CharacterPosition].UpdateHealth(character.GetHealth());
+            }
         }
 
         #region UI Buttons
