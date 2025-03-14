@@ -7,7 +7,7 @@ namespace FTKingdom
         protected override void OnSetup()
         {
             base.OnSetup();
-            target = possibleTargets.OrderByDescending(t => t.MissingHealthPercent).ToList()[0].Transform;
+            currentTarget = possibleTargets.OrderByDescending(t => t.MissingHealthPercent).ToList()[0].Transform;
         }
 
         protected override void OnFindTarget(CharacterBattle projectileTarget)

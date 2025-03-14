@@ -10,14 +10,14 @@ namespace FTKingdom
 
         protected CharacterType userType = CharacterType.Enemy;
         protected ProjectileSO projectileData;
-        protected Transform target;
+        protected Transform currentTarget;
         protected int damage;
 
-        public void Setup(int damage, CharacterType type, ProjectileSO data, Transform target)
+        public void Setup(int hpDiff, CharacterType type, ProjectileSO data, Transform target, SpellBehaviorType behaviorType = SpellBehaviorType.Default)
         {
-            this.damage = damage;
+            damage = hpDiff;
             userType = type;
-            this.target = target;
+            currentTarget = target;
 
             projectileData = data;
 
@@ -26,11 +26,16 @@ namespace FTKingdom
 
             StartAnimation();
             OnSetup();
+
+            if (behaviorType == SpellBehaviorType.Instant)
+            {
+                transform.position = currentTarget.position;
+            }
         }
 
         private void Update()
         {
-            if (target == null)
+            if (currentTarget == null)
             {
                 // TODO: Release to pool
                 Destroy(gameObject);
@@ -63,7 +68,7 @@ namespace FTKingdom
 
         private void MoveTowardsTarget()
         {
-            Vector3 direction = target.position - transform.position;
+            Vector3 direction = currentTarget.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
             projectileRigidbody.linearVelocity = direction.normalized * projectileData.Speed;
@@ -71,7 +76,7 @@ namespace FTKingdom
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.transform == target)
+            if (collider.transform == currentTarget)
             {
                 if (collider.TryGetComponent(out CharacterBattle projectileTarget))
                 {

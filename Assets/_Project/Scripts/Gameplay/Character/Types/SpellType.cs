@@ -2,7 +2,7 @@ namespace FTKingdom
 {
     public enum SpellType
     {
-        DivineHealing,
-        Fireball
+        DivineHealing = 0,
+        Fireball = 1
     }
 }

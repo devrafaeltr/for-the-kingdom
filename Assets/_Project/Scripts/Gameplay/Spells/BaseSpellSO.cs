@@ -11,15 +11,21 @@ namespace FTKingdom
         [SerializeField] private Sprite icon;
 
         [Header("Behavior")]
-        [SerializeField] private float cooldown;
-        [SerializeField] private ProjectileSO projectileData;
+        [SerializeField] private SpellBehaviorType behaviorType;
         [SerializeField] private SpellTrigger trigger;
+        [SerializeField] private SpellType type;
+        [SerializeField] private float cooldown;
+
+        [Header("Projectile")]
+        [SerializeField] private ProjectileSO projectileData;
 
         public string Name => spellName;
         public string Description => description;
         public Sprite Icon => icon;
+        public SpellBehaviorType BehaviorType => behaviorType;
+        public SpellType Type => type;
         public float Cooldown => cooldown;
-        public ProjectileSO ProjectileData => projectileData;
         public SpellTrigger Trigger => trigger;
+        public ProjectileSO ProjectileData => projectileData;
     }
 }

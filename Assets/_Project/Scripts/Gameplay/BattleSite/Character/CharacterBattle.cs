@@ -43,10 +43,7 @@ namespace FTKingdom
 
         internal int CharacterPosition { get; set; }
         internal Transform Transform { get; private set; }
-        internal float MissingHealthPercent
-        {
-            get => (maxHp - currentHp) * 100 / (float)maxHp;
-        }
+        internal float MissingHealthPercent => 1 - (currentHp / (float)maxHp);
 
         private int maxMana = 0;
         private int maxHp = 0;

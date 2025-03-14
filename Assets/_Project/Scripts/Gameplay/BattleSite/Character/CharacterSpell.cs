@@ -41,11 +41,12 @@ namespace FTKingdom
 
         public void Use(Vector3 spawnPos, Transform target)
         {
+            // TODO: Move to ProjectileManager or something to be able to pool projectiles.
             var p = Object.Instantiate(spellData.ProjectileData.ProjectilePrefab, spawnPos, Quaternion.identity)
             .GetComponent<Projectile>();
             // TODO: Pass spell infos instead of 10
             // Maybe damange will be calculated instead of define on spell.
-            p.Setup(10, casterType, spellData.ProjectileData, target);
+            p.Setup(10, casterType, spellData.ProjectileData, target, spellData.BehaviorType);
             ResetCooldown();
         }
     }
