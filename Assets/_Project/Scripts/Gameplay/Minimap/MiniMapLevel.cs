@@ -25,8 +25,6 @@ namespace FTKingdom
 
         public void UnlockLevel()
         {
-            Debug.Log($"UnlockLevel: {levelId}");
-
             state = LevelState.Revealed;
             UpdateLevelBehavior();
         }

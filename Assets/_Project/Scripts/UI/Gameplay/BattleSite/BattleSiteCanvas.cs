@@ -9,17 +9,17 @@ namespace FTKingdom
         [SerializeField] private Transform heroPartyContainer = null;
         [SerializeField] private Transform enemyPartyContainer = null;
 
-        [SerializeField] private List<CharacterPartySlot> heroes = new();
-        [SerializeField] private List<CharacterPartySlot> enemies = new();
+        [SerializeField] private List<UICharacterPartySlot> heroes = new();
+        [SerializeField] private List<UICharacterPartySlot> enemies = new();
 
-        public void AddHeroToParty(HeroBattle hero, int slotPosition)
+        public void AddHeroToParty(CharacterBattle hero, int slotPosition)
         {
-            heroes[slotPosition].Setup(hero.CharacterData, hero.GetHealth());
+            heroes[slotPosition].Setup(hero, hero.GetHealth());
         }
 
         public void AddEnemyToParty(CharacterBattle enemy, int slotPosition)
         {
-            enemies[slotPosition].Setup(enemy.CharacterData, enemy.GetHealth());
+            enemies[slotPosition].Setup(enemy, enemy.GetHealth());
         }
 
         public void UpdateHealth(CharacterBattle character)

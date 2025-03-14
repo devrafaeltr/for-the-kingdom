@@ -17,7 +17,8 @@ namespace FTKingdom
         [SerializeField] private Transform projectileSpawnPositionParent;
         [SerializeField] private Transform projectileSpawnPosition;
 
-        private List<CharacterSpell> characterSpells = new();
+        private readonly List<CharacterSpell> characterSpells = new();
+        public List<CharacterSpell> CharacterSpells { get => characterSpells; }
 
         public Transform SpriteTransform => spriteRenderer.transform;
         private Transform target;
@@ -198,6 +199,7 @@ namespace FTKingdom
         #region Spells
         private void SetupSpells()
         {
+            // TODO: Not here, but get random spells from PossibleSpells, not every spell
             foreach (var spellData in CharacterData.PossibleSpells)
             {
                 characterSpells.Add(new CharacterSpell(spellData, CharacterData.Type));
