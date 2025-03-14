@@ -29,7 +29,7 @@ namespace FTKingdom
             txtFloatingText.DOFade(1, 0);
 
             DOTween.Sequence()
-            .Append(transform.DOMoveY(transform.position.y + moveHeight, fadeDuration).SetEase(Ease.OutQuad))
+            .Append(transform.DOMoveY(transform.position.y + moveHeight, moveHeight / moveSpeed).SetEase(Ease.OutQuad))
             .Join(txtFloatingText.DOFade(0, fadeDuration))
             .OnComplete(() => Destroy(gameObject))
             .Play();

@@ -6,9 +6,6 @@ namespace FTKingdom
 {
     public class BattleSiteCanvas : LocalSingleton<BattleSiteCanvas>
     {
-        [SerializeField] private Transform heroPartyContainer = null;
-        [SerializeField] private Transform enemyPartyContainer = null;
-
         [SerializeField] private List<UICharacterPartySlot> heroes = new();
         [SerializeField] private List<UICharacterPartySlot> enemies = new();
 
