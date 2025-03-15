@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using FTKingdom.Utils;
 
 namespace FTKingdom
@@ -13,7 +12,6 @@ namespace FTKingdom
             get => CurrentData.lastLevelCompleted;
             private set => CurrentData.lastLevelCompleted = value;
         }
-
 
         private KingdomData CurrentData = new();
         public int currentLevel = 0;

@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero_Archer
+      name: HeroArcher
       rect:
         serializedVersion: 2
         x: 64
@@ -122,7 +122,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Knight
+      name: HeroKnight
       rect:
         serializedVersion: 2
         x: 80
@@ -210,7 +210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-14 Alpha_5
+      name: HeroGuildMasterAux
       rect:
         serializedVersion: 2
         x: 144
@@ -232,7 +232,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Wizard
+      name: HeroWizard
       rect:
         serializedVersion: 2
         x: 160
@@ -254,7 +254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Mage
+      name: HeroMage
       rect:
         serializedVersion: 2
         x: 176
@@ -298,7 +298,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Paladin
+      name: HeroPaladin
       rect:
         serializedVersion: 2
         x: 208
@@ -936,11 +936,12 @@ TextureImporter:
       Enemy_Minottaur: -1001186923
       Enemy_Monk: 1427874429
       Enemy_Skeleon: 952901033
-      Hero_Archer: -6382673824156575416
-      Hero_Knight: 1891539144
-      Hero_Mage: -994997076
-      Hero_Paladin: 478084500
-      Hero_Wizard: -1737845959
+      HeroArcher: -6382673824156575416
+      HeroGuildMasterAux: 1047555697
+      HeroKnight: 1891539144
+      HeroMage: -994997076
+      HeroPaladin: 478084500
+      HeroWizard: -1737845959
       Icon - Health: 1476488849
       Icon - Map: 1909618076
       Icon - Sword: -1500340562
@@ -962,7 +963,6 @@ TextureImporter:
       The Roguelike 1-13-14 Alpha_21: 1433415866
       The Roguelike 1-13-14 Alpha_3: 985707157
       The Roguelike 1-13-14 Alpha_4: -606054100
-      The Roguelike 1-13-14 Alpha_5: 1047555697
       The Roguelike 1-13-14 Alpha_8: 1803061705
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

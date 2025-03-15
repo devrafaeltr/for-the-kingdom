@@ -10,9 +10,10 @@ namespace FTKingdom.UI
             SceneHandler.Instance.LoadScene(GameScene.CampingSite);
         }
 
-        private void OpenSettings()
+        public void OpenSettings()
         {
-            // Method intentionally left empty.
+            // TODO: Open settings
+            SceneHandler.Instance.LoadScene(GameScene.Introduction);
         }
 
         public void ExitGame()

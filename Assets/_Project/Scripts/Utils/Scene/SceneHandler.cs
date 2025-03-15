@@ -13,7 +13,8 @@ namespace FTKingdom
         WorldMap,
         CampingSite,
         MiniMap,
-        BattleSite
+        BattleSite,
+        Introduction
     }
 
     public class SceneHandler : LocalSingleton<SceneHandler>
