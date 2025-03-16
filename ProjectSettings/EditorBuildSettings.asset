@@ -27,5 +27,7 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/Gameplay/BattleSite.unity
     guid: ca21610967457ce48a086edb6edbd90b
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 16209b3d88bc9fd438cd9dd4fa118c01, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: 8e86517703f5e224e8e0ef5673f2af1b, type: 2}
   m_UseUCBPForAssetBundles: 0

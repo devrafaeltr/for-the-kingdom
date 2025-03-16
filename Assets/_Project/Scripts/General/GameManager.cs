@@ -21,6 +21,7 @@ namespace FTKingdom
             base.Awake();
             GetSaved();
 
+            // TODO: Remove this after creating test scene
             LastLevelCompleted = -1;
 
             SceneHandler.Instance.LoadScene(GameScene.MainMenu);

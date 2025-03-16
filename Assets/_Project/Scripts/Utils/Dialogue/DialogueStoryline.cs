@@ -8,5 +8,10 @@ namespace FTKingdom
     {
         [SerializeField] private List<DialogueNode> dialogueNodes = new();
         public List<DialogueNode> DialogueNodes => dialogueNodes;
+#if UNITY_EDITOR
+        [ReadOnly] public string storylineName;
+
+        // [SerializeField, Readonly] private string readOnlyField = "Read Only Field";
+#endif
     }
 }
