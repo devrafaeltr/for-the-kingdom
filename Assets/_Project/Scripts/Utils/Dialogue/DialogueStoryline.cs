@@ -6,12 +6,7 @@ namespace FTKingdom
     [CreateAssetMenu(fileName = "New Storyline", menuName = "Dialogue/Storyline")]
     public class DialogueStoryline : ScriptableObject
     {
-        [SerializeField] private List<DialogueNode> dialogueNodes = new();
-        public List<DialogueNode> DialogueNodes => dialogueNodes;
-#if UNITY_EDITOR
-        [ReadOnly] public string storylineName;
-
-        // [SerializeField, Readonly] private string readOnlyField = "Read Only Field";
-#endif
+        [SerializeField] private List<DialogueLine> dialogueLines = new();
+        public List<DialogueLine> DialogueLines => dialogueLines;
     }
 }

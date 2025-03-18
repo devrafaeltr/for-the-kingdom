@@ -30,6 +30,46 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 656275108618240
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656277927190528
+    m_Localized: Party
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656281416851456
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342592
+    m_Localized: What... What happened to my kingdom!?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 995963925258240
+    m_Localized: You all will perish!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342593
+    m_Localized: NOOOOOOOOOOOOOOOOOO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342594
+    m_Localized: Guild Master!!\nOur heroes are DEAD!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342595
+    m_Localized: No worries my king,we still can save our world!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342596
+    m_Localized: '*CRUSH*\nHurry, my king. Let''s go to a safe place!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342597
+    m_Localized: I don't believe the guild is not destroyed!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

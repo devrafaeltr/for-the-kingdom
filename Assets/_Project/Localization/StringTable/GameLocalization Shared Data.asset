@@ -15,6 +15,34 @@ MonoBehaviour:
   m_TableCollectionName: GameLocalization
   m_TableCollectionNameGuidString: 3928720f54174524cb4764ee3a6ef731
   m_Entries:
+  - m_Id: 996911263342592
+    m_Key: lore_introduction_king01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342593
+    m_Key: lore_introduction_king02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342594
+    m_Key: lore_introduction_king03
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342595
+    m_Key: lore_introduction_gm01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342596
+    m_Key: lore_introduction_gm02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 995963925258240
+    m_Key: lore_introduction_skeleton01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342597
+    m_Key: lore_introduction_skeleton02
+    m_Metadata:
+      m_Items: []
   - m_Id: 147513237504
     m_Key: btn_menu_play
     m_Metadata:
@@ -25,6 +53,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 41426938847232
     m_Key: btn_menu_exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656275108618240
+    m_Key: btn_menu_save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656277927190528
+    m_Key: btn_menu_party
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656281416851456
+    m_Key: btn_menu_buy
     m_Metadata:
       m_Items: []
   m_Metadata:

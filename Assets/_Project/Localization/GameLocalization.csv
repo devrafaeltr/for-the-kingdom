@@ -1,7 +1,14 @@
 Key,Id,English (United States)(en-US),Portuguese (Brazil)(pt-BR)
+"lore_introduction_king01",996911263342592,"What... What happened to my kingdom!?","O que... O que aconteceu com meu reino?"
+"lore_introduction_king02",996911263342593,"NOOOOOOOOOOOOOOOOOO","NÃOOOOOOOOOOO"
+"lore_introduction_king03",996911263342594,"Guild Master!!\nOur heroes are DEAD!","Guild Master!\nNossos heróis estão mortos!"
+"lore_introduction_gm01",996911263342595,"No worries my king,we still can save our world!","Não se preocupe,meu rei,nós ainda podemos salvar o mundo!"
+"lore_introduction_gm02",996911263342596,"*CRUSH*\nHurry, my king. Let's go to a safe place!","*CRUSH*\nRápido, meu rei. Vamos para um lugar seguro!"
+"lore_introduction_skeleton01",995963925258240,"You all will perish!","Todos vocês irão morrer!"
+"lore_introduction_skeleton02",996911263342597,"I don't believe the guild is not destroyed!","Eu não acredito que a Guilda não foi destruída!"
 "btn_menu_play",147513237504,"Play","Jogar"
 "btn_menu_settings",40496931627008,"Settings","Configurações"
-"btn_menu_exit",null,"Exit","Sair"
-
-
-"lore_intro_dialogue01",null,"Exit","Sair"
+"btn_menu_exit",41426938847232,"Exit","Sair"
+"btn_menu_save",656275108618240,"Save","Salvar"
+"btn_menu_party",656277927190528,"Party","Grupo"
+"btn_menu_buy",656281416851456,"Buy","Comprar"

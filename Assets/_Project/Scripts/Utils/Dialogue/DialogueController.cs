@@ -2,6 +2,8 @@ using UnityEngine;
 using FTKingdom.Utils;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
 
 namespace FTKingdom
 {
@@ -18,7 +20,7 @@ namespace FTKingdom
         [SerializeField] private TextMeshProUGUI dialogueText;
 
         private DialogueStoryline currentStoryline;
-        private DialogueNode currentNode;
+        private DialogueLine currentLine;
         private int currentNodeIndex = -1;
 
         private Color transparentColor = new(1, 1, 1, 0);
@@ -51,35 +53,36 @@ namespace FTKingdom
                 return;
             }
 
-            currentNode = currentStoryline.DialogueNodes[currentNodeIndex];
+            currentLine = currentStoryline.DialogueLines[currentNodeIndex];
 
-            if (currentNode.IsLeftSpeaker)
+            if (currentLine.IsLeftSpeaker)
             {
-                leftSpeaker.sprite = currentNode.SpeakerSprite;
+                leftSpeaker.sprite = currentLine.SpeakerSprite;
                 leftSpeaker.color = Color.white;
                 rightSpeaker.color = transparentColor;
             }
             else
             {
-                rightSpeaker.sprite = currentNode.SpeakerSprite;
+                rightSpeaker.sprite = currentLine.SpeakerSprite;
                 rightSpeaker.color = Color.white;
                 leftSpeaker.color = transparentColor;
             }
 
-            speakerName.text = "AuxName";
-            dialogueText.text = currentNode.DialogueText;
+            // TODO: Add speaker name
+            speakerName.text = "MissingName";
+            dialogueText.text = LocalizationHelper.GetLocalizedText(currentLine.DialogueKey);
         }
 
         private bool StorylineEnded()
         {
-            return currentStoryline.DialogueNodes.Count <= currentNodeIndex;
+            return currentStoryline.DialogueLines.Count <= currentNodeIndex;
         }
 
         private void EndDialogue()
         {
             dialoguePanel.SetActive(false);
             currentStoryline = null;
-            currentNode = null;
+            currentLine = null;
             currentNodeIndex = -1;
         }
     }

@@ -30,6 +30,46 @@ MonoBehaviour:
     m_Localized: Sair
     m_Metadata:
       m_Items: []
+  - m_Id: 656275108618240
+    m_Localized: Salvar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656277927190528
+    m_Localized: Grupo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656281416851456
+    m_Localized: Comprar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342592
+    m_Localized: O que... O que aconteceu com meu reino?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 995963925258240
+    m_Localized: "Todos voc\xEAs ir\xE3o morrer!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342593
+    m_Localized: "N\xC3OOOOOOOOOOO"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342594
+    m_Localized: "Guild Master!\\nNossos her\xF3is est\xE3o mortos!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342595
+    m_Localized: "N\xE3o se preocupe,meu rei,n\xF3s ainda podemos salvar o mundo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342596
+    m_Localized: "*CRUSH*\\nR\xE1pido, meu rei. Vamos para um lugar seguro!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996911263342597
+    m_Localized: "Eu n\xE3o acredito que a Guilda n\xE3o foi destru\xEDda!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -12,11 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38348602462ad44ea9f1ddb2016cf67, type: 3}
   m_Name: StorylineIntroduction
   m_EditorClassIdentifier: 
-  dialogueNodes:
-  - {fileID: 11400000, guid: 9e2f8f90bddfc3a45bd4899f167c60a8, type: 2}
-  - {fileID: 11400000, guid: 26a71d15f08dfce418fbca7730c81c99, type: 2}
-  - {fileID: 11400000, guid: 02e1c2e4d5a22d846aa7465dc449864d, type: 2}
-  - {fileID: 11400000, guid: c2d71868e2cfdaa44ad7032856a19c48, type: 2}
-  - {fileID: 11400000, guid: 7bdf42580d3d02a41869e242aa302c81, type: 2}
-  - {fileID: 11400000, guid: f92bc12932a21c14da363e8e99a7ec0b, type: 2}
-  - {fileID: 11400000, guid: ee7b56fb7d9d91247bba8b907eea6730, type: 2}
+  dialogueLines:
+  - dialogueKey: lore_introduction_king01
+    speakerSprite: {fileID: 1891539144, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+    isLeftSpeaker: 1
+    dialogueText: What... What happened to my kingdom!?
+  - dialogueKey: lore_introduction_skeleton02
+    speakerSprite: {fileID: 952901033, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+    isLeftSpeaker: 0
+    dialogueText: You all will perish!
+  - dialogueKey: lore_introduction_king02
+    speakerSprite: {fileID: 1891539144, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+    isLeftSpeaker: 1
+    dialogueText: NOOOOOOOOOOOOOOOOOO
+  - dialogueKey: lore_introduction_gm01
+    speakerSprite: {fileID: 1047555697, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+    isLeftSpeaker: 0
+    dialogueText: No worries my king,we still can save our world!
+  - dialogueKey: lore_introduction_king03
+    speakerSprite: {fileID: 1891539144, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+    isLeftSpeaker: 1
+    dialogueText: Guild Master!!\nOur heroes are DEAD!
+  - dialogueKey: lore_introduction_skeleton02
+    speakerSprite: {fileID: 952901033, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+    isLeftSpeaker: 0
+    dialogueText: You all will perish!
+  - dialogueKey: lore_introduction_gm02
+    speakerSprite: {fileID: 1047555697, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+    isLeftSpeaker: 0
+    dialogueText: '*CRUSH*\nHurry, my king. Let''s go to a safe place!'
