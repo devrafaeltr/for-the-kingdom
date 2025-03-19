@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38348602462ad44ea9f1ddb2016cf67, type: 3}
+  m_Name: StorylineIntroduction03
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - dialogueKey: lore_introduction_gm02
+    speakerSprite: {fileID: 1047555697, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
+    isLeftSpeaker: 0
+    dialogueText: '*CRUSH*\nHurry, my king. Let''s go to a safe place!'

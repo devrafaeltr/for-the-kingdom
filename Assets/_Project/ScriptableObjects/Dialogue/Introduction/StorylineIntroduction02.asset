@@ -10,21 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e38348602462ad44ea9f1ddb2016cf67, type: 3}
-  m_Name: StorylineIntroduction
+  m_Name: StorylineIntroduction02
   m_EditorClassIdentifier: 
   dialogueLines:
-  - dialogueKey: lore_introduction_king01
-    speakerSprite: {fileID: 1891539144, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
-    isLeftSpeaker: 1
-    dialogueText: What... What happened to my kingdom!?
-  - dialogueKey: lore_introduction_skeleton02
-    speakerSprite: {fileID: 952901033, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
-    isLeftSpeaker: 0
-    dialogueText: You all will perish!
-  - dialogueKey: lore_introduction_king02
-    speakerSprite: {fileID: 1891539144, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
-    isLeftSpeaker: 1
-    dialogueText: NOOOOOOOOOOOOOOOOOO
   - dialogueKey: lore_introduction_gm01
     speakerSprite: {fileID: 1047555697, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
     isLeftSpeaker: 0
@@ -36,8 +24,4 @@ MonoBehaviour:
   - dialogueKey: lore_introduction_skeleton02
     speakerSprite: {fileID: 952901033, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
     isLeftSpeaker: 0
-    dialogueText: You all will perish!
-  - dialogueKey: lore_introduction_gm02
-    speakerSprite: {fileID: 1047555697, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
-    isLeftSpeaker: 0
-    dialogueText: '*CRUSH*\nHurry, my king. Let''s go to a safe place!'
+    dialogueText: I don't believe the guild is not destroyed!

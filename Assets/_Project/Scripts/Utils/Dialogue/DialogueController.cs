@@ -2,8 +2,6 @@ using UnityEngine;
 using FTKingdom.Utils;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.Localization.Settings;
-using UnityEngine.Localization.Tables;
 
 namespace FTKingdom
 {
@@ -84,6 +82,8 @@ namespace FTKingdom
             currentStoryline = null;
             currentLine = null;
             currentNodeIndex = -1;
+
+            EventsManager.Publish(EventsManager.OnCurrentStorylineEnds);
         }
     }
 }

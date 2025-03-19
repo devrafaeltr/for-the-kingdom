@@ -716,7 +716,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Monk
+      name: EnemyMonk
       rect:
         serializedVersion: 2
         x: 160
@@ -738,7 +738,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Skeleon
+      name: EnemySkeleton
       rect:
         serializedVersion: 2
         x: 112
@@ -760,7 +760,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Minottaur
+      name: EnemyMinottaur
       rect:
         serializedVersion: 2
         x: 80
@@ -933,9 +933,9 @@ TextureImporter:
       AuxArea3: -794882420
       AuxFull: -1310307226
       Campfire: -522019747
-      Enemy_Minottaur: -1001186923
-      Enemy_Monk: 1427874429
-      Enemy_Skeleon: 952901033
+      EnemyMinottaur: -1001186923
+      EnemyMonk: 1427874429
+      EnemySkeleton: 952901033
       HeroArcher: -6382673824156575416
       HeroGuildMasterAux: 1047555697
       HeroKnight: 1891539144

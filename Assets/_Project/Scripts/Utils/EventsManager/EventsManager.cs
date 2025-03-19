@@ -12,9 +12,13 @@ namespace FTKingdom.Utils
 #if UNITY_EDITOR
         private const bool SHOW_DEBUG = false;
 #endif
+        #region Listerners - Geeneral
+        public const string OnCurrentStorylineEnds = "OnCurrentStorylineEnds";
+        #endregion
         #region Listerners - Battle Site UI
         public const string OnChangePartyMember = "OnChangePartyMember";
         #endregion
+
 
         #region Listerners - Battle Site
         public const string OnBattleStart = "OnBattleStart";

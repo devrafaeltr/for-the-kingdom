@@ -24,19 +24,19 @@ namespace FTKingdom
         }
 
 
-        [MenuItem("Scenes/CampingSite", priority = 3)]
+        [MenuItem("Scenes/Gameplay/CampingSite", priority = 3)]
         public static void LoadCampingSite()
         {
             OpenEditorScene($"Assets/_Project/Scenes/Gameplay/{GameScene.CampingSite}");
         }
 
-        [MenuItem("Scenes/MiniMap", priority = 4)]
+        [MenuItem("Scenes/Gameplay/MiniMap", priority = 4)]
         public static void LoadMiniMap()
         {
             OpenEditorScene($"Assets/_Project/Scenes/Gameplay/{GameScene.MiniMap}");
         }
 
-        [MenuItem("Scenes/BattleSite", priority = 5)]
+        [MenuItem("Scenes/Gameplay/BattleSite", priority = 5)]
         public static void LoadBattleSite()
         {
             OpenEditorScene($"Assets/_Project/Scenes/Gameplay/{GameScene.BattleSite}");
