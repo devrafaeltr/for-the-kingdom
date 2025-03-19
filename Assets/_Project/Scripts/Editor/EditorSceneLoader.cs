@@ -23,7 +23,6 @@ namespace FTKingdom
             OpenEditorScene($"Assets/_Project/Scenes/Gameplay/Special/{GameScene.Introduction}");
         }
 
-
         [MenuItem("Scenes/Gameplay/CampingSite", priority = 3)]
         public static void LoadCampingSite()
         {
