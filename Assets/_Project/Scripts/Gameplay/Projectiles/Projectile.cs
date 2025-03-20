@@ -93,7 +93,7 @@ namespace FTKingdom
 
         protected virtual void OnFindTarget(CharacterBattle projectileTarget)
         {
-            projectileTarget.DoDamage(damage);
+            projectileTarget.ApplyHelathPointsModifier(damage);
         }
     }
 }

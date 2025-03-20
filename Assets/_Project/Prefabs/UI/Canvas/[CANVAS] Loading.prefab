@@ -302,7 +302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7144424661828109057, guid: 5aebb3b73b599c34289e3fa4d76a4b46, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7144424661828109057, guid: 5aebb3b73b599c34289e3fa4d76a4b46, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag

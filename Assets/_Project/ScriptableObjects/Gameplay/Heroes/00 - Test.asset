@@ -17,9 +17,11 @@ MonoBehaviour:
   graphic: {fileID: 1281542992, guid: 87085f9acf74bb142b96f02265ade850, type: 3}
   type: 0
   baseHp: 500
-  baseMp: 0
   projectileData: {fileID: 11400000, guid: 2eb2074c2fb461b4980bde74e8a1e262, type: 2}
   baseDamage: 1
   baseAttackDistance: 5
   baseAttackInterval: 50
+  baseEvasionRate: 100
+  baseCriticalRate: 5
+  baseDefense: 5
   possibleSpells: []

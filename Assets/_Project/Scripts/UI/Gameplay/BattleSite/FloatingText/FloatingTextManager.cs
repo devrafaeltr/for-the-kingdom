@@ -12,7 +12,10 @@ namespace FTKingdom
         private readonly Dictionary<TextType, Color> textColors = new()
         {
             { TextType.Damage, Color.red },
-            { TextType.Heal, Color.green }
+            { TextType.Heal, Color.green },
+            { TextType.Defense, Color.blue },
+            { TextType.Evasion, Color.yellow },
+            { TextType.Critical, Color.magenta }
         };
 
         public void Show(string message, Vector3 position, TextType textType)

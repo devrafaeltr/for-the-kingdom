@@ -4,6 +4,8 @@ namespace FTKingdom
     {
         Damage,
         Heal,
-        Defense
+        Defense,
+        Evasion,
+        Critical
     }
 }

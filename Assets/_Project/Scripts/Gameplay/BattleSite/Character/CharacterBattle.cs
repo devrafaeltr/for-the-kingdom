@@ -45,9 +45,7 @@ namespace FTKingdom
         internal Transform Transform { get; private set; }
         internal float MissingHealthPercent => 1 - (currentHp / (float)maxHp);
 
-        private int maxMana = 0;
         private int maxHp = 0;
-        private int currentMana = 0;
         private int currentHp = 0;
 
         // TODO: Change to BaseeFSMController<T>
@@ -105,9 +103,9 @@ namespace FTKingdom
             characterAnimator.SetTrigger(animation);
         }
 
-        public void DoDamage(int damage)
+        public void ApplyHelathPointsModifier(int modifier)
         {
-            Damage(damage);
+            ApplyModifierInternal(modifier);
         }
 
         public void StopAgent()
@@ -135,7 +133,10 @@ namespace FTKingdom
 
             RotateSpawnPosition();
             GameObject projectile = Instantiate(CharacterData.ProjectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
-            projectile.GetComponent<Projectile>().Setup(CharacterData.BaseDamage, CharacterData.Type, CharacterData.ProjectileData, Target);
+
+
+
+            projectile.GetComponent<Projectile>().Setup(GetDamage(), CharacterData.Type, CharacterData.ProjectileData, Target);
         }
 
         public void MoveTowardsTarget()
@@ -182,7 +183,6 @@ namespace FTKingdom
 
             spriteRenderer.sprite = CharacterData.Graphic;
             currentHp = maxHp = CharacterData.BaseHp;
-            currentMana = maxMana = CharacterData.BaseMp;
             navMeshAgent.stoppingDistance = CharacterData.BaseAttackDistance;
 
             SetupSpells();
@@ -219,6 +219,7 @@ namespace FTKingdom
 
                 if (spell.CanUse)
                 {
+                    // TODO: Calculate spell critial 
                     spell.Use(transform.position, Target);
                 }
             }
@@ -232,25 +233,27 @@ namespace FTKingdom
             projectileSpawnPositionParent.rotation = Quaternion.Euler(0f, 0f, angle);
         }
 
-        private void Damage(int damage)
+        private void ApplyModifierInternal(int hpModifier)
         {
-            currentHp = Mathf.Clamp(currentHp - damage, 0, maxHp);
-            characterBarPointController.UpdateHealthPoints(currentHp, maxHp);
-
-            // TODO: Maybe create another method to healing
-            int formattedNum = damage * -1;
-            if (damage > 0)
+            if (hpModifier > 0)
             {
-                FloatingTextManager.Instance.Show(formattedNum.ToString(), Transform.position, TextType.Damage);
+                DoDamage(hpModifier);
             }
             else
             {
-                FloatingTextManager.Instance.Show(formattedNum.ToString(), Transform.position, TextType.Heal);
+                DoHeal(hpModifier);
+            }
+        }
+
+        private void DoDamage(int damage)
+        {
+            if (DodgedAttack())
+            {
+                FloatingTextManager.Instance.Show($"MISS", Transform.position, TextType.Evasion);
+                return;
             }
 
-
-            BattleSiteCanvas.Instance.UpdateHealth(this);
-
+            UpdateHealthPoints(damage, "-");
 
             if (currentHp <= 0)
             {
@@ -258,17 +261,40 @@ namespace FTKingdom
             }
         }
 
+        private void DoHeal(int heal)
+        {
+            UpdateHealthPoints(heal, "+");
+        }
+
+        private bool DodgedAttack()
+        {
+            return Random.Range(0, 100) < CharacterData.BaseEvasionRate;
+        }
+
+        private void UpdateHealthPoints(int modifier, string character)
+        {
+            FloatingTextManager.Instance.Show($"{character}{modifier}", Transform.position, TextType.Damage);
+            currentHp = Mathf.Clamp(currentHp - modifier, 0, maxHp);
+            characterBarPointController.UpdateHealthPoints(currentHp, maxHp);
+            BattleSiteCanvas.Instance.UpdateHealth(this);
+        }
+
+        private int GetDamage()
+        {
+            int criticalChance = Random.Range(0, 100);
+            if (criticalChance < CharacterData.BaseCriticalRate)
+            {
+                return CharacterData.BaseDamage * 2;
+            }
+
+            return CharacterData.BaseDamage;
+        }
+
         private Transform FindTarget()
         {
             CharacterType targetype = CharacterData.Type == CharacterType.Hero ? CharacterType.Enemy : CharacterType.Hero;
             var target = BattleSiteManager.Instance.GetClosestFromType(transform.position, targetype);
             return target != null ? target : null;
-        }
-
-        private void ConsumeMana(int quantity)
-        {
-            currentMana -= quantity;
-            characterBarPointController.UpdateManaPoints(currentMana, maxMana);
         }
 
         private void SetupNavmesh()

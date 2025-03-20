@@ -18,12 +18,6 @@ namespace FTKingdom
             imgHealthPoints.DOFillAmount(targetFillAmount, 0.2f).OnComplete(CheckDisable);
         }
 
-        public void UpdateManaPoints(int manaPoints, int maxManaPoints)
-        {
-            float targetFillAmount = (float)manaPoints / maxManaPoints;
-            imgManaPoints.DOFillAmount(targetFillAmount, 0.2f).OnComplete(CheckDisable);
-        }
-
         public void Disable()
         {
             shouldDisable = true;
