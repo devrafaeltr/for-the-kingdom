@@ -99,7 +99,12 @@ namespace FTKingdom
 
         private static string GetPath((string name, string format) saveData)
         {
+#if UNITY_EDITOR
+            return $"{Application.persistentDataPath}/editor_save.json";
+#else
+            // TODO: Add basic cryptography to the path
             return $"{Application.persistentDataPath}/{saveData.name}{saveData.format}";
+#endif
         }
     }
 }
