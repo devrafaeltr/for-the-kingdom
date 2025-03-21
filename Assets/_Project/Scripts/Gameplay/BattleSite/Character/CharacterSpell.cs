@@ -48,7 +48,7 @@ namespace FTKingdom
             // Maybe damange will be calculated instead of define on spell.
 
             // TODO: Change base attack to physical if needed for some spells
-            HPModifierData hpModifierData = new(10, DamageTrigger.Magical, casterType, target);
+            HPModifierData hpModifierData = new(10, DamageType.Magical, casterType, target);
 
             p.Setup(hpModifierData, spellData.ProjectileData, spellData.BehaviorType);
             ResetCooldown();

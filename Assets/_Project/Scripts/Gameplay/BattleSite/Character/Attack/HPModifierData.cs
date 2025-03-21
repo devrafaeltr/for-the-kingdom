@@ -7,12 +7,12 @@ namespace FTKingdom
     public class HPModifierData
     {
         public int Value { get; private set; }
-        public DamageTrigger Type { get; private set; }
+        public DamageType Type { get; private set; }
         public CharacterType AttackerType { get; private set; }
         public Transform AttackerTransform { get; private set; }
         public Transform TargetTransform { get; private set; }
 
-        public HPModifierData(int value, DamageTrigger type, CharacterType attackerType, Transform attacker,
+        public HPModifierData(int value, DamageType type, CharacterType attackerType, Transform attacker,
         Transform target)
         {
             Value = value;
@@ -22,7 +22,7 @@ namespace FTKingdom
             TargetTransform = target;
         }
 
-        public HPModifierData(int value, DamageTrigger type, CharacterType attackerType, Transform target)
+        public HPModifierData(int value, DamageType type, CharacterType attackerType, Transform target)
         {
             Value = value;
             Type = type;

@@ -1,6 +1,6 @@
 namespace FTKingdom
 {
-    public enum DamageTrigger
+    public enum DamageType
     {
         Physical,
         Magical
