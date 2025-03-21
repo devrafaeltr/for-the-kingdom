@@ -90,8 +90,14 @@ MonoBehaviour:
   animator: {fileID: 5900798081038273157}
   projectileRigidbody: {fileID: 1199839677600835537}
   projectileRenderer: {fileID: 1349825978955647591}
+  projectileCollider: {fileID: 8260099925533275459}
 --- !u!95 &5900798081038273157 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1478665339410522926, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
+  m_PrefabInstance: {fileID: 5000859112538958251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &8260099925533275459 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4019282088481840360, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
   m_PrefabInstance: {fileID: 5000859112538958251}
   m_PrefabAsset: {fileID: 0}

@@ -13,6 +13,7 @@ namespace FTKingdom
         [Header("Behavior")]
         [SerializeField] private SpellBehaviorType behaviorType;
         [SerializeField] private SpellTrigger trigger;
+        [SerializeField] private DamageTrigger damageType;
         [SerializeField] private SpellType type;
         [SerializeField] private float cooldown;
 
@@ -26,6 +27,7 @@ namespace FTKingdom
         public SpellType Type => type;
         public float Cooldown => cooldown;
         public SpellTrigger Trigger => trigger;
+        public DamageTrigger DamageType => damageType;
         public ProjectileSO ProjectileData => projectileData;
     }
 }

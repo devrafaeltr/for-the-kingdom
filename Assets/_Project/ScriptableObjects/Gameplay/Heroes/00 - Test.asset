@@ -21,7 +21,7 @@ MonoBehaviour:
   baseDamage: 1
   baseAttackDistance: 5
   baseAttackInterval: 50
-  baseEvasionRate: 100
+  baseEvasionRate: 0
   baseCriticalRate: 5
   baseDefense: 5
   possibleSpells: []

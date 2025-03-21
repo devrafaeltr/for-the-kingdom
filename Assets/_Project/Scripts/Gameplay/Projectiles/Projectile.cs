@@ -7,19 +7,15 @@ namespace FTKingdom
         [SerializeField] private Animator animator = null;
         [SerializeField] private Rigidbody2D projectileRigidbody = null;
         [SerializeField] private SpriteRenderer projectileRenderer = null;
+        [SerializeField] private Collider2D projectileCollider = null;
 
-        protected CharacterType userType = CharacterType.Enemy;
         protected ProjectileSO projectileData;
-        protected Transform currentTarget;
-        protected int damage;
+        protected HPModifierData hpModifierData;
 
-        public void Setup(int hpDiff, CharacterType type, ProjectileSO data, Transform target, SpellBehaviorType behaviorType = SpellBehaviorType.Default)
+        public void Setup(HPModifierData modifierData, ProjectileSO porjectileData, SpellBehaviorType behaviorType)
         {
-            damage = hpDiff;
-            userType = type;
-            currentTarget = target;
-
-            projectileData = data;
+            hpModifierData = modifierData;
+            projectileData = porjectileData;
 
             projectileRenderer.sprite = projectileData.Graphic;
             animator.runtimeAnimatorController = projectileData.AnimatorOverrider;
@@ -29,13 +25,15 @@ namespace FTKingdom
 
             if (behaviorType == SpellBehaviorType.Instant)
             {
-                transform.position = currentTarget.position;
+                transform.position = hpModifierData.TargetTransform.position;
             }
+
+            projectileCollider.enabled = true;
         }
 
         private void Update()
         {
-            if (currentTarget == null)
+            if (hpModifierData.TargetTransform == null)
             {
                 // TODO: Release to pool
                 Destroy(gameObject);
@@ -68,7 +66,7 @@ namespace FTKingdom
 
         private void MoveTowardsTarget()
         {
-            Vector3 direction = currentTarget.position - transform.position;
+            Vector3 direction = hpModifierData.TargetTransform.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
             projectileRigidbody.linearVelocity = direction.normalized * projectileData.Speed;
@@ -76,7 +74,7 @@ namespace FTKingdom
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.transform == currentTarget)
+            if (collider.transform == hpModifierData.TargetTransform)
             {
                 if (collider.TryGetComponent(out CharacterBattle projectileTarget))
                 {
@@ -85,6 +83,7 @@ namespace FTKingdom
 
                 // TODO: Release to pool
                 Destroy(gameObject); // Destroi o projétil após a colisão
+                projectileCollider.enabled = false;
             }
         }
 
@@ -93,7 +92,7 @@ namespace FTKingdom
 
         protected virtual void OnFindTarget(CharacterBattle projectileTarget)
         {
-            projectileTarget.ApplyHelathPointsModifier(damage);
+            projectileTarget.ApplyHelathPointsModifier(hpModifierData);
         }
     }
 }

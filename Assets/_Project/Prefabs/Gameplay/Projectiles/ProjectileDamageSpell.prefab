@@ -70,6 +70,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6331240078028186572, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
   m_PrefabInstance: {fileID: 7251934600386616555}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &6008742926193278979 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4019282088481840360, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
+  m_PrefabInstance: {fileID: 7251934600386616555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &8079820922650345413 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1478665339410522926, guid: 9107029fa1c0a21439a309af5d8bd8d5, type: 3}
@@ -95,3 +100,4 @@ MonoBehaviour:
   animator: {fileID: 8079820922650345413}
   projectileRigidbody: {fileID: 3559036749459051153}
   projectileRenderer: {fileID: 3709023628512116519}
+  projectileCollider: {fileID: 6008742926193278979}

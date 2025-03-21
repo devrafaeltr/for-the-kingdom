@@ -103,9 +103,9 @@ namespace FTKingdom
             characterAnimator.SetTrigger(animation);
         }
 
-        public void ApplyHelathPointsModifier(int modifier)
+        public void ApplyHelathPointsModifier(HPModifierData hpModifierData)
         {
-            ApplyModifierInternal(modifier);
+            ApplyModifierInternal(hpModifierData);
         }
 
         public void StopAgent()
@@ -134,9 +134,9 @@ namespace FTKingdom
             RotateSpawnPosition();
             GameObject projectile = Instantiate(CharacterData.ProjectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
 
-
-
-            projectile.GetComponent<Projectile>().Setup(GetDamage(), CharacterData.Type, CharacterData.ProjectileData, Target);
+            // TODO: Change base attack to magical if needed for some classes (mage, etc)
+            HPModifierData hpModifierData = new(GetDamage(), DamageTrigger.Physical, CharacterData.Type, Transform, Target);
+            projectile.GetComponent<Projectile>().Setup(hpModifierData, CharacterData.ProjectileData, SpellBehaviorType.Default);
         }
 
         public void MoveTowardsTarget()
@@ -233,27 +233,34 @@ namespace FTKingdom
             projectileSpawnPositionParent.rotation = Quaternion.Euler(0f, 0f, angle);
         }
 
-        private void ApplyModifierInternal(int hpModifier)
+        private void ApplyModifierInternal(HPModifierData modifier)
         {
-            if (hpModifier > 0)
+            if (modifier.Value > 0)
             {
-                DoDamage(hpModifier);
+                DoDamage(modifier);
             }
             else
             {
-                DoHeal(hpModifier);
+                DoHeal(modifier.Value);
             }
         }
 
-        private void DoDamage(int damage)
+        private void DoDamage(HPModifierData damageModifier)
         {
-            if (DodgedAttack())
+            int finalDamage = damageModifier.Value;
+
+            if (damageModifier.Type == DamageTrigger.Physical)
             {
-                FloatingTextManager.Instance.Show($"MISS", Transform.position, TextType.Evasion);
-                return;
+                if (DodgedAttack())
+                {
+                    ShowText($"MISS", damageModifier.AttackerTransform.position, TextType.Evasion);
+                    return;
+                }
+
+                finalDamage -= CharacterData.BaseDefense;
             }
 
-            UpdateHealthPoints(damage, "-");
+            UpdateHealthPoints(finalDamage, TextType.Damage);
 
             if (currentHp <= 0)
             {
@@ -263,7 +270,7 @@ namespace FTKingdom
 
         private void DoHeal(int heal)
         {
-            UpdateHealthPoints(heal, "+");
+            UpdateHealthPoints(heal, TextType.Heal);
         }
 
         private bool DodgedAttack()
@@ -271,12 +278,27 @@ namespace FTKingdom
             return Random.Range(0, 100) < CharacterData.BaseEvasionRate;
         }
 
-        private void UpdateHealthPoints(int modifier, string character)
+        private void UpdateHealthPoints(int modifier, TextType textType)
         {
-            FloatingTextManager.Instance.Show($"{character}{modifier}", Transform.position, TextType.Damage);
+            switch (textType)
+            {
+                case TextType.Damage:
+                    ShowText($"-{modifier}", Transform.position, textType);
+                    break;
+                case TextType.Heal:
+                    ShowText($"+{modifier * -1}", Transform.position, textType);
+                    break;
+            }
+
+            FloatingTextManager.Instance.Show($"{modifier}", Transform.position, textType);
             currentHp = Mathf.Clamp(currentHp - modifier, 0, maxHp);
             characterBarPointController.UpdateHealthPoints(currentHp, maxHp);
             BattleSiteCanvas.Instance.UpdateHealth(this);
+        }
+
+        private void ShowText(string text, Vector3 spawnPo, TextType textType)
+        {
+            FloatingTextManager.Instance.Show(text, spawnPo, textType);
         }
 
         private int GetDamage()

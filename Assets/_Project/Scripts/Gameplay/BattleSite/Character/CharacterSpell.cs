@@ -46,7 +46,11 @@ namespace FTKingdom
             .GetComponent<Projectile>();
             // TODO: Pass spell infos instead of 10
             // Maybe damange will be calculated instead of define on spell.
-            p.Setup(10, casterType, spellData.ProjectileData, target, spellData.BehaviorType);
+
+            // TODO: Change base attack to physical if needed for some spells
+            HPModifierData hpModifierData = new(10, DamageTrigger.Magical, casterType, target);
+
+            p.Setup(hpModifierData, spellData.ProjectileData, spellData.BehaviorType);
             ResetCooldown();
         }
     }

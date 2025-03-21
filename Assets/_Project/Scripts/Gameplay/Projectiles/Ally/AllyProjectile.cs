@@ -8,7 +8,7 @@ namespace FTKingdom
 
         protected override void OnSetup()
         {
-            if (userType == CharacterType.Enemy)
+            if (hpModifierData.AttackerType == CharacterType.Enemy)
             {
                 possibleTargets = BattleSiteManager.Instance.EnemiesInBattle;
             }

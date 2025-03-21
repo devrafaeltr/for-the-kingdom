@@ -8,7 +8,6 @@ namespace FTKingdom
     {
         [SerializeField] private GameObject barsContainer = null;
         [SerializeField] private Image imgHealthPoints = null;
-        [SerializeField] private Image imgManaPoints = null;
 
         private bool shouldDisable = false;
 

@@ -22,7 +22,7 @@ namespace FTKingdom
         [SerializeField] private float baseAttackInterval = 5;
         [SerializeField] private int baseEvasionRate = 5;
         [SerializeField] private int baseCriticalRate = 5;
-        [SerializeField] private float baseDefense = 5;
+        [SerializeField] private int baseDefense = 5;
         [SerializeField] private List<BaseSpellSO> possibleSpells = new();
 
         public string Name => name;
@@ -40,7 +40,7 @@ namespace FTKingdom
         public float BaseAttackInterval => baseAttackInterval;
         public int BaseEvasionRate => baseEvasionRate;
         public int BaseCriticalRate => baseCriticalRate;
-        public float BaseDefense => baseDefense;
+        public int BaseDefense => baseDefense;
         public List<BaseSpellSO> PossibleSpells => possibleSpells;
     }
 }
