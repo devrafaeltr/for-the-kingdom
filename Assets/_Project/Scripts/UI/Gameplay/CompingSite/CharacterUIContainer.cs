@@ -15,7 +15,7 @@ namespace FTKingdom
         private HeroData character;
         private float canvasScale = 1f;
 
-        public bool IsOnParty => character.PartySlot >= 0;
+        public bool IsOnParty => character.partySlot >= 0;
 
         public void Setup(HeroData newCharacter, float scaleFactor)
         {
@@ -29,7 +29,7 @@ namespace FTKingdom
             canvasGroup = GetComponent<CanvasGroup>();
             canvasScale = scaleFactor;
 
-            Sprite sprite = ScriptableDatabase.Instance.GetCharacterData(character.CharacterClass).Graphic;
+            Sprite sprite = ScriptableDatabase.Instance.GetCharacterData(character.characterClass).Graphic;
             imgCharacter.sprite = sprite;
         }
 
@@ -43,13 +43,13 @@ namespace FTKingdom
 
         public void ChangePartySlot(int slotIndex)
         {
-            character.SetPartySlot(slotIndex);
+            character.partySlot = slotIndex;
             FitToParent();
         }
 
         public void RemoveFromParty()
         {
-            character.SetPartySlot(-1);
+            character.partySlot = -1;
             FitToParent();
         }
 

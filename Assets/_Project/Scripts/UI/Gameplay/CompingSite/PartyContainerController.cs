@@ -75,7 +75,7 @@ namespace FTKingdom.UI
 
                 if (hero.IsOnParty)
                 {
-                    AddToParty(heroUIObj, partySlots[hero.PartySlot]);
+                    AddToParty(heroUIObj, partySlots[hero.partySlot]);
                 }
                 else
                 {

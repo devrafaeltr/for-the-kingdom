@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using FTKingdom.UI;
+using System.Linq;
 using FTKingdom.Utils;
 using UnityEngine;
 
@@ -7,6 +7,12 @@ namespace FTKingdom
 {
     public class BattleSiteManager : LocalSingleton<BattleSiteManager>
     {
+        [Header("Resources")]
+        [SerializeField] private int baseExp = 10;
+        [SerializeField] private int baseGold = 5;
+        [SerializeField] private float expModifier = 0.1f;
+        [SerializeField] private float goldModifier = 0.05f;
+
         [Header("Heroes")]
         [SerializeField] private HeroBattle heroPrefab = null;
         [SerializeField] private CharacterBattle enemyPrefab = null;
@@ -34,6 +40,16 @@ namespace FTKingdom
         {
             SetupHeroParty();
             SetupEnemies();
+        }
+
+        private void OnEnable()
+        {
+            EventsManager.AddListener(EventsManager.OnBattleEnd, OnBattleEnd);
+        }
+
+        private void OnDisable()
+        {
+            EventsManager.RemoveListener(EventsManager.OnBattleEnd, OnBattleEnd);
         }
 
         public Transform GetClosestFromType(Vector2 position, CharacterType type)
@@ -81,7 +97,7 @@ namespace FTKingdom
             if (enemiesInBattle.Count == 0)
             {
                 // TODO: Add a timer after the last enemy die, then call it completed, if aliv hero.
-                GameManager.Instance.UpdateLastCompletedLevel();
+                GameManager.Instance.MarkCurrentLevelAsCompleted();
             }
         }
 
@@ -97,7 +113,7 @@ namespace FTKingdom
 
         private void SetupEnemies()
         {
-            EnemyWave currentWave = waves[GameManager.Instance.GetCurrentLevelPlaying()];
+            EnemyWave currentWave = waves[GameManager.Instance.GetCurrentLevelAsIndex()];
             foreach (WaveEnemy waveEnemy in currentWave.Enemies)
             {
 
@@ -118,12 +134,26 @@ namespace FTKingdom
             {
                 HeroBattle hero = Instantiate(heroPrefab);
                 hero.Setup(heroData);
-                hero.transform.position = heroSlots[heroData.PartySlot].position;
-                hero.CharacterPosition = heroData.PartySlot;
+                hero.transform.position = heroSlots[heroData.partySlot].position;
+                hero.CharacterPosition = heroData.partySlot;
                 AddHero(hero);
 
-                BattleSiteCanvas.Instance.AddHeroToParty(hero, heroData.PartySlot);
+                BattleSiteCanvas.Instance.AddHeroToParty(hero, heroData.partySlot);
             }
+        }
+
+        private void OnBattleEnd(IGameEvent gameEvent)
+        {
+            foreach (HeroBattle hero in heroesInBattle.Cast<HeroBattle>())
+            {
+                hero.AddExperience(GetValueWithModifier(baseExp, expModifier));
+                hero.AddGold(GetValueWithModifier(baseGold, goldModifier));
+            }
+        }
+
+        private int GetValueWithModifier(int baseValue, float modifier)
+        {
+            return baseValue + Mathf.RoundToInt(baseValue * modifier * GameManager.Instance.GetCurrentLevel());
         }
     }
 }

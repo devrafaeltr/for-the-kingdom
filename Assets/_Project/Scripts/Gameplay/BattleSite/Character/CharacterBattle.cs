@@ -50,7 +50,7 @@ namespace FTKingdom
 
         // TODO: Change to BaseeFSMController<T>
         private readonly BaseFSMController characterFSM = new();
-        private CharacterState currenState = CharacterState.Waiting;
+        protected CharacterState currenState = CharacterState.Waiting;
 
         // private readonly Dictionary<SpellTrigger, CharacterSpell> spellByTriggers = new();
 
@@ -103,7 +103,7 @@ namespace FTKingdom
             characterAnimator.SetTrigger(animation);
         }
 
-        public void ApplyHelathPointsModifier(HPModifierData hpModifierData)
+        public void ApplyHealthPointsModifier(HPModifierData hpModifierData)
         {
             ApplyModifierInternal(hpModifierData);
         }
@@ -235,13 +235,18 @@ namespace FTKingdom
 
         private void ApplyModifierInternal(HPModifierData modifier)
         {
+            if (currentHp <= 0)
+            {
+                return;
+            }
+
             if (modifier.Value > 0)
             {
                 DoDamage(modifier);
             }
             else
             {
-                DoHeal(modifier.Value);
+                DoHeal(-modifier.Value);
             }
         }
 
@@ -286,7 +291,7 @@ namespace FTKingdom
                     ShowText($"-{modifier}", Transform.position, textType);
                     break;
                 case TextType.Heal:
-                    ShowText($"+{modifier * -1}", Transform.position, textType);
+                    ShowText($"+{Mathf.Abs(modifier)}", Transform.position, textType);
                     break;
             }
 

@@ -1,3 +1,4 @@
+using FTKingdom.Utils;
 using UnityEngine;
 
 namespace FTKingdom
@@ -11,6 +12,16 @@ namespace FTKingdom
 
         protected ProjectileSO projectileData;
         protected HPModifierData hpModifierData;
+
+        private void OnEnable()
+        {
+            EventsManager.AddListener(EventsManager.OnCharacterDie, OnCharacterDie);
+        }
+
+        private void OnDisable()
+        {
+            EventsManager.RemoveListener(EventsManager.OnCharacterDie, OnCharacterDie);
+        }
 
         public void Setup(HPModifierData modifierData, ProjectileSO porjectileData, SpellBehaviorType behaviorType)
         {
@@ -56,6 +67,7 @@ namespace FTKingdom
         //     // Possibly its not needed.
         // }
 
+        // Used by animation event
         private void DoEndAnimaion()
         {
             if (projectileData.AnimatorOverrider != null)
@@ -92,7 +104,17 @@ namespace FTKingdom
 
         protected virtual void OnFindTarget(CharacterBattle projectileTarget)
         {
-            projectileTarget.ApplyHelathPointsModifier(hpModifierData);
+            projectileTarget.ApplyHealthPointsModifier(hpModifierData);
+        }
+
+        private void OnCharacterDie(IGameEvent gameEvent)
+        {
+            OnCharacterDieEvent onCharacterDieEvent = (OnCharacterDieEvent)gameEvent;
+
+            if (onCharacterDieEvent.Character == hpModifierData.TargetTransform)
+            {
+                hpModifierData.SetTarget(null);
+            }
         }
     }
 }

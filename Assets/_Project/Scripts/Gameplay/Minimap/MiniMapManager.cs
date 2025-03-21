@@ -15,24 +15,22 @@ namespace FTKingdom
 
         private void SetupLevels()
         {
-            if (GameManager.Instance.LastLevelCompleted >= 0)
+            // TODO: Maybe add level id on inspector.
+            for (int i = 0; i < levels.Count; i++)
             {
-                for (int i = 0; i < levels.Count; i++)
+                if (i < GameManager.Instance.LastLevelCompleted)
                 {
-                    if (i <= GameManager.Instance.LastLevelCompleted)
-                    {
-                        levels[i].InitLevel(i, LevelState.Completed);
-                        continue;
-                    }
-
-                    levels[i].InitLevel(i, LevelState.Blocked);
+                    levels[i].InitLevel(i + 1, LevelState.Completed);
+                    continue;
                 }
+
+                levels[i].InitLevel(i + 1, LevelState.Blocked);
             }
 
-            int nextLevel = GameManager.Instance.LastLevelCompleted + 1;
-            if (levels.Count >= nextLevel)
+            int nextLevelIndex = GameManager.Instance.LastLevelCompleted;
+            if (levels.Count > nextLevelIndex)
             {
-                levels[nextLevel].UnlockLevel();
+                levels[nextLevelIndex].UnlockLevel();
             }
         }
     }

@@ -7094,6 +7094,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
+      propertyPath: 'waves.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e0b01b41c02034a95f5a0338c968d9, type: 2}
+    - target: {fileID: 5400326641986353233, guid: 3728945d8f4ff774fa081d87b33f724f, type: 3}
       propertyPath: 'heroSlots.Array.data[0]'
       value: 
       objectReference: {fileID: 155640191}

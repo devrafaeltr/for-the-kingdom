@@ -14,15 +14,12 @@ namespace FTKingdom
         }
 
         private KingdomData CurrentData = new();
-        public int currentLevel = 0;
+        private int currentLevel = 0;
 
         protected override void Awake()
         {
             base.Awake();
             GetSaved();
-
-            // TODO: Remove this after creating test scene
-            LastLevelCompleted = -1;
 
             SceneHandler.Instance.LoadScene(GameScene.MainMenu);
         }
@@ -42,14 +39,20 @@ namespace FTKingdom
             currentLevel = levelId;
         }
 
-        public int GetCurrentLevelPlaying()
+        public int GetCurrentLevel()
         {
             return currentLevel;
         }
 
-        public void UpdateLastCompletedLevel()
+        public int GetCurrentLevelAsIndex()
+        {
+            return currentLevel - 1;
+        }
+
+        public void MarkCurrentLevelAsCompleted()
         {
             LastLevelCompleted = currentLevel;
+            EventsManager.Publish(EventsManager.OnBattleEnd);
             SaveData();
         }
 

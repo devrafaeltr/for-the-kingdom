@@ -35,10 +35,5 @@ namespace FTKingdom
         {
             TargetTransform = target;
         }
-
-        public void SetValue(int value)
-        {
-            Value = value;
-        }
     }
 }
