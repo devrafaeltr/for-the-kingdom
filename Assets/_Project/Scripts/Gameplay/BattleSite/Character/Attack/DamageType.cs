@@ -1,8 +1,11 @@
+using System;
+
 namespace FTKingdom
 {
+    [Flags]
     public enum DamageType
     {
-        Physical,
-        Magical
+        Physical = 0,
+        Magical = 1
     }
 }

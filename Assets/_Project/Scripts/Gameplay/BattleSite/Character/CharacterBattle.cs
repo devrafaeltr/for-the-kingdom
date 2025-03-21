@@ -135,7 +135,12 @@ namespace FTKingdom
             GameObject projectile = Instantiate(CharacterData.ProjectileData.ProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
 
             // TODO: Change base attack to magical if needed for some classes (mage, etc)
-            HPModifierData hpModifierData = new(GetDamage(), DamageType.Physical, CharacterData.Type, Transform, Target);
+
+            int dmg = GetDamage();
+            DamageModifier damageModifier = dmg > CharacterData.BaseDamage ? DamageModifier.Critical : DamageModifier.Normal;
+            HPModifierData hpModifierData = new(dmg, DamageType.Physical, damageModifier,
+            CharacterData.Type, Transform, Target);
+
             projectile.GetComponent<Projectile>().Setup(hpModifierData, CharacterData.ProjectileData, SpellBehaviorType.Default);
         }
 
@@ -265,7 +270,14 @@ namespace FTKingdom
                 finalDamage -= CharacterData.BaseDefense;
             }
 
-            UpdateHealthPoints(finalDamage, TextType.Damage);
+            if (damageModifier.Modifier == DamageModifier.Critical)
+            {
+                UpdateHealthPoints(finalDamage, TextType.Critical);
+            }
+            else
+            {
+                UpdateHealthPoints(finalDamage, TextType.Damage);
+            }
 
             if (currentHp <= 0)
             {
