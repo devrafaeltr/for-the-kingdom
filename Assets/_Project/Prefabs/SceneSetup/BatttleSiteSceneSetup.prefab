@@ -89,6 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f9173f53910954dbfe4d360c1e3b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseExp: 10
+  baseGold: 5
+  expModifier: 0.1
+  goldModifier: 0.05
   heroPrefab: {fileID: 2139513741688962543, guid: f028df4254dc0fc49b763d5d8f279ea6, type: 3}
   enemyPrefab: {fileID: 2228472704731125685, guid: 1b85c3a1848f7c3419491b6a561f04b6, type: 3}
   heroSlots:
@@ -113,7 +117,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   waves:
-  - {fileID: 11400000, guid: 5d0d47ed91c01b64a927eeeaf060c439, type: 2}
+  - {fileID: 11400000, guid: e342c8354160eff44b6a3f8741d574a1, type: 2}
 --- !u!114 &307005266712325916
 MonoBehaviour:
   m_ObjectHideFlags: 0

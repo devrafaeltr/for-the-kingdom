@@ -18,14 +18,15 @@ namespace FTKingdom
 
         public void InitLevel(int id, LevelState levelState)
         {
+            UnityEngine.Debug.Log($"InitLevel: {levelId}");
             levelId = id;
             state = levelState;
             UpdateLevelBehavior();
         }
 
-        public void UnlockLevel()
+        public void UnlockLevel(int id)
         {
-            state = LevelState.Revealed;
+            InitLevel(id, LevelState.Revealed);
             UpdateLevelBehavior();
         }
 
@@ -40,6 +41,11 @@ namespace FTKingdom
                     levelCollider.enabled = true;
                     spriteRenderer.color = new(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f);
                     break;
+            }
+
+            if (state == LevelState.Revealed)
+            {
+                spriteRenderer.color = Color.red;
             }
         }
     }

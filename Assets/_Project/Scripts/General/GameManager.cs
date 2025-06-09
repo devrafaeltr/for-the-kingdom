@@ -46,6 +46,7 @@ namespace FTKingdom
 
         public int GetCurrentLevelAsIndex()
         {
+            UnityEngine.Debug.Log($"GetCurrentLevelAsIndex: {currentLevel - 1}");
             return currentLevel - 1;
         }
 

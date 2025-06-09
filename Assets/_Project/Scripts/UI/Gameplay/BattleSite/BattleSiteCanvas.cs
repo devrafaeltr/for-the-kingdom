@@ -6,6 +6,8 @@ namespace FTKingdom
 {
     public class BattleSiteCanvas : LocalSingleton<BattleSiteCanvas>
     {
+        [SerializeField] private GameObject postBattleContainer = null;
+
         [SerializeField] private List<UICharacterPartySlot> heroes = new();
         [SerializeField] private List<UICharacterPartySlot> enemies = new();
 
@@ -29,6 +31,11 @@ namespace FTKingdom
             {
                 enemies[character.CharacterPosition].UpdateHealth(character.GetHealth());
             }
+        }
+
+        public void ShowPostBattle()
+        {
+            postBattleContainer.SetActive(true);
         }
 
         #region UI Buttons

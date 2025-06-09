@@ -2,6 +2,7 @@ namespace FTKingdom
 {
     public enum PoolType
     {
-        CharacerUI
+        CharacerUI,
+        CharacerUIPostBattle,
     }
 }

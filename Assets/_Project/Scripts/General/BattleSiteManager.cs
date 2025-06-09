@@ -111,12 +111,23 @@ namespace FTKingdom
             enemiesInBattle.Add(enemy);
         }
 
+        // TODO: Get gold based on hero performance.
+        public int GetExperienceReward()
+        {
+            return GetValueWithModifier(baseExp, expModifier);
+        }
+
+        // TODO: Get experience based on hero performance.
+        public int GetGoldReward()
+        {
+            return GetValueWithModifier(baseGold, goldModifier);
+        }
+
         private void SetupEnemies()
         {
             EnemyWave currentWave = waves[GameManager.Instance.GetCurrentLevelAsIndex()];
             foreach (WaveEnemy waveEnemy in currentWave.Enemies)
             {
-
                 CharacterBattle enemy = Instantiate(enemyPrefab);
                 enemy.Setup(waveEnemy.Enemy);
                 enemy.transform.position = enemySlots[waveEnemy.Position].position;
@@ -144,11 +155,13 @@ namespace FTKingdom
 
         private void OnBattleEnd(IGameEvent gameEvent)
         {
-            foreach (HeroBattle hero in heroesInBattle.Cast<HeroBattle>())
-            {
-                hero.AddExperience(GetValueWithModifier(baseExp, expModifier));
-                hero.AddGold(GetValueWithModifier(baseGold, goldModifier));
-            }
+            // foreach (HeroBattle hero in heroesInBattle.Cast<HeroBattle>())
+            // {
+            //     hero.AddExperience(GetValueWithModifier(baseExp, expModifier));
+            //     hero.AddGold(GetValueWithModifier(baseGold, goldModifier));
+            // }
+
+            BattleSiteCanvas.Instance.ShowPostBattle();
         }
 
         private int GetValueWithModifier(int baseValue, float modifier)
