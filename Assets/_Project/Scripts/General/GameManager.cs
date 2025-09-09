@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using FTKingdom.Utils;
+using Newtonsoft.Json;
 
 namespace FTKingdom
 {
@@ -19,7 +20,7 @@ namespace FTKingdom
         protected override void Awake()
         {
             base.Awake();
-            GetSaved();
+            LoadSave();
 
             SceneHandler.Instance.LoadScene(GameScene.MainMenu);
         }
@@ -57,7 +58,7 @@ namespace FTKingdom
             SaveData();
         }
 
-        private void GetSaved()
+        private void LoadSave()
         {
             CurrentData = SaveManager.LoadData<KingdomData>(SaveManager.kingdomData);
         }

@@ -5,7 +5,7 @@ namespace FTKingdom
     [System.Serializable]
     public class KingdomData
     {
-        public int lastLevelCompleted;
-        public List<HeroData> currentHeroes;
+        public int lastLevelCompleted = 0;
+        public List<HeroData> currentHeroes = new();
     }
 }
